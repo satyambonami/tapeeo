@@ -502,6 +502,7 @@
     </main>
     <?php include('inc/footer.php')?>
     <?php include('inc/js.php')?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </body>
 
 </html>

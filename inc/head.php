@@ -6,6 +6,7 @@
  <link href="css/footer.css" rel="stylesheet" />
  <link href="css/home.css" rel="stylesheet" />
  <link href="css/contact.css" rel="stylesheet" />
+ <link href="css/shop.css" rel="stylesheet" />
  <link href="css/responisive.css" rel="stylesheet" />
 
  <!-- Bootstrap CSS -->

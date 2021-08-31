@@ -3,25 +3,8 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/global.css" rel="stylesheet" />
-    <link href="css/header.css" rel="stylesheet" />
-    <link href="css/footer.css" rel="stylesheet" />
-    <link href="css/home.css" rel="stylesheet" />
-    <link href="css/contact.css" rel="stylesheet" />
-
-    <link href="css/responisive.css" rel="stylesheet" />
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <title>Tapeeo Contact</title>
+    <head>
+        <?php include('inc/head.php')?>
     <style>
         .form-control {
             display: block;
@@ -46,29 +29,7 @@
 
 <body>
     <!-- MAin MEnu Bar -->
-    <header>
-        <nav class="navbar navbar-expand-lg position-absolute w-100 mt-3">
-            <div class="container background-header">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" class="img-fluid" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="shop.html">Store</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <a href="" class="btn btn-gradient">Buy</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <?php include('inc/header.php')?>
     <main>
         <section style="background: url('img/Ellipse\ 2.png'); background-size: 100% 100%; padding: 60px; padding-top: 120px;">
             <div class="container">
@@ -158,64 +119,8 @@
 
         </section>
     </main>
-    </main>
-    <footer class="footer-bg">
-        <div class="container">
-            <div class="row">
-                <div class="offset-3 col-6">
-                    <div class="copyright">
-                        <h6 class="text-center"><b>© Tapeeos 2021</b></h6>
-                    </div>
-                    <div class="links">
-                        <ul class="text-center ps-0">
-                            <li>
-                                <a href="terms-of-service.html">Terms of Service</a>
-                            </li>
-                            <li>
-                                <a href="privacy-policy.html">Privacy Policy</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div class="social-links text-center d-flex justify-content-center">
-                        <ul class="text-center mb-0">
-                            <li>
-                                <a href="" class="ps-0">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fab fa-tiktok"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-     <!-- Option 1: Bootstrap Bundle with Popper -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
- 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
- 
- 
-     <!-- animation script -->
-     <script src="js/global.js"></script>
+    <?php include('inc/footer.php')?>
+    <?php include('inc/js.php')?>
 </body>
 
 </html>

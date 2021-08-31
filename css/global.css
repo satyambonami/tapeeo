@@ -92,7 +92,7 @@ a {
 
 /* loadeer */
 .showBeforeStart {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-image: linear-gradient(to right top, #9af2f6, #a9f4f7, #b6f6f9, #c3f7fa, #d0f9fb);

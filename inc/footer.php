@@ -8,10 +8,10 @@
                 <div class="links">
                     <ul class="text-center ps-0">
                         <li>
-                            <a href="terms-of-service.html">Terms of Service</a>
+                            <a href="terms-of-service.php">Terms of Service</a>
                         </li>
                         <li>
-                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="privacy-policy.php">Privacy Policy</a>
                         </li>
                     </ul>
 
