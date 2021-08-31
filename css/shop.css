@@ -1,0 +1,44 @@
+/* card button */
+.card_button {
+  display: flex;
+}
+.card_btn {
+  border: 1px solid #eee;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.card_btn p {
+  margin: 0 0.6rem;
+  font-size: 21px;
+}
+.minus,
+.plus {
+  cursor: pointer;
+}
+/* card button */
+
+/* Tab Content  */
+.line_Div {
+  cursor: pointer;
+}
+
+.removeLine {
+  display: none;
+}
+
+.hideDiv {
+  display: none;
+}
+/* Tab Content  */
+
+
+/* background img */
+.detail-background {
+  background: url('../img/Group\ 28.png'); background-size: 100% 100%; padding: 60px 0px;  background-repeat: no-repeat;
+}
+.breadcrumb-detail{
+  background: url('../img/29.png'); background-size: 100% 100%;  padding-top: 180px; padding-bottom: 60px;
+}
