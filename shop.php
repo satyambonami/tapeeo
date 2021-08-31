@@ -24,11 +24,11 @@
         <section class="section-padding-1" style="background-image: url('img/Group\ 28.png'); background-repeat: no-repeat;">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
                         <a href="product-detail.php">
                             <div class="product-box product-box-blue">
                                 <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png">
+                                    <img src="img/Untitled-1.png" class="w-100 img-fluid ">
                                 </div>
                                 <div class="product-heading text-center mt-3">
                                     <h6>Tapeeo Card</h6>
@@ -37,11 +37,11 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
                         <a href="product-detail.php">
                             <div class="product-box product-box-pink">
                                 <div class="product-image text-center">
-                                    <img src="img/Untitled-5121.png">
+                                    <img src="img/Untitled-5121.png" class="w-100 img-fluid ">
                                 </div>
                                 <div class="product-heading text-center mt-3">
                                     <h6>Tapeeo Band</h6>
@@ -50,12 +50,11 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
                         <a href="product-detail.php">
-
                             <div class="product-box product-box-purple">
                                 <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png">
+                                    <img src="img/Untitled-1.png" class="w-100 img-fluid ">
                                 </div>
                                 <div class="product-heading text-center mt-3">
                                     <h6>Tapeeo Car</h6>
@@ -64,73 +63,6 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-blue">
-                                <div class="product-image text-center">
-                                    <img src="img/dsfsfs.png">
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Dot</h6>
-                                    <p>$19</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-blue">
-                                <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png">
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Card</h6>
-                                    <p>$19</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-pink">
-                                <div class="product-image text-center">
-                                    <img src="img/Untitled-5121.png">
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Band</h6>
-                                    <p>$24</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
-                        <a href="product-detail.php">
-
-                            <div class="product-box product-box-purple">
-                                <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png">
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Car</h6>
-                                    <p>$19</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xxl-3 gy-3 ">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-blue">
-                                <div class="product-image text-center">
-                                    <img src="img/dsfsfs.png">
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Dot</h6>
-                                    <p>$19</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </section>
