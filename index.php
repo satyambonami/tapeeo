@@ -164,7 +164,8 @@
                         </div>
                         <div class="what-is-content mt-3">
                             <p class="text-center">
-                                WiFi, files, portfolios, resumes, contracts, forms, links, playlists. Digital stuff is a pain share quickly in face-to-face interactions.
+                                WiFi, files, portfolios, resumes, contracts, forms, links, playlists. Digital stuff is a
+                                pain share quickly in face-to-face interactions.
                             </p>
                         </div>
                         <!-- end -->
@@ -177,7 +178,9 @@
                         </div>
                         <div class="what-is-content mt-1">
                             <p class="text-center">
-                                And in a way no one else has done before. A Tapeeo device can instantly share exactly what you want, whenever you want. It's also just half the cost of a box of business cards.
+                                And in a way no one else has done before. A Tapeeo device can instantly share exactly
+                                what you want, whenever you want. It's also just half the cost of a box of business
+                                cards.
                             </p>
                         </div>
                     </div>
@@ -267,34 +270,52 @@
                                 <div class="step-3 mt-4">
                                     <h6 class="">3.Select a Tapeeo for the moment</h6>
                                     <div class="step-2-img mt-4">
-                                        <img src="img/Wallet_Cryptocurrency_Mobile_App.png" class="w-75 img-fluid img-responsive imgDivContent" />
+                                        <img src="img/Wallet_Cryptocurrency_Mobile_App.png"
+                                            class="w-75 img-fluid img-responsive imgDivContent" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-7 col-xxl-7">
-                                <div class="content-text px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
+                                <div
+                                    class="content-text px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
                                     <p>
-                                        After signing up on Tapeeo.app. You can start making single purpose web pages called Tapeeo. You can make Sitches to take payments, share links like a Calendly or Google form, sell products, start chats, book appointments, give out forms, share files,
+                                        After signing up on Tapeeo.app. You can start making single purpose web pages
+                                        called Tapeeo. You can make Sitches to take payments, share links like a
+                                        Calendly or Google form, sell products, start chats, book appointments, give out
+                                        forms, share files,
                                         and much more
                                     </p>
                                     <p>
                                         You then select the Tapeeo you want for the moment and tap. It's that simple.
                                     </p>
                                     <p>
-                                        No apps to download. Just tap or scan your newly purchased Tapeeo device to get set up instantly. The phones you tap don't need to download anything either and it works on both Android and iOS devices.
+                                        No apps to download. Just tap or scan your newly purchased Tapeeo device to get
+                                        set up instantly. The phones you tap don't need to download anything either and
+                                        it works on both Android and iOS devices.
                                     </p>
                                     <p>
-                                        No apps to download. Just tap or scan your newly purchased Tapeeo device to get set up instantly. The phones you tap don't need to download anything either and it works on both Android and iOS device
+                                        No apps to download. Just tap or scan your newly purchased Tapeeo device to get
+                                        set up instantly. The phones you tap don't need to download anything either and
+                                        it works on both Android and iOS device
                                     </p>
                                     <p>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, magni blanditiis? Harum unde temporibus delectus id corrupti minima consectetur, aut obcaecati reiciendis repellendus mollitia vel, a recusandae laudantium libero quos.
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, magni
+                                        blanditiis? Harum unde temporibus delectus id corrupti minima consectetur, aut
+                                        obcaecati reiciendis repellendus mollitia vel, a recusandae laudantium libero
+                                        quos.
                                     </p>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi deserunt porro doloribus nam! Ducimus minus nihil consequuntur nam tempore sint, totam officia consequatur labore autem eius sit adipisci at deleniti?
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi deserunt porro
+                                        doloribus nam! Ducimus minus nihil consequuntur nam tempore sint, totam officia
+                                        consequatur labore autem eius sit adipisci at deleniti?
                                     </p>
                                 </div>
-                                <div class="vedio-what px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/7YH5CQqMuWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div
+                                    class="vedio-what px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/7YH5CQqMuWM"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -320,7 +341,8 @@
                             <div class="ContentBx text-center p-4">
                                 <h4>With a Tapeeo Device</h4>
                                 <p class="mb-0">
-                                    For face-to-face interactions. People can scan or tap your device to open your active Tapeeos. You can buy one here (this store was made with a Shop Tapeeo).
+                                    For face-to-face interactions. People can scan or tap your device to open your
+                                    active Tapeeos. You can buy one here (this store was made with a Shop Tapeeo).
                                 </p>
                             </div>
                         </div>
@@ -333,7 +355,9 @@
                             <div class="ContentBx text-center p-4">
                                 <h4>QR Code</h4>
                                 <p class="mb-0">
-                                    Print your QR code at Tapeeo.app and tape it to your counter, window, or put it in a plaque. Then use it as a payment terminal, guest sign up, event guide, WiFi login, for contact tracing, to share your menu
+                                    Print your QR code at Tapeeo.app and tape it to your counter, window, or put it in a
+                                    plaque. Then use it as a payment terminal, guest sign up, event guide, WiFi login,
+                                    for contact tracing, to share your menu
                                 </p>
                             </div>
                         </div>
@@ -348,7 +372,9 @@
                             <div class="ContentBx text-center p-4">
                                 <h4>Link</h4>
                                 <p class="mb-0">
-                                    Every Tapeeo has a short link that you can use to share it. You can customize the link to whatever is available. Sign up to reserve your preferred links. As an example.
+                                    Every Tapeeo has a short link that you can use to share it. You can customize the
+                                    link to whatever is available. Sign up to reserve your preferred links. As an
+                                    example.
                                 </p>
                             </div>
                         </div>
@@ -361,7 +387,9 @@
                             <div class="ContentBx text-center p-4">
                                 <h4>Embedding</h4>
                                 <p class="mb-0">
-                                    If you already have a site, you can expand its functionallity by embedding tapeeo. Our blog, contact form, and store are all embedded tapeeo. You can learn how to do this here.
+                                    If you already have a site, you can expand its functionallity by embedding tapeeo.
+                                    Our blog, contact form, and store are all embedded tapeeo. You can learn how to do
+                                    this here.
                                 </p>
                             </div>
                         </div>
@@ -381,42 +409,50 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="sectionContent my-2 " data-aos="fade-right" data-aos-easing="linear" data-aos-duration="300">
+                    <div class="sectionContent my-2 " data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="300">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Photographer/Trainer/Freelancer</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="500">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Restaurant/Small Business Owner </p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="700">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="700">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Streamer/Instructor/Influencer</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="900">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Non-Verbal Communicator</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1100">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="1100">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Sales Person/Networker</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1300">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="1300">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Event Host</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1400">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="1400">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Traveller</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
+                        data-aos-duration="1500">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Human Being</p>
                         </div>
@@ -433,8 +469,7 @@
         </section>
         <!-- section6 -->
         <section>
-            <div class="container" style="
-        background: url('img/Rectangle\ 7.png');
+            <div class="container" style="background: url('img/Rectangle\ 7.png');
         background-repeat: no-repeat;
         background-size: cover;
         padding: 40px 0;

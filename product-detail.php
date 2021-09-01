@@ -128,7 +128,7 @@
                     <div class="owl-carousel owl-theme">
 
                         <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                            <a href="product-detail.html">
+                            <a href="product-detail.php">
                                 <div class="product-box product-box-blue">
                                     <div class="product-image text-center">
                                         <img src="img/Untitled-1.png" />
@@ -142,7 +142,7 @@
                         </div>
                         <div class="item">
                             <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                <a href="product-detail.html">
+                                <a href="product-detail.php">
                                     <div class="product-box product-box-pink">
                                         <div class="product-image text-center">
                                             <img src="img/Untitled-5121.png" />
@@ -157,7 +157,7 @@
                         </div>
                         <div class="item">
                             <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                <a href="product-detail.html">
+                                <a href="product-detail.php">
                                     <div class="product-box product-box-purple">
                                         <div class="product-image text-center">
                                             <img src="img/Untitled-1.png" />
@@ -172,7 +172,7 @@
                         </div>
                         <div class="item">
                             <div class="col-12 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                <a href="product-detail.html">
+                                <a href="product-detail.php">
                                     <div class="product-box product-box-blue">
                                         <div class="product-image text-center">
                                             <img src="img/dsfsfs.png" />
