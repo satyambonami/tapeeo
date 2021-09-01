@@ -17,22 +17,3 @@
 .dashboard-content{
     padding: 20px;
 }
-/* order */
-.order-dashboard{
-    box-shadow: 0px 0px 30px 0 rgba(0,0,0,0.10);
-    padding: 20px;
-    border-radius: 15px;
-}
-.order-success h6 , .order-success i{
-    color: #3CE981;
-}
-.order-pink{
-    background: #F882AC17;
-}
-.order-blue{
-    background: #B9F4F5;
-}
-.order-card{
-    padding: 20px;
-    border-radius:15px;
-}
