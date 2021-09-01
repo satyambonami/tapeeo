@@ -1,13 +1,13 @@
  <!-- Required meta tags -->
  <meta charset="utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link href="css/global.css" rel="stylesheet" />
- <link href="css/header.css" rel="stylesheet" />
- <link href="css/footer.css" rel="stylesheet" />
- <link href="css/home.css" rel="stylesheet" />
- <link href="css/contact.css" rel="stylesheet" />
- <link href="css/shop.css" rel="stylesheet" />
- <link href="css/responisive.css" rel="stylesheet" />
+ <link href="<?php echo $linkPrefix; ?>css/global.css" rel="stylesheet" />
+ <link href="<?php echo $linkPrefix; ?>css/header.css" rel="stylesheet" />
+ <link href="<?php echo $linkPrefix; ?>css/footer.css" rel="stylesheet" />
+ <link href="<?php echo $linkPrefix; ?>css/home.css" rel="stylesheet" />
+ <link href="<?php echo $linkPrefix; ?>css/contact.css" rel="stylesheet" />
+ <link href="<?php echo $linkPrefix; ?>css/shop.css" rel="stylesheet" />
+ <link href="<?php echo $linkPrefix; ?>css/responisive.css" rel="stylesheet" />
 
  <!-- Bootstrap CSS -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />

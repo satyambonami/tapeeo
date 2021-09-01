@@ -3,8 +3,8 @@
     <header>
         <nav class="navbar navbar-expand-lg position-absolute w-100 mt-3">
             <div class="container background-header">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" class="img-fluid" />
+                <a class="navbar-brand" href="index.php">
+                    <img src="<?php echo $linkPrefix; ?>img/logo.png" class="img-fluid" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

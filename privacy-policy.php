@@ -1,3 +1,6 @@
+<?php
+    $linkPrefix="";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
