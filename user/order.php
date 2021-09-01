@@ -1,4 +1,6 @@
 <?php
+    include_once("../inc/config.php");
+    $pageName="Privacy Policy";
     $linkPrefix="../";
 ?>
 <!DOCTYPE html>
@@ -17,7 +19,7 @@
             <div class="row">
             <?php include('inc/user-sidenav.php')?>
                 <div class="col-9">
-                    <div class="order-card box-shadow">
+                    <div class="order-card box-shadow" style="padding:30px 30px ;">
                         <!-- order-head -->
                         <div class="row mb-3">
                             <div class="col-4">
