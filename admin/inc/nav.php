@@ -13,7 +13,7 @@
             <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="avatar avatar-sm avatar-online"> 
-                        <span class="avatar-title rounded-circle bg-dark">LZR</span></div>
+                        <span class="avatar-title rounded-circle bg-dark">T</span></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right"> 
                     <a class="dropdown-item" href="profile.php"> Profile </a> 

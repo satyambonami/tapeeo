@@ -11,6 +11,8 @@
     height: fit-content;
     background-color: #B9F4F5;
     padding: 20px 0px;
+    border-radius: 15px;
+    box-shadow: 0,0,30px,0 rgba(0,0,0,0.10);
 }
 .side-nav .side-nav-list ul li{
     padding-top: 20px;
@@ -34,6 +36,6 @@
     border-radius: 3px;
     transition: all .5s;
 }
-.side-nav .side-nav-list ul li a:hover::after {
+.side-nav .side-nav-list ul li a:hover::after , .side-nav .side-nav-list ul li a.active::after {
     width: 100%;
 }

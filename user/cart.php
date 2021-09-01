@@ -1,4 +1,6 @@
 <?php
+    include_once("../inc/config.php");
+    $pageName="Privacy Policy";
     $linkPrefix="../";
 ?>
 <!DOCTYPE html>

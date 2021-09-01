@@ -1,4 +1,6 @@
 <?php
+    include_once("../inc/config.php");
+    $pageName="Privacy Policy";
     $linkPrefix="../";
 ?>
 <!DOCTYPE html>
@@ -21,7 +23,7 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <h1>Good Morning </h1>
-                                        <div class="animationLinetappeo ms-0 mt-2 w-50"></div>
+                                        <div class="animationLinetappeo ms-0 mt-2 w-100"></div>
                                         <h5 class="ms-4">
                                             its good to see you again
                                         </h5>

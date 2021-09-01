@@ -1,4 +1,7 @@
 <?php
+    include_once("inc/config.php");
+    $pageName="Shop";
+
     $linkPrefix="";
 ?>
 <!DOCTYPE html>
@@ -17,7 +20,7 @@
                     <div class="col-12">
                         <div class="heading-what mt-5">
                             <h2 class="text-center">
-                                TAPEEO PRODUCTS
+                            <?php echo SITE_NAME .' '. $pageName;?>
                                 <div class="animationLinetappeo mt-2"></div>
                             </h2>
                         </div>

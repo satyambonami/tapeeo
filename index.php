@@ -1,4 +1,7 @@
 <?php
+    include_once("inc/config.php");
+    $pageName="Home";
+
     $linkPrefix="";
 ?>
 <!DOCTYPE html>
