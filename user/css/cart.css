@@ -1,0 +1,19 @@
+.heading-color{
+    color: #D33696;
+}
+.cart-section tbody{
+    background-color: #B9F4F539;
+}
+.cart-section tbody input{
+    width: 50px !important;
+}
+.cart-section tbody tr{
+    vertical-align: middle;
+}
+.cart-section tbody td{
+    border: none;
+}
+.cart-section tbody .total small a{
+    font-size: inherit;
+    color: #707070;
+}

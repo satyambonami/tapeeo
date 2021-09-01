@@ -1,5 +1,39 @@
 .side-nav-img{
     background-image: url('../img/donut.png');
-    background-size:cover ;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+}
+.side-nav .animationLinetappeo{
+    width: 40% !important;
+}
+.side-nav .side-nav-list{
+    height: fit-content;
+    background-color: #B9F4F5;
+    padding: 20px 0px;
+}
+.side-nav .side-nav-list ul li{
+    padding-top: 20px;
+}
+
+.side-nav .side-nav-list ul li a {
+    font-size: 18px;
+    font-weight: 600;
+    color: #707070;
+    border-width: 3px;
+    position: relative;
+}
+.side-nav .side-nav-list ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0px;
+    height: 3px;
+    width: 0%;
+    background-image: linear-gradient(to left, #ff7ba7, #e19ff2, #9fc8ff, #66e8ff, #82feff);
+    border-radius: 3px;
+    transition: all .5s;
+}
+.side-nav .side-nav-list ul li a:hover::after {
+    width: 100%;
 }
