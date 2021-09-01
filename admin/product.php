@@ -21,17 +21,6 @@
         }
     }
     
-    if(isset($_GET['delete-row'])){
-        $id = mysqli_real_escape_string($conn, ak_secure_string($_GET['delete-row']));
-        $dataQ = mysqli_query($conn, "UPDATE `".$tblPrefix."cms_pages` SET `status` = 0 WHERE `id`=$id"); 
-        if($dataQ==true){
-            $_SESSION['toast']['msg']="Succesfully Deleted";
-            header("location:projects.php");
-            exit();
-        }else{
-            $_SESSION['toast']['msg']="Something Went Wrong";
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
