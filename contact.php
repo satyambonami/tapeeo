@@ -1,4 +1,7 @@
 <?php
+    include_once("inc/config.php");
+    $pageName="Contact";
+
     $linkPrefix="";
 ?>
 <!DOCTYPE html>
@@ -40,7 +43,7 @@
                     <div class="col-12">
                         <div class="heading-what mt-5">
                             <h2 class="text-center">
-                                Contact TAPEEO
+                                <?php echo $pageName;?>  <?php echo SITE_NAME;?>
                                 <div class="animationLinetappeo mt-2"></div>
                             </h2>
                         </div>
@@ -67,26 +70,34 @@
                             </h6>
                             <div class="social-links text-center d-flex mt-4">
                                 <ul class="text-center  ps-0">
+                                    <?php if($_SESSION['general']['facebook']!=NULL){ ?>
                                     <li>
-                                        <a href="" class="ps-0">
+                                        <a href="<?php echo $_SESSION['general']['facebook']; ?>" target="_blank" class="ps-0">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
                                     </li>
+                                    <?php }?>
+                                    <?php if($_SESSION['general']['youtube']!=NULL){ ?>
                                     <li>
-                                        <a href="">
+                                        <a href="<?php echo $_SESSION['general']['youtube']; ?>" target="_blank">
                                             <i class="fab fa-youtube"></i>
                                         </a>
                                     </li>
+                                    <?php }?>
+                                    <?php if($_SESSION['general']['instagram']!=NULL){ ?>
                                     <li>
-                                        <a href="">
+                                        <a href="<?php echo $_SESSION['general']['instagram']; ?>" target="_blank">
                                             <i class="fab fa-instagram"></i>
                                         </a>
                                     </li>
+                                    <?php }?>
+                                    <?php if($_SESSION['general']['tiktok']!=NULL){ ?>
                                     <li>
-                                        <a href="">
+                                        <a href="<?php echo $_SESSION['general']['tiktok']; ?>" target="_blank">
                                             <i class="fab fa-tiktok"></i>
                                         </a>
                                     </li>
+                                    <?php }?>
                                 </ul>
                             </div>
                         </div>

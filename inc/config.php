@@ -35,5 +35,10 @@ if($conn!=true){
 
 require_once('functions.php');
 
-define('SITE_NAME', "Tappeo");
-define('SITE_EMAIL', "info@adityakundra.com");
+$genDataQ = mysqli_query($conn, "SELECT key_name, key_value FROM `".$tblPrefix."general` WHERE key_name!=''");
+while($genData = mysqli_fetch_assoc($genDataQ)){
+	$_SESSION['general'][$genData['key_name']]= $genData['key_value'];
+}
+
+define('SITE_NAME', ''.$_SESSION['general']['website_name'].'');
+define('SITE_EMAIL', ''.$_SESSION['general']['mailer_email'].'');

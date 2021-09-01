@@ -23,7 +23,18 @@
                     </a>
                 </li>
                 <li class="menu-item active ">
-                    <a href="#" class=" menu-link"> 
+                    <a href="site-details.php" class=" menu-link"> 
+                        <span class="menu-label"> 
+                            <span class="menu-name">Manage Website
+                        </span>
+                        </span> 
+                        <span class="menu-icon">
+                            <i class="icon-placeholder mdi mdi-view-split-vertical "></i> 
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item active ">
+                    <a href="product.php" class=" menu-link"> 
                         <span class="menu-label"> 
                             <span class="menu-name">Products
                         </span>
@@ -45,9 +56,31 @@
                     </a>
                 </li>
                 <li class="menu-item active ">
+                    <a href="#" class=" menu-link"> 
+                        <span class="menu-label"> 
+                            <span class="menu-name">Users
+                        </span>
+                        </span> 
+                        <span class="menu-icon">
+                            <i class="icon-placeholder mdi mdi-view-split-vertical "></i> 
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item active ">
                     <a href="contact.php" class=" menu-link"> 
                         <span class="menu-label"> 
-                            <span class="menu-name">Contact Query
+                            <span class="menu-name">Contact
+                        </span>
+                        </span> 
+                        <span class="menu-icon">
+                            <i class="icon-placeholder mdi mdi-view-split-vertical "></i> 
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item active ">
+                    <a href="policy.php" class=" menu-link"> 
+                        <span class="menu-label"> 
+                            <span class="menu-name">Policies
                         </span>
                         </span> 
                         <span class="menu-icon">
