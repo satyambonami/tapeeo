@@ -1,22 +1,24 @@
 <?php
-    include_once("../inc/config.php");
-    $pageName="Privacy Policy";
-    $linkPrefix="../";
+include_once("../inc/config.php");
+$pageName = "Privacy Policy";
+$linkPrefix = "../";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <?php include('../inc/head.php')?>
-    <?php include('inc/user-head.php')?>
+    <?php include('../inc/head.php') ?>
+    <?php include('inc/user-head.php') ?>
 </head>
+
 <body>
-    <?php include('../inc/header.php')?>
-    <?php include('inc/header-user.php')?>
+    <?php include('../inc/header.php') ?>
+    <?php include('inc/header-user.php') ?>
     <main>
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
-                <?php include('inc/user-sidenav.php')?>
+                    <?php include('inc/user-sidenav.php') ?>
                     <div class="col-9">
                         <div class="dashboard-div">
                             <div class="dashboard-head">
@@ -34,7 +36,7 @@
                                         </h1>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <!-- dashboard-copntent -->
                             <div class="dashboard-content">
@@ -42,7 +44,7 @@
                                     <div class="col-6">
                                         <div class="details-dasboard mb-3">
                                             <h6 class="mb-3" style="color:#D33696;">
-                                                <b>Details</b> 
+                                                <b>Details</b>
                                             </h6>
                                             <h5 class="mb-3">
                                                 User Name
@@ -51,19 +53,19 @@
                                                 Email- useremail@gmail.com
                                             </p>
                                             <p>
-                                            Phone - +8144582619
+                                                Phone - +8144582619
                                             </p>
                                             <p>Tapeoo user since - july 2021</p>
                                         </div>
                                         <div class="details-dasboard">
                                             <h6 class="mb-3" style="color:#D33696;">
-                                                <b>Default Address</b> 
+                                                <b>Default Address</b>
                                             </h6>
                                             <h5 class="mb-3">
                                                 Address holder name
                                             </h5>
                                             <p>
-                                            Phone - +8144582619
+                                                Phone - +8144582619
                                             </p>
                                             <p> 404 Veltri Drive Egegik </p>
                                             <p>State: Alaska</p>
@@ -73,7 +75,7 @@
                                     <div class="col-6">
                                         <div class="order-dashboard">
                                             <h6 class="mb-3" style="color:#D33696;">
-                                                <b>Recent Orders</b> 
+                                                <b>Recent Orders</b>
                                             </h6>
                                             <!-- start loop from here -->
                                             <div class="order-card order-pink mb-3">
@@ -148,7 +150,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <!-- end loop -->
                                         </div>
                                     </div>
@@ -160,7 +162,8 @@
             </div>
         </section>
     </main>
-    <?php include('../inc/footer.php')?>
-    <?php include('../inc/js.php')?>
+    <?php include('../inc/footer.php') ?>
+    <?php include('../inc/js.php') ?>
 </body>
+
 </html>

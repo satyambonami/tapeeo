@@ -1,13 +1,14 @@
 <section style="background: url('../img/Ellipse\ 2.png'); background-size: 100% 100%; padding: 60px; padding-top: 120px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="heading-what mt-5">
-                            <h2 class="text-center">
-                                Welcome To Dashboard
-                                <div class="animationLinetappeo mt-2"></div>
-                            </h2>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-what mt-5">
+                    <h2 class="text-center">
+                        Welcome To Dashboard
+                        <div class="animationLinetappeo mt-2"></div>
+                    </h2>
                 </div>
-        </div></section>
+            </div>
+        </div>
+    </div>
+</section>
