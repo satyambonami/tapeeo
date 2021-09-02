@@ -120,7 +120,7 @@ $linkPrefix = "../";
                         </table>
                     </div>
                     <div class="col-3 order-summary">
-                        <h3 class="heading-color">Your Order</h3>
+                        <h3 class="heading-color">Cart Total</h3>
                         <hr>
                         <div class="product-details">
                             <h6 class="product_name">Tappeo Brand</h6>

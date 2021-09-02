@@ -1,0 +1,22 @@
+
+.trackorder-summary{
+    background-color: #F4CBDB52;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.10);
+    padding: 30px  !important;
+}
+ .trackorder-summary .product-details{
+    display: flex;
+    justify-content: space-between;
+}
+ .trackorder-summary .shipping select{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.40);
+    padding: 10px 20px;
+}
+ .trackorder-summary .btn{
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.10);
+}
+ .trackorder-summary h6{
+    color: unset !important;
+} 
