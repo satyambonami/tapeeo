@@ -16,20 +16,52 @@
         $Pqnty = mysqli_real_escape_string($conn,$_POST['pQnty']); 
         $price = mysqli_real_escape_string($conn,$_POST['Pprice']);
         $discount = mysqli_real_escape_string($conn,ak_secure_string($_POST['Pdiscount']));
-        $Mtitle =  myslqi_real_escape_string($conn,ak_secure_string($_POST['Mtitle']));
-        $Mkeyword = myslqi_real_escape_string($conn,ak_secure_string($_POST['Mkeyword']));
+        $Mtitle =  mysqli_real_escape_string($conn,ak_secure_string($_POST['Mtitle']));
+        $Mkeyword = mysqli_real_escape_string($conn,ak_secure_string($_POST['Mkeyword']));
         $Mdesc = htmlspecialchars($_POST['Mdesc']);
-        $PshortDesc = myslqi_real_escape_string($conn,ak_secure_string($_POST['PshortDesc']));
-        $Pdesc = myslqi_real_escape_string($conn,ak_secure_string($_POST['Pdesc']));
-        $Pwarranty = myslqi_real_escape_string($conn,ak_secure_string($_POST['Pwarranty']));
+        $PshortDesc = mysqli_real_escape_string($conn,ak_secure_string($_POST['PshortDesc']));
+        $Pdesc = mysqli_real_escape_string($conn,ak_secure_string($_POST['Pdesc']));
+        $Pwarranty = mysqli_real_escape_string($conn,ak_secure_string($_POST['Pwarranty']));
         $offerPrice = $price - (($price*$discount)/100);
         
         if(isset($_GET['id'])){
-            $id = myslqi_real_escape_string($conn,$_GET['id']);
+            $id = mysqli_real_escape_string($conn,$_GET['id']);
             $query = mysqli_query($conn,"UPDATE `".$tblPrefix."products` SET `name`='$Pname',`slug`='$Pslug',`fulldesc`='$Pdesc',`description`='$PshortDesc',`quantity`='$Pqnty',`price`='$price',`discount`='$discount',`offer_price`='$offerPrice',`meta_title`='$Mtitle',`meta_desc`='$Mdesc',`meta_keywords`='$Mkeyword',`warranty`='$Pwarranty' WHERE `pid` = '$id' ");
         }else{
-            $query = mysqli_query($conn,"INSERT INTO `".$tblPrefix."products`(`name`, `slug`, `fulldesc`, `description`, `quantity`, `price`, `discount`, `offer_price`, `meta_title`, `meta_desc`, `meta_keywords`, `warranty`, `date_time`, `status`) VALUES ('$Pname','$Pslug','$Pdesc','$PshortDesc','$Pqnty','$price','[value-8]','[value-9]','[value-10]','[value-11]','[value-12]','[value-13]','[value-14]','[value-15]')");
+            $query = mysqli_query($conn,"INSERT INTO `".$tblPrefix."products`(`name`, `slug`, `fulldesc`, `description`, `quantity`, `price`, `discount`, `offer_price`, `meta_title`, `meta_desc`, `meta_keywords`, `warranty`, `date_time`, `status`) VALUES ('$Pname','$Pslug','$Pdesc','$PshortDesc','$Pqnty','$price','$discount','$offerPrice','$Mtitle','$Mdesc','$Mkeyword','$Pwarranty','$cTime',2)");
+            $id = mysqli_insert_id($conn);
         }
+
+        if($query == true){
+            $files = $_FILES['img'];
+            $fileArr = array();
+            foreach ($files['tmp_name'] as $key => $tmpName) {
+                if(file_exists($tmpName)){
+                    $fileName = $files['name'][$key];
+                    $ext = pathinfo($fileName,PATHINFO_EXTENSION);
+                    $fileName = rand(000,999).time().'.'.$ext;
+
+                    if(move_uploaded_file($tmpName, "../media/site-img/products/".$fileName)==true){
+                        $fileArr[] = $fileName;
+                    }
+                }
+            }
+
+            if(array_key_exists(0, $fileArr)){
+                $fileStr = implode(',', $fileArr);
+                mysqli_query($conn, "UPDATE `".$tblPrefix."products` SET image='$fileStr' WHERE pid=$id");	
+            }
+            $_SESSION['toast']['type']="success";
+            $_SESSION['toast']['msg']="Product Successfully Update";
+            header('add-product.php?id='.$id.'');
+            exit();
+        }else{
+            $_SESSION['toast']['type']="warning";
+            $_SESSION['toast']['msg']="Something went wrong, Please try again later.";
+            header('refresh:0');
+            exit();
+        }
+
     }
 ?>
 <!DOCTYPE html>
@@ -87,7 +119,7 @@
                                                 <input type="text" class="form-control" id="Mtitle" placeholder="Product Meta Title" autocomplete="off" required name="Mtitle" />
                                             </div>
                                             <div class="form-group col-6">
-                                                <label for="Mkeyword">Product Meta KeyWords (Seprate Keywords Using Comma)</label>
+                                                <label for="Mkeyword">Product Meta Keyword (Seprate Keywords Using Comma)</label>
                                                 <input type="text" class="form-control" id="Mkeyword" placeholder="Product Meta KeyWords" autocomplete="off" required name="Mkeyword" />
                                             </div>
                                             <div class="form-group col-12">
@@ -97,7 +129,7 @@
                                         </div>
                                         <div class="form-row mb-3">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputllogo02" name="Pimage" />
+                                                <input type="file" class="custom-file-input" id="inputllogo02" name="Pimage[]" />
                                                 <label class="custom-file-label" for="inputllogo02" required>Product Image</label>
                                             </div>
                                         </div>
