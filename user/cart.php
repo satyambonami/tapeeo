@@ -1,6 +1,6 @@
 <?php
 include_once("../inc/config.php");
-$pageName = "Privacy Policy";
+$pageName = "Tapeoo Cart";
 $linkPrefix = "../";
 ?>
 <!DOCTYPE html>
