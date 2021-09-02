@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="heading-what mt-5">
                     <h2 class="text-center">
-                        Welcome To Dashboard
+                        <?php echo $pageName;?>
                         <div class="animationLinetappeo mt-2"></div>
                     </h2>
                 </div>

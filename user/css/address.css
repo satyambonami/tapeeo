@@ -1,0 +1,20 @@
+.address-main-card {
+  background-color: #fff;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.address-card{
+    background: #B9F4F5;
+    padding: 20px;
+    border-radius: 15px;
+}
+.address-func a{
+    color: #DF2C77;
+}
+.add-address{
+    border: 2px dashed #707070;
+    border-radius: 15px;
+    padding: 47px;
+}
