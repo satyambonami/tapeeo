@@ -9,7 +9,7 @@
 
  <!-- animation script -->
 
- <script src="js/global.js"></script>
+ <script src="<?php echo $linkPrefix; ?>js/global.js"></script>
  <script>
      AOS.init();
  </script>

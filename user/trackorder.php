@@ -24,14 +24,59 @@ $linkPrefix = "../";
                         <div class="track-main-card">
                             <form class="row">
                                 <div class="col-9">
-                                    <input type="text" class="form-control mt-0 mb-0"  placeholder="Enter Order Tracking Number">
+                                    <input type="text" class="form-control mt-0 mb-0" placeholder="Enter Order Tracking Number">
                                 </div>
                                 <div class="col-3 d-flex align-items-center">
                                     <button type="submit" class="btn btn-gradient rounded px-4">Track Order</button>
                                 </div>
                             </form>
                         </div>
-                        <div class="track-main-card mt-3"></div>
+                        <div class="track-main-card mt-3">
+                            <div class="root">
+                                <figure>
+                                    <img src="img/truck.png"  alt="">
+                                    <figcaption>
+                                        <h4>Tracking Details</h4>
+                                        <h6>Order Number</h6>
+                                        <h2># A61452B</h2>
+                                    </figcaption>
+                                </figure>
+                                <div class="order-track">
+                                    <div class="order-track-step">
+                                        <div class="order-track-status">
+                                            <span class="order-track-status-dot"></span>
+                                            <span class="order-track-status-line"></span>
+                                        </div>
+                                        <div class="order-track-text">
+                                            <p class="order-track-text-stat">Label Created</p>
+                                            <span class="order-track-text-sub">1st November, 2019</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-track-step">
+                                        <div class="order-track-status">
+                                            <span class="order-track-status-dot"></span>
+                                            <span class="order-track-status-line"></span>
+                                        </div>
+                                        <div class="order-track-text">
+                                            <p class="order-track-text-stat"> Shipped - 123 Start St.
+                                                Seattle, WA </p>
+                                            <span class="order-track-text-sub">1st November, 2019</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-track-step">
+                                        <div class="order-track-status">
+                                            <span class="order-track-status-dot-blank"></span>
+                                            <span class="order-track-status-line"></span>
+                                        </div>
+                                        <div class="order-track-text">
+                                            <p class="order-track-text-stat"> Estimated - 456 End St.
+                                                New York City, NY</p>
+                                            <span class="order-track-text-sub">3rd November, 2019</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
