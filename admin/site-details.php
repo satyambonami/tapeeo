@@ -141,7 +141,7 @@ if(isset($_POST['sub-favicon'])){
 			                                    </div>
 			                                </div>
 			                                <div class="form-row mb-4">
-	                                            <button type="submit" class="btn btn-success m-auto" name="sub-logo">Save changes</button>
+	                                            <button type="submit" class="btn btn-success btn-cta py-2 px-5" name="sub-logo">Save</button>
 	                                        </div>
 			                            </form>
 			                            <form method="POST" enctype="multipart/form-data">
@@ -153,7 +153,7 @@ if(isset($_POST['sub-favicon'])){
 			                                    </div>
 			                                </div>
 			                                <div class="form-row mb-4">
-	                                            <button type="submit" class="btn btn-success m-auto" name="sub-favicon">Save changes</button>
+	                                            <button type="submit" class="btn btn-success btn-cta py-2 px-5" name="sub-favicon">Save</button>
 	                                        </div>
                                         </form>
                                     </div>
@@ -206,7 +206,7 @@ if(isset($_POST['sub-favicon'])){
 				                                    <input type="type" class="form-control" id="addinput" placeholder="TikTok" name="tiktok" value="<?php echo $_SESSION['general']['tiktok'];?>">
 				                                </div>
                                             </div>
-                                            <button type="submit" class="btn btn-success btn-cta" name="submit_general">Save changes</button>
+                                            <button type="submit" class="btn btn-success btn-cta py-2 px-5" name="submit_general">Save</button>
                                         </form>
                                     </div>
 
