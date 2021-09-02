@@ -1,6 +1,12 @@
 .heading-color{
     color: #D33696;
 }
+.cart-section{
+    background-color: white;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.10);
+    padding: 20px;
+    border-radius: 15px;
+}
 .cart-section tbody{
     background-color: #B9F4F539;
     border-radius: 20px !important;
@@ -15,6 +21,7 @@
 }
 .cart-section tbody td{
     border: none;
+    padding: 10px 20px;
 }
 .cart-section tbody  small a i{
     font-size: 14px !important;
@@ -33,23 +40,23 @@
 .cart-section tbody  small{
     padding-right: 10px;
 }
-.cart-section .order-summary{
+.order-summary{
     background-color: #F4CBDB52;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0,0,0,.10);
     padding: 30px  !important;
 }
-.cart-section .order-summary .product-details{
+.order-summary .product-details{
     display: flex;
     justify-content: space-between;
 }
 
-.cart-section .order-summary .btn{
+.order-summary .btn{
     box-shadow: 0 0 30px 0 rgba(0,0,0,.10);
 }
-.cart-section .order-summary h6{
+.order-summary h6{
     color: unset !important;
 } 
-.cart-section .btn-number span{
+.btn-number span{
     font-size: 10px;
 }

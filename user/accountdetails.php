@@ -25,33 +25,36 @@ $linkPrefix = "../";
                             <!-- deta -->
                             <div class="details-content">
                                 <div class="row">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-6">
-                                        <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name">
-                                    </div>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <Label>First Name</Label>
+                                                <input type="text" class="form-control form-group"
+                                                    placeholder="First Name">
+
+                                            </div>
+                                            <div class="col-6">
+                                                <Label>First Name</Label>
+                                                <input type="text" class="form-control form-group"
+                                                    placeholder="First Name">
+                                            </div>
                                         </div>
-                                        <div class="col-6">
-                                        <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name">
-                                    </div>
+
+
+                                        <Label>First Name</Label>
+                                        <input type="text" class="form-control form-group" placeholder="First Name">
+
+
+                                        <Label>First Name</Label>
+                                        <input type="text" class="form-control form-group" placeholder="First Name">
+
+
+
+                                        <div
+                                            class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-start text-xxl-start">
+                                            <a href="" class="btn btn-gradient">Save Changes</a>
                                         </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Subject">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-end text-xxl-end">
-                                        <a href="" class="btn btn-gradient">Send Message</a>
-                                    </div>
-                                </form>
+                                    </form>
                                 </div>
                             </div>
                         </div>
