@@ -3,6 +3,8 @@
     $pageName="Home";
 
     $linkPrefix="";
+    $product = mysqli_query($conn,"SELECT `pid`,`name`,`image`,`offer_price` FROM `".$tblPrefix."products` WHERE status=2 ORDER BY pid ASC LIMIT 3");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,45 +90,25 @@
         <section class="section-padding-2">
             <div class="container">
                 <div class="row">
+                <?php
+                    $i=0;
+                    while($dataP = mysqli_fetch_assoc($product)){
+                        $i++;
+                ?>
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
                         <a href="product-detail.php">
-                            <div class="product-box product-box-blue">
+                            <div class="product-box  <?php if($i % 2 == 0){echo 'product-box-pink';}else{echo 'product-box-blue';}?>">
                                 <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png" class="w-100 img-fluid ">
+                                    <img src="img/products/<?php echo $dataP['image']?>" class="w-100 img-fluid ">
                                 </div>
                                 <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Card</h6>
-                                    <p>$19</p>
+                                    <h6><?php echo $dataP['name'];?></h6>
+                                    <p>$<?php echo $dataP['offer_price'];?></p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-pink">
-                                <div class="product-image text-center">
-                                    <img src="img/Untitled-5121.png" class="w-100 img-fluid "/>
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Band</h6>
-                                    <p>$24</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-purple">
-                                <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png" class="w-100 img-fluid " />
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Car</h6>
-                                    <p>$19</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <?php }?>
                 </div>
             </div>
         </section>
