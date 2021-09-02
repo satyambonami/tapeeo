@@ -44,17 +44,17 @@
                         if(mysqli_query($conn,$image)==true){
                             $_SESSION['toast']['type']="success";
                             $_SESSION['toast']['msg']="Successfully updated.";
-                            header('add-product.php?id='.$id.'');
+                            header('location:add-product.php?id='.$id.'');
                             exit();
                         }
                     }else{
                         $_SESSION['toast']['msg']="Something went wrong, Please try again.";
-                        header('add-product.php?id='.$id.'');
+                        header('location:add-product.php?id='.$id.'');
                         exit();
                     }
                 }else{
                         $_SESSION['toast']['msg']="Upload only image format(jpg,jpeg,png).";
-                        header('add-product.php?id='.$id.'');
+                        header('location:add-product.php?id='.$id.'');
                         exit();
                     }
             }

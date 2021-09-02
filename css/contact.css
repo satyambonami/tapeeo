@@ -1,3 +1,12 @@
-.conatact-info h2, .contact-form h2{
+.conatact-info h2,
+.contact-form h2 {
     font-weight: 900;
+}
+
+.conatact-info a {
+    color: #707070;
+}
+
+.conatact-info a:hover {
+    color: #707070;
 }

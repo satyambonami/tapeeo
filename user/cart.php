@@ -9,6 +9,18 @@ $linkPrefix = "../";
 <head>
     <?php include('../inc/head.php') ?>
     <?php include('inc/user-head.php') ?>
+    <style>
+        .card_btn{
+            width: 111px;
+            background: #fff;
+        }
+        .card_btn p{
+            font-size: 16px;
+        }
+        .card_btn i{
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,22 +54,15 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-left-minus btn  btn-number"
-                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class=" input-number" value="1" min="1" max="100">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-right-plus btn btn-number"
-                                                    data-type="plus" data-field="" style="padding:9px 13px;">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div>
+                                      <div class="card_btn">
+                                        <p class="minus">
+                                            <i class="fas fa-minus"></i>
+                                        </p>
+                                        <p class="number">1</p>
+                                        <p class="plus">
+                                            <i class="fas fa-plus"></i>
+                                        </p>
+                                    </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -77,22 +82,15 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-left-minus btn  btn-number"
-                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class=" input-number" value="1" min="1" max="100">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-right-plus btn btn-number"
-                                                    data-type="plus" data-field="" style="padding:9px 13px;">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div>
+                                    <div class="card_btn">
+                                        <p class="minus">
+                                            <i class="fas fa-minus"></i>
+                                        </p>
+                                        <p class="number">1</p>
+                                        <p class="plus">
+                                            <i class="fas fa-plus"></i>
+                                        </p>
+                                    </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -112,22 +110,15 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-left-minus btn  btn-number"
-                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class=" input-number" value="1" min="1" max="100">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-right-plus btn btn-number"
-                                                    data-type="plus" data-field="" style="padding:9px 13px;">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div>
+                                      <div class="card_btn">
+                                        <p class="minus">
+                                            <i class="fas fa-minus"></i>
+                                        </p>
+                                        <p class="number">1</p>
+                                        <p class="plus">
+                                            <i class="fas fa-plus"></i>
+                                        </p>
+                                    </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -147,22 +138,15 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-left-minus btn  btn-number"
-                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class=" input-number" value="1" min="1" max="100">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-right-plus btn btn-number"
-                                                    data-type="plus" data-field="" style="padding:9px 13px;">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div>
+                                      <div class="card_btn">
+                                        <p class="minus">
+                                            <i class="fas fa-minus"></i>
+                                        </p>
+                                        <p class="number">1</p>
+                                        <p class="plus">
+                                            <i class="fas fa-plus"></i>
+                                        </p>
+                                    </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -214,7 +198,54 @@ $linkPrefix = "../";
     </main>
     <?php include('../inc/footer.php') ?>
     <?php include('../inc/js.php') ?>
-    <script type="text/javascript">
+    <script>
+        AOS.init();
+
+
+
+        const lineDiv = document.querySelector(".line_Div");
+        const buttonActiv = document.querySelector(".buttonActiv");
+        const buttonOneActiv = document.querySelector(".buttonOneActiv");
+
+        const active_ContentOne = document.querySelector(".active_ContentOne");
+        const active_ContentTwo = document.querySelector(".active_ContentTwo");
+
+        const tab = document.querySelectorAll(".tab-content");
+        const animiLine = document.querySelectorAll(".animiLine");
+
+        const minus = document.querySelector(".minus");
+        const plus = document.querySelector(".plus");
+        const num = document.querySelector(".number");
+
+
+        // card js
+        let startNumebr = 1;
+
+        // inc the number
+        plus.addEventListener("click", function() {
+            startNumebr++;
+            num.textContent = startNumebr;
+        });
+
+        // minus the number
+        // if the number is less then one so stop
+        const desnumerb = function() {
+            minus.addEventListener("click", function() {
+                if (startNumebr >= 2) {
+                    startNumebr--;
+                    num.textContent = startNumebr;
+                } else {
+                    return;
+                }
+            });
+        };
+
+        desnumerb();
+
+
+
+    </script>
+    <!-- <script type="text/javascript">
         $(document).ready(function() {
             $(".btn-increase").on('click', function() {
                 var price = parseInt($(this).data('price')),
@@ -246,7 +277,7 @@ $linkPrefix = "../";
                 }
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
