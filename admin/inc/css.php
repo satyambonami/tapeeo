@@ -57,4 +57,8 @@
 	    right: 30px;
 	    bottom: 30px;
 	}
+	.dropdown-toggle::after{
+		content:'';
+		border:0px !important;
+	}
 </style>

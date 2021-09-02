@@ -19,9 +19,9 @@
         $Mtitle =  mysqli_real_escape_string($conn,ak_secure_string($_POST['Mtitle']));
         $Mkeyword = mysqli_real_escape_string($conn,ak_secure_string($_POST['Mkeyword']));
         $Mdesc = htmlspecialchars($_POST['Mdesc']);
-        $PshortDesc = mysqli_real_escape_string($conn,ak_secure_string($_POST['PshortDesc']));
-        $Pdesc = mysqli_real_escape_string($conn,ak_secure_string($_POST['Pdesc']));
-        $Pwarranty = mysqli_real_escape_string($conn,ak_secure_string($_POST['Pwarranty']));
+        $PshortDesc = mysqli_real_escape_string($conn,ak_secure_string($_POST['PshortDesc']));;
+        $Pdesc = htmlspecialchars($_POST['Pdesc']);
+        $Pwarranty = htmlspecialchars($_POST['Pwarranty']);
         $offerPrice = $price - (($price*$discount)/100);
         
         if(isset($_GET['id'])){
@@ -58,13 +58,28 @@
                         exit();
                     }
             }
+        $_SESSION['toast']['type']="success";
+        $_SESSION['toast']['msg']="Successfully updated.";
+        header('location:add-product.php?id='.$id.'');
+        exit();
         }else{
             $_SESSION['toast']['type']="warning";
             $_SESSION['toast']['msg']="Something went wrong, Please try again later.";
             header('refresh:0');
             exit();
         }
-
+    }
+    
+    if(isset($_GET['id'])){
+        $pid = mysqli_real_escape_string($conn,$_GET['id']);
+        $queryData = mysqli_query($conn,"SELECT `pid`, `name`, `slug`, `fulldesc`, `description`, `quantity`, `image`, `price`, `discount`, `offer_price`, `meta_title`, `meta_desc`, `meta_keywords`, `warranty`, `date_time`, `status` FROM `".$tblPrefix."products` WHERE pid = $pid ");
+        if(mysqli_num_rows($queryData) != 0){
+            $data = mysqli_fetch_assoc($queryData);
+        }else{
+            $_SESSION['toast']['msg']="No Data Found !";
+            header("location:product.php");
+            exit();
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -83,22 +98,25 @@
             <section class="pull-up">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12 mx-auto mt-2">
+                        <div class="col-lg<?php if(isset($_GET['id'])){echo'-8';}else{echo'-12';}?> mx-auto mt-2">
                             <div class="card py-3 m-b-30">
                                 <div class="card-body">
                                     <form method="POST" enctype="multipart/form-data">
                                         <div class="form-row">
                                             <div class="form-group col-12">
                                                 <label for="ProductName">Product Name</label>
-                                                <input type="text" class="form-control" id="ProductName" placeholder="Product Name" autocomplete="off" required name="pName" />
+                                                <input type="text" class="form-control" id="ProductName" placeholder="Product Name" autocomplete="off" required name="pName" value
+                                                ="<?php if(isset($_GET['id'])){ echo $data['name']; }?>"/>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="ProductSlug">Product Slug</label>
-                                                <input type="text" class="form-control" id="ProductSlug" placeholder="Product Slug" autocomplete="off" required name="pSlug" />
+                                                <input type="text" class="form-control" id="ProductSlug" placeholder="Product Slug" autocomplete="off" required name="pSlug" value
+                                                ="<?php if(isset($_GET['id'])){ echo $data['slug']; }?>"/>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="Quantity">Product Quantity</label>
-                                                <input type="text" class="form-control" id="Quantity" placeholder="Product Quantity" autocomplete="off" required name="pQnty" />
+                                                <input type="text" class="form-control" id="Quantity" placeholder="Product Quantity" autocomplete="off" required name="pQnty" value 
+                                                ="<?php if(isset($_GET['id'])){ echo $data['quantity']; }?>"/>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -108,26 +126,30 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">$</span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="Rprice" placeholder="Product Price" aria-label="Amount (to the nearest dollar)" name="Pprice"  autocomplete="off" required/>
+                                                    <input type="text" class="form-control" id="Rprice" placeholder="Product Price" aria-label="Amount (to the nearest dollar)" name="Pprice"  autocomplete="off" required value ="<?php if(isset($_GET['id'])){ echo $data['price']; }?>" />
                                                 </div>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="Quantity">Product Discount (in %)</label>
-                                                <input type="text" class="form-control" id="Quantity" placeholder="Product Discount" autocomplete="off" required name="Pdiscount" />
+                                                <input type="text" class="form-control" id="Quantity" placeholder="Product Discount" autocomplete="off" required name="Pdiscount" value
+                                                ="<?php if(isset($_GET['id'])){ echo $data['discount']; }?>" />
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-6">
                                                 <label for="Mtitle">Product Meta Title</label>
-                                                <input type="text" class="form-control" id="Mtitle" placeholder="Product Meta Title" autocomplete="off" required name="Mtitle" />
+                                                <input type="text" class="form-control" id="Mtitle" placeholder="Product Meta Title" autocomplete="off" required name="Mtitle" value
+                                                ="<?php if(isset($_GET['id'])){ echo $data['meta_title']; }?>" />
                                             </div>
                                             <div class="form-group col-6">
-                                                <label for="Mkeyword">Product Meta Keyword (Seprate Keywords Using Comma)</label>
-                                                <input type="text" class="form-control" id="Mkeyword" placeholder="Product Meta KeyWords" autocomplete="off" required name="Mkeyword" />
+                                                <label for="Mkeyword">Product Meta Keyword <small>(Seprate Keywords Using Comma)</small> </label>
+                                                <input type="text" class="form-control" id="Mkeyword" placeholder="Product Meta KeyWords" autocomplete="off" required name="Mkeyword" value
+                                                ="<?php if(isset($_GET['id'])){ echo $data['meta_keywords']; }?>" />
                                             </div>
                                             <div class="form-group col-12">
                                                 <label for="Mdesc">Product Meta Description</label>
-                                                <input type="text" class="form-control" id="Mdesc" placeholder="Product Meta KeyWords" autocomplete="off" required name="Mdesc" />
+                                                <input type="text" class="form-control" id="Mdesc" placeholder="Product Meta KeyWords" autocomplete="off" required name="Mdesc" value
+                                                ="<?php if(isset($_GET['id'])){ echo $data['meta_desc']; }?>" />
                                             </div>
                                         </div>
                                         <div class="form-row mb-3">
@@ -140,18 +162,24 @@
                                             <div class="form-group col-12">
                                                 <label for="PshortDesc">Product Short Description</label>
                                                 <div class="input-group">
-                                                    <textarea class="form-control" id="PshortDesc" placeholder="Product Short Description" name="PshortDesc" autocomplete="off" required></textarea>
+                                                    <textarea class="form-control" id="PshortDesc" placeholder="Product Short Description" name="PshortDesc" autocomplete="off" required>
+                                                    <?php if(isset($_GET['id'])){ echo $data['description']; }?>
+                                                    </textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group col-12">
                                                 <label for="Mdesc">Product Description</label>
-                                                <textarea class="form-control ckeditor" name="Pdesc" autocomplete="off" required></textarea>
+                                                <textarea class="form-control ckeditor" name="Pdesc" autocomplete="off" required>
+                                                    <?php if(isset($_GET['id'])){ echo htmlspecialchars_decode($data['fulldesc']); }?>
+                                                </textarea>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-12">
                                                 <label for="Mdesc">Product Warranty</label>
-                                                <textarea class="form-control ckeditor" name="Pwarranty" autocomplete="off" required></textarea>
+                                                <textarea class="form-control ckeditor" name="Pwarranty" autocomplete="off" required>
+                                                    <?php if(isset($_GET['id'])){ echo htmlspecialchars_decode($data['warranty']); }?>
+                                                </textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -161,6 +189,15 @@
                                 </div>
                             </div>
                         </div>
+                        <?php if(isset($_GET['id'])){ ?>
+                        <div class="col-lg-4 mx-auto mt-2">
+                             <div class="card py-3 m-b-30">
+                                <div class="card-body">
+                                    <img src="../img/products/<?php echo $data['image'];?>" alt="<?php echo $data['name']?>">
+                                </div>
+                            </div>
+                        </div>
+                        <?php }?>
                     </div>
                 </div>
             </section>

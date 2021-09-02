@@ -11,16 +11,23 @@
     // Delete Query
     if(isset($_GET['delete-row'])){
         $id = mysqli_real_escape_string($conn, ak_secure_string($_GET['delete-row']));
-        $dataQ = mysqli_query($conn, "UPDATE `".$tblPrefix."query` SET `status` = 0 WHERE `id`=$id"); 
+        $dataQ = mysqli_query($conn, "UPDATE `".$tblPrefix."products` SET `status` = 0 WHERE `pid`=$id"); 
         if($dataQ==true){
             $_SESSION['toast']['msg']="Succesfully Deleted";
-            header("location:feedback.php");
+            header("location:product.php");
             exit();
         }else{
             $_SESSION['toast']['msg']="Something Went Wrong";
         }
     }
-    
+    // Change Status
+    if(isset($_POST['id']) && isset($_POST['status'])){
+        echo $id=mysqli_real_escape_string($conn,$_POST['id']);
+        $status=mysqli_real_escape_string($conn,$_POST['status']);
+        
+        mysqli_query($conn,"UPDATE `".$tblPrefix."products` SET `status`=$status WHERE pid=$id");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,28 +56,45 @@
                                                 <th>Name</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
-                                                <th>Date</th>
+                                                <th>Discount</th>
+                                                <th>Offer Price</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                <?php 
+                                                    $dataPrd = mysqli_query($conn,"SELECT `pid`,`name`,`quantity`,`price`,`discount`,`offer_price`,`date_time`,`status` FROM `".$tblPrefix."products` WHERE status!=0");
+                                                    $no = 0;
+                                                    while($data = mysqli_fetch_assoc($dataPrd)){ 
+                                                        $no++;
+                                                ?>
                                                 <tr>
-                                                    <td>Id</td>
-                                                    <td>Name</td>
-                                                    <td>Quantity</td>
-                                                    <td>Price</td>
-                                                    <td>Date</td>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $data['name'];?></td>
+                                                    <td><?php echo $data['quantity'];?></td>
+                                                    <td><?php echo $data['price'];?></td>
+                                                    <td><?php echo $data['discount'];?>%</td>
+                                                    <td><?php echo $data['offer_price'];?></td>
                                                     <td>
                                                         <span class="ml-5">
                                                             <label class="cstm-switch">
-                                                                <input type="checkbox" data-this-id="<?php echo $dataP['id'];?>" <?php if($dataP['status']==2){ echo 'checked';}?>  name="option" class="cstm-switch-input change-status">
+                                                                <input type="checkbox" data-this-id="<?php echo $data['pid'];?>" <?php if($data['status']==2){ echo 'checked';}?>  name="option" class="cstm-switch-input change-status">
                                                                 <span class="cstm-switch-indicator"></span>
                                                             </label>
                                                         </span>
                                                     </td>
-                                                    <td>Action</td>
+                                                    <td>
+                                                        <a href="add-product.php?id=<?php echo $data['pid'];?>" class="btn btn-primary">
+                                                            <i class="mdi mdi-grease-pencil"></i>
+                                                        </a>
+                                                        
+                                                        <a href="#" class="btn btn-danger delete-row" data-this-id="<?php echo $data['pid'];?>">
+                                                            <i class="mdi mdi-trash-can"></i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
+                                                <?php }?>
                                             </tbody>
                                             <tfoot>
                                             <tr>
@@ -78,7 +102,8 @@
                                                 <th>Name</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
-                                                <th>Date</th>
+                                                <th>Discount</th>
+                                                <th>Offer Price</th>
                                                 <th>Status</th>
                                                 <th>Action</th>   
                                             </tr>
