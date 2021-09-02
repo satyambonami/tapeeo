@@ -18,7 +18,7 @@
                             <a class="nav-link" href="<?php echo $linkPrefix; ?>contact.php">Contact</a>
                         </li>
                     </ul>
-                    <a href="user/index.php" class="btn btn-gradient">My Account</a>
+                    <a href="index.php" class="btn btn-gradient">My Account</a>
                 </div>
             </div>
         </nav>

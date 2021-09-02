@@ -1,19 +1,19 @@
 <?php
-    include_once("../inc/config.php");
-    $pageName="Privacy Policy";
-    $linkPrefix="../";
+include_once("../inc/config.php");
+$pageName = "Privacy Policy";
+$linkPrefix = "../";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include('../inc/head.php')?>
-    <?php include('inc/user-head.php')?>
+    <?php include('../inc/head.php') ?>
+    <?php include('inc/user-head.php') ?>
 </head>
 
 <body>
-    <?php include('../inc/header.php')?>
-    <?php include('inc/header-user.php')?>
+    <?php include('../inc/header.php') ?>
+    <?php include('inc/header-user.php') ?>
     <main>
         <section class="section-padding-1 cart-section">
             <div class="container">
@@ -140,10 +140,14 @@
                             <h6>$ 200</h6>
                         </div>
                         <input type="radio" id="COD" name="fav_language" value="COD">
-                        <label for="html"><h6>Cash On Delivery</h6></label><br>
+                        <label for="html">
+                            <h6>Cash On Delivery</h6>
+                        </label><br>
                         <input type="radio" id="PUM" name="fav_language" value="PUM">
-                        <label for="css"><h6>Pay U Money</h6></label><br>
-                        <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the terms & condition *</span> 
+                        <label for="css">
+                            <h6>Pay U Money</h6>
+                        </label><br>
+                        <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the terms & condition *</span>
                         <!-- <div class="shipping mt-1">
                             <select name="" id="">
                                 <option value="">Standard Delivery</option>
@@ -156,8 +160,8 @@
             </div>
         </section>
     </main>
-    <?php include('../inc/footer.php')?>
-    <?php include('../inc/js.php')?>
+    <?php include('../inc/footer.php') ?>
+    <?php include('../inc/js.php') ?>
 
 </body>
 
