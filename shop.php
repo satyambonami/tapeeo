@@ -3,6 +3,7 @@
     $pageName="Shop";
 
     $linkPrefix="";
+    $productData = mysqli_query($conn,"SELECT `pid`,`name`,`image`,`offer_price` FROM `".$tblPrefix."products` WHERE status=2 ORDER BY pid ASC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,45 +31,25 @@
         <section class="section-padding-1" style="background-image: url('img/Group\ 28.png'); background-repeat: no-repeat;">
             <div class="container">
                 <div class="row">
+                    <?php
+                    $i=0;
+                        while($dataPrd = mysqli_fetch_assoc($productData)){
+                            $i++;
+                    ?>
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-blue">
+                        <a href="product-detail.php?id=<?php echo $dataPrd['pid']?>">
+                            <div class="product-box <?php if($i % 2 == 0){echo 'product-box-pink';}else{echo 'product-box-blue';}?>">
                                 <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png" class="w-100 img-fluid ">
+                                    <img src="img/products/<?php echo $dataPrd['image']?>" class="w-100 img-fluid ">
                                 </div>
                                 <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Card</h6>
-                                    <p>$19</p>
+                                    <h6><?php echo $dataPrd['name']?></h6>
+                                    <p>$<?php echo $dataPrd['offer_price']?></p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-pink">
-                                <div class="product-image text-center">
-                                    <img src="img/Untitled-5121.png" class="w-100 img-fluid ">
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Band</h6>
-                                    <p>$24</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
-                        <a href="product-detail.php">
-                            <div class="product-box product-box-purple">
-                                <div class="product-image text-center">
-                                    <img src="img/Untitled-1.png" class="w-100 img-fluid ">
-                                </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6>Tapeeo Car</h6>
-                                    <p>$19</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <?php }?>
                 </div>
             </div>
         </section>
