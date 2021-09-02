@@ -3,3 +3,5 @@
 <link href="css/cart.css" rel="stylesheet" />
 <link href="css/order.css" rel="stylesheet" />
 <link href="css/address.css" rel="stylesheet" />
+<link href="css/checkout.css" rel="stylesheet" />
+<link href="css/accountdetails.css" rel="stylesheet" />

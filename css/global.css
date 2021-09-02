@@ -123,3 +123,8 @@ a {
     opacity: 0;
     font-size: 2rem;
 }
+.form-group:focus,
+.form-control:focus{
+    box-shadow: unset !important;
+    border-color: rgba(128, 128, 128, 0.727) !important;
+}

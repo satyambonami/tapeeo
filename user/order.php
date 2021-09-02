@@ -1,6 +1,6 @@
 <?php
 include_once("../inc/config.php");
-$pageName = "Privacy Policy";
+$pageName = "Your Order";
 $linkPrefix = "../";
 ?>
 <!DOCTYPE html>

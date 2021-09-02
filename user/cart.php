@@ -1,6 +1,6 @@
 <?php
 include_once("../inc/config.php");
-$pageName = "Privacy Policy";
+$pageName = "Tapeoo Cart";
 $linkPrefix = "../";
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,22 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <input type="number" name="" value="1" id="">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn  btn-number"
+                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
+                                                    <span class="fa fa-minus"></span>
+                                                </button>
+                                            </span>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class=" input-number" value="1" min="1" max="100">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-right-plus btn btn-number"
+                                                    data-type="plus" data-field="" style="padding:9px 13px;">
+                                                    <span class="fa fa-plus"></span>
+                                                </button>
+                                            </span>
+                                        </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -50,7 +65,6 @@ $linkPrefix = "../";
                                         <small><a href=""><i class="far fa-trash-alt"></i></a></small>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td>
                                         <div class="detailsrow">
@@ -62,7 +76,22 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <input type="number" name="" value="1" id="">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn  btn-number"
+                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
+                                                    <span class="fa fa-minus"></span>
+                                                </button>
+                                            </span>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class=" input-number" value="1" min="1" max="100">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-right-plus btn btn-number"
+                                                    data-type="plus" data-field="" style="padding:9px 13px;">
+                                                    <span class="fa fa-plus"></span>
+                                                </button>
+                                            </span>
+                                        </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -71,8 +100,6 @@ $linkPrefix = "../";
                                         <small><a href=""><i class="far fa-trash-alt"></i></a></small>
                                     </td>
                                 </tr>
-
-
                                 <tr>
                                     <td>
                                         <div class="detailsrow">
@@ -84,7 +111,22 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <input type="number" name="" value="1" id="">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn  btn-number"
+                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
+                                                    <span class="fa fa-minus"></span>
+                                                </button>
+                                            </span>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class=" input-number" value="1" min="1" max="100">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-right-plus btn btn-number"
+                                                    data-type="plus" data-field="" style="padding:9px 13px;">
+                                                    <span class="fa fa-plus"></span>
+                                                </button>
+                                            </span>
+                                        </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -93,8 +135,6 @@ $linkPrefix = "../";
                                         <small><a href=""><i class="far fa-trash-alt"></i></a></small>
                                     </td>
                                 </tr>
-
-
                                 <tr>
                                     <td>
                                         <div class="detailsrow">
@@ -106,7 +146,22 @@ $linkPrefix = "../";
                                         </div>
                                     </td>
                                     <td>
-                                        <input type="number" name="" value="1" id="">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn  btn-number"
+                                                    data-type="minus" data-field="" style="padding:9px 13px; ">
+                                                    <span class="fa fa-minus"></span>
+                                                </button>
+                                            </span>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class=" input-number" value="1" min="1" max="100">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-right-plus btn btn-number"
+                                                    data-type="plus" data-field="" style="padding:9px 13px;">
+                                                    <span class="fa fa-plus"></span>
+                                                </button>
+                                            </span>
+                                        </div>
                                     </td>
                                     <td class="heading-color">$ 39</td>
                                     <td class="total heading-color">$ 39</td>
@@ -115,7 +170,7 @@ $linkPrefix = "../";
                                         <small><a href=""><i class="far fa-trash-alt"></i></a></small>
                                     </td>
                                 </tr>
-
+                                
                             </tbody>
                         </table>
                     </div>
@@ -147,7 +202,8 @@ $linkPrefix = "../";
                         <label for="css">
                             <h6>Pay U Money</h6>
                         </label><br>
-                        <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the terms & condition *</span>
+                        <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the
+                            terms & condition *</span>
                         <!-- <div class="shipping mt-1">
                             <select name="" id="">
                                 <option value="">Standard Delivery</option>
@@ -162,7 +218,39 @@ $linkPrefix = "../";
     </main>
     <?php include('../inc/footer.php') ?>
     <?php include('../inc/js.php') ?>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".btn-increase").on('click', function() {
+                var price = parseInt($(this).data('price')),
+                    finalPrice = parseInt($('.final-price').text());
+                finalPrice += price;
+                prodQuan = $(this).closest('.quantity-input').find('.prod-quantity').val();
+                maxQuan = $(this).closest('.quantity-input').find('.prod-quantity').data('max');
+                prodQuan++;
+                //alert(maxQuan);
+                if (maxQuan >= prodQuan) {
+                    $('.final-price').text(finalPrice);
+                    $('.sub-total').text(finalPrice);
+                    $('input[name="grand-total"]').val(finalPrice);
+                    $(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);
+                }
+            });
 
+            $(".btn-reduce").on('click', function() {
+                var price = parseInt($(this).data('price')),
+                    finalPrice = parseInt($('.final-price').text()),
+                    prodQuan = $(this).closest('.quantity-input').find('.prod-quantity').val();
+                prodQuan--;
+                finalPrice -= price;
+                if (prodQuan > 0) {
+                    $('.final-price').text(finalPrice);
+                    $('.sub-total').text(finalPrice);
+                    $('input[name="grand-total"]').val(finalPrice);
+                    $(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
