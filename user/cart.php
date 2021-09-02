@@ -15,11 +15,12 @@ $linkPrefix = "../";
     <?php include('../inc/header.php') ?>
     <?php include('inc/header-user.php') ?>
     <main>
-        <section class="section-padding-1 cart-section">
+        <section class="section-padding-1">
             <div class="container">
                 <div class="row">
                     <div class="col-9">
-                        <table class="table table-responsive list">
+                        <div class="cart-section">
+                            <table class="table table-responsive list">
                             <thead>
                                 <tr>
                                     <th scope="col">Products Details</th>
@@ -173,8 +174,11 @@ $linkPrefix = "../";
                                 
                             </tbody>
                         </table>
+                        </div>
+                        
                     </div>
-                    <div class="col-3 order-summary">
+                    <div class="col-3 ">
+                        <div class="order-summary">
                         <h3 class="heading-color">Cart Total</h3>
                         <hr>
                         <div class="product-details">
@@ -194,16 +198,7 @@ $linkPrefix = "../";
                             <h6>Total</h6>
                             <h6>$ 200</h6>
                         </div>
-                        <input type="radio" id="COD" name="fav_language" value="COD">
-                        <label for="html">
-                            <h6>Cash On Delivery</h6>
-                        </label><br>
-                        <input type="radio" id="PUM" name="fav_language" value="PUM">
-                        <label for="css">
-                            <h6>Pay U Money</h6>
-                        </label><br>
-                        <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the
-                            terms & condition *</span>
+                        
                         <!-- <div class="shipping mt-1">
                             <select name="" id="">
                                 <option value="">Standard Delivery</option>
@@ -211,6 +206,7 @@ $linkPrefix = "../";
                             </select>
                         </div> -->
                         <button class="w-100 btn btn-gradient mt-3 rounded" type="submit">Proceed To Checkout</button>
+                        </div>
                     </div>
                 </div>
             </div>
