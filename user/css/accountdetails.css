@@ -6,3 +6,19 @@
 .details-content{
     padding: 20px;
 }
+.inputuserimage{
+    margin-left: 10px !important;
+    height: 90px !important;
+    width: 90px !important;
+}
+
+.userImg:after{
+    position:absolute;
+    bottom:0px;
+    right:10px;
+    content: '\f303';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    background:#000;
+    color:#fff;
+}
