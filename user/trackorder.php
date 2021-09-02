@@ -27,7 +27,7 @@ $linkPrefix = "../";
                                     <input type="text" class="form-control mt-0 mb-0"  placeholder="Enter Order Tracking Number">
                                 </div>
                                 <div class="col-3 d-flex align-items-center">
-                                    <button type="submit" class="btn btn-gradient rounded">Track Order</button>
+                                    <button type="submit" class="btn btn-gradient rounded px-4">Track Order</button>
                                 </div>
                             </form>
                         </div>
