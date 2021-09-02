@@ -33,28 +33,31 @@
         }
 
         if($query == true){
-            $files = $_FILES['img'];
-            $fileArr = array();
-            foreach ($files['tmp_name'] as $key => $tmpName) {
-                if(file_exists($tmpName)){
-                    $fileName = $files['name'][$key];
-                    $ext = pathinfo($fileName,PATHINFO_EXTENSION);
-                    $fileName = rand(000,999).time().'.'.$ext;
-
-                    if(move_uploaded_file($tmpName, "../media/site-img/products/".$fileName)==true){
-                        $fileArr[] = $fileName;
+            $tmpName = $_FILES['Pimage']['tmp_name'];
+            if(file_exists($tmpName)){
+                $fileName = $_FILES['Pimage']['name'];
+                $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+                if($ext=='jpg' || $ext=='jpeg' || $ext=='png'){
+                    $fileName = rand(1111,9999).".".$ext;
+                    if(move_uploaded_file($tmpName, '../img/products/'.$fileName)==true){
+                        $image="UPDATE `".$tblPrefix."products` SET image='$fileName' WHERE pid='$id'";
+                        if(mysqli_query($conn,$image)==true){
+                            $_SESSION['toast']['type']="success";
+                            $_SESSION['toast']['msg']="Successfully updated.";
+                            header('add-product.php?id='.$id.'');
+                            exit();
+                        }
+                    }else{
+                        $_SESSION['toast']['msg']="Something went wrong, Please try again.";
+                        header('add-product.php?id='.$id.'');
+                        exit();
                     }
-                }
+                }else{
+                        $_SESSION['toast']['msg']="Upload only image format(jpg,jpeg,png).";
+                        header('add-product.php?id='.$id.'');
+                        exit();
+                    }
             }
-
-            if(array_key_exists(0, $fileArr)){
-                $fileStr = implode(',', $fileArr);
-                mysqli_query($conn, "UPDATE `".$tblPrefix."products` SET image='$fileStr' WHERE pid=$id");	
-            }
-            $_SESSION['toast']['type']="success";
-            $_SESSION['toast']['msg']="Product Successfully Update";
-            header('add-product.php?id='.$id.'');
-            exit();
         }else{
             $_SESSION['toast']['type']="warning";
             $_SESSION['toast']['msg']="Something went wrong, Please try again later.";
@@ -129,7 +132,7 @@
                                         </div>
                                         <div class="form-row mb-3">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputllogo02" name="Pimage[]" />
+                                                <input type="file" class="custom-file-input" id="inputllogo02" name="Pimage" />
                                                 <label class="custom-file-label" for="inputllogo02" required>Product Image</label>
                                             </div>
                                         </div>
