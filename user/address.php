@@ -93,7 +93,7 @@ $linkPrefix = "../";
                                     </div>
                                 </div>
                                 <div class="col-6 gy-3 mt-5">
-                                    <a href="">
+                                    <a data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <div class="add-address">
                                         <div class=" d-flex align-items-center justify-content-center">
                                         <img src="img/plus.png" class="img-fluid">
@@ -110,8 +110,9 @@ $linkPrefix = "../";
             </div>
         </section>
     </main>
-    <?php include('../inc/footer.php') ?>
-    <?php include('../inc/js.php') ?>
+    <?php include('inc/modal.php')?>
+    <?php include('../inc/footer.php')?>
+    <?php include('../inc/js.php')?>
 </body>
 
 </html>

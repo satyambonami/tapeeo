@@ -1,6 +1,6 @@
 <?php
 include_once("../inc/config.php");
-$pageName = "Privacy Policy";
+$pageName = "Account Details";
 $linkPrefix = "../";
 ?>
 <!DOCTYPE html>
@@ -22,39 +22,10 @@ $linkPrefix = "../";
                     <div class="col-9">
                         <div class="details-div">
 
-                            <!-- deta -->
+                            <!-- data -->
                             <div class="details-content">
                                 <div class="row">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <Label>First Name</Label>
-                                                <input type="text" class="form-control form-group"
-                                                    placeholder="First Name">
-
-                                            </div>
-                                            <div class="col-6">
-                                                <Label>First Name</Label>
-                                                <input type="text" class="form-control form-group"
-                                                    placeholder="First Name">
-                                            </div>
-                                        </div>
-
-
-                                        <Label>First Name</Label>
-                                        <input type="text" class="form-control form-group" placeholder="First Name">
-
-
-                                        <Label>First Name</Label>
-                                        <input type="text" class="form-control form-group" placeholder="First Name">
-
-
-
-                                        <div
-                                            class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-start text-xxl-start">
-                                            <a href="" class="btn btn-gradient">Save Changes</a>
-                                        </div>
-                                    </form>
+                                    <form action=""></form>
                                 </div>
                             </div>
                         </div>

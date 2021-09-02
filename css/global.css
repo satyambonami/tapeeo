@@ -128,3 +128,11 @@ a {
     box-shadow: unset !important;
     border-color: rgba(128, 128, 128, 0.727) !important;
 }
+
+.modal-header{
+    border-bottom: 0px !important;
+    padding: 1rem 1rem 0rem !important;
+}
+.modal-body{
+    padding-top: .5rem !important;
+}
