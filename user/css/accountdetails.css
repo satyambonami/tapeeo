@@ -1,0 +1,8 @@
+.details-div{
+    background-color: #fff;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.10);
+    border-radius: 15px;
+}
+.details-content{
+    padding: 20px;
+}

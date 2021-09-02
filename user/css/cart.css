@@ -5,7 +5,7 @@
     background-color: #B9F4F539;
     border-radius: 20px !important;
 }
-.cart-section tbody input{
+.cart-section input{
     width: 50px !important;
 }
 .cart-section tbody tr{
@@ -43,14 +43,13 @@
     display: flex;
     justify-content: space-between;
 }
-.cart-section .order-summary .shipping select{
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.40);
-    padding: 10px 20px;
-}
+
 .cart-section .order-summary .btn{
     box-shadow: 0 0 30px 0 rgba(0,0,0,.10);
 }
 .cart-section .order-summary h6{
     color: unset !important;
 } 
+.cart-section .btn-number span{
+    font-size: 10px;
+}

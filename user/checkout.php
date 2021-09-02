@@ -19,9 +19,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-9">
-                        <form action="">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModalLong">
+                            Launch demo modal
+                        </button>
 
-                        </form>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="col-3 trackorder-summary">
                         <h3 class="heading-color">Your Order</h3>
@@ -44,10 +70,15 @@
                             <h6>$ 200</h6>
                         </div>
                         <input type="radio" id="COD" name="fav_language" value="COD">
-                        <label for="html"><h6>Cash On Delivery</h6></label><br>
+                        <label for="html">
+                            <h6>Cash On Delivery</h6>
+                        </label><br>
                         <input type="radio" id="PUM" name="fav_language" value="PUM">
-                        <label for="css"><h6>Pay U Money</h6></label><br>
-                        <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the terms & condition *</span> 
+                        <label for="css">
+                            <h6>Pay U Money</h6>
+                        </label><br>
+                        <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the
+                            terms & condition *</span>
                         <!-- <div class="shipping mt-1">
                             <select name="" id="">
                                 <option value="">Standard Delivery</option>
