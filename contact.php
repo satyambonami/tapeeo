@@ -11,26 +11,7 @@
     <!-- Required meta tags -->
     <head>
         <?php include('inc/head.php')?>
-    <style>
-        .form-control {
-            display: block;
-            width: 100%;
-            padding: 0.575rem .75rem;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #212529;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #eee;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            border-radius: 0.50rem;
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-            margin-top: 12px;
-        }
-    </style>
+    
 </head>
 
 <body>

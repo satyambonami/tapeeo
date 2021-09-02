@@ -7,7 +7,7 @@
             <li><a href="index.php" class="side-nav-links <?php if(basename($_SERVER['PHP_SELF'])=="index.php"){echo 'active';}?>">Dashboard</a></li>
             <li><a href="order.php" class="side-nav-links <?php if(basename($_SERVER['PHP_SELF'])=="order.php"){echo 'active';}?>">Orders</a></li>
             <li><a href="cart.php" class="side-nav-links">Cart</a></li>
-            <li><a href="" class="side-nav-links <?php if(basename($_SERVER['PHP_SELF'])==""){echo 'active';}?>">Track Order</a></li>
+            <li><a href="trackorder.php" class="side-nav-links <?php if(basename($_SERVER['PHP_SELF'])=="trackorder.php"){echo 'active';}?>">Track Order</a></li>
             <li><a href="address.php" class="side-nav-links <?php if(basename($_SERVER['PHP_SELF'])=="address.php"){echo 'active';}?>">Address</a></li>
             <li><a href="" class="side-nav-links <?php if(basename($_SERVER['PHP_SELF'])==""){echo 'active';}?>">Account Details</a></li>
             <li><a href="logout.php" class="side-nav-links">Log out</a></li>
