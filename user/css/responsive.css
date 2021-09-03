@@ -1,17 +1,8 @@
-
-@media (max-width:768px){
-    .mobilelogo img{
-        height: 8vh;
+@media only screen and (min-width: 320px) and (max-width: 479px){
+    .mobile-nav h6{
+        display: none;
     }
-    .side-nav-img img{
-        width: 100px !important;
-        height: 100px !important;
-    }
-    .mobilemenu{
-        position: fixed;
-        bottom: 0px;
-        left: 0px;
-        background-color: #9FDEEA;
+    .footer-bg{
+        padding-bottom: 90px;
     }
 }
-
