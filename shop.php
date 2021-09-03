@@ -32,12 +32,13 @@
             <div class="container">
                 <div class="row">
                     <?php
-                    $i=0;
-                        while($dataPrd = mysqli_fetch_assoc($productData)){
-                            $i++;
+                    if(mysqli_num_rows($productData)){
+                        $i=0;
+                            while($dataPrd = mysqli_fetch_assoc($productData)){
+                                $i++;
                     ?>
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
-                        <a href="product-detail.php?id=<?php echo $dataPrd['pid']?>">
+                        <a href="product-detail.php?product=<?php echo $dataPrd['name']?>&id=<?php echo $dataPrd['pid']?>">
                             <div class="product-box <?php if($i % 2 == 0){echo 'product-box-pink';}else{echo 'product-box-blue';}?>">
                                 <div class="product-image text-center">
                                     <img src="img/products/<?php echo $dataPrd['image']?>" class="w-100 img-fluid ">
@@ -49,7 +50,9 @@
                             </div>
                         </a>
                     </div>
-                    <?php }?>
+                    <?php } }else{?>
+                        <img src="img/no-result.png" alt="No Result" class="img-fluid img-responsive w-50 m-auto">
+                        <?php  }?>
                 </div>
             </div>
         </section>

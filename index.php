@@ -96,7 +96,7 @@
                         $i++;
                 ?>
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                        <a href="product-detail.php">
+                        <a href="product-detail.php?product=<?php echo ak_url_endoce( $dataP['name'])?>&id=<?php echo $dataP['pid']?>">
                             <div class="product-box  <?php if($i % 2 == 0){echo 'product-box-pink';}else{echo 'product-box-blue';}?>">
                                 <div class="product-image text-center">
                                     <img src="img/products/<?php echo $dataP['image']?>" class="w-100 img-fluid ">
