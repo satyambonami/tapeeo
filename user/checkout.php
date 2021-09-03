@@ -2,6 +2,13 @@
     include_once("../inc/config.php");
     $pageName="Checkout";
     $linkPrefix="../";
+
+    if(!isset($_SESSION['checkout'])){
+        $_SESSION['toast']['type']="error";
+        $_SESSION['toast']['msg']="An unexpected error occured.";
+        header('location:cart.php');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,41 +61,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-4 gy-3">
-                                    <h6 class="ms-1">
-                                        <commit commit -m span style="color:#DF2C77"><b>HOME</b></span>
-                                    </h6>
-                                    <div class="address-card">
-                                        <h5 class="mb-2">
-                                            Address holder name
-                                        </h5>
-                                        <p class="mb-2">
-                                            Phone - +8144582619
-                                        </p>
-                                        <p class="mb-2">5 McBride Road, Viola,id, 83832 United States </p>
-                                        <p class="mb-2">Viola,id, 83832 United States</p>
-                                        <p class="mb-2">Postal Code : 99579</p>
-                                        <div class="address-func">
-                                            <div class="default">
-                                                <a href="">Remove from default </a>
-                                            </div>
-                                            <div class="edit-delete mt-2">
-                                                <a href="" class="me-2">Edit Address </a>
-                                                <a href="">Delete Address </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col-4 gy-3 mt-5">
-                                    <a  data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <div class="add-address">
-                                        <div class=" d-flex align-items-center justify-content-center">
-                                        <img src="img/plus.png" class="img-fluid">
-                                        </div>
-                                        <h2 class="text-center mt-3">Add Address</h2>
-                                    </div>
-                                    </a>
-                                </div>  -->
                             </div>
                             <div class="row">
                                 <div class="col-12">
@@ -96,47 +68,47 @@
 
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div class="form-group border-0">
                                                     <input type="text" class="form-control" placeholder="First Name">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div class="form-group border-0">
                                                     <input type="text" class="form-control" placeholder="Last Name">
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group border-0">
                                             <input type="text" class="form-control" placeholder="Contact">
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group border-0">
                                             <input type="email" class="form-control" placeholder="Your Email">
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group border-0">
                                             <input type="text" class="form-control"
                                                 placeholder="Street , House , Locality">
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div class="form-group border-0">
                                                     <input type="text" class="form-control" placeholder="City">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div class="form-group border-0">
                                                     <input type="text" class="form-control" placeholder="Postal Code">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div class="form-group border-0">
                                                     <input type="text" class="form-control" placeholder="State">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div class="form-group border-0">
                                                     <input type="text" class="form-control" placeholder="Country">
                                                 </div>
                                             </div>
@@ -192,7 +164,7 @@
                             </label><br>
                             <input type="radio" id="PUM" name="fav_language" value="PUM">
                             <label for="css">
-                                <h6>Pay U Money</h6>
+                                <h6>PayPal</h6>
                             </label><br>
                             <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the
                                 terms & condition *</span>
