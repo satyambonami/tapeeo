@@ -13,3 +13,35 @@
  <script>
      AOS.init();
  </script>
+ <script>  
+ $('.add-to-cart').on('click', function(e){
+  e.preventDefault();
+  // var prod_id = $('input[name="prod_id"]').val(),
+  //   quantity = $('input[name="quantity"]').val();
+  var prod_id = $(this).data("this-pid"),
+    quantity = $(this).data("this-qty");
+  // alert(prod_id);
+  // alert(quantity);
+  $.ajax({
+    url:'inc/ajax_add_to_cart.php',
+    method:"POST",
+    data:{prod_id, quantity},
+    success: function(response){
+      if(response==1){
+        alertify.warning('Product added to cart.');
+      }else{
+        if(response==2){
+          alertify.warning('Product already in your cart.');
+        }else{
+          alertify.warning('Something went wrong, Please try again.');
+        }
+      }
+    },
+    error: function(response){
+      //console.log(response);
+      alertify.error('Something went wrong, Please try again.');
+    }
+   })
+
+  });  
+</script>

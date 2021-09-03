@@ -10,6 +10,8 @@
 
 <head>
     <?php include('inc/head.php')?>
+    <link rel="stylesheet" href="admin/assets/css/alertify.rtl.min.css">
+        <link rel="stylesheet" href="admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
@@ -59,6 +61,9 @@
     </main>
     <?php include('inc/footer.php')?>
     <?php include('inc/js.php')?>
+    <script src="admin/assets/js/alertify.min.js"></script>
+    
+<?php echo toast(1);?>
 </body>
 
 </html>

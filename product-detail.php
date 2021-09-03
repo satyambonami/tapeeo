@@ -3,21 +3,35 @@
     $pageName="Product";
 
     $linkPrefix="";
-
     // Product Details
     if(isset($_GET['product']) && isset($_GET['id'])){
         $Pid = mysqli_real_escape_string($conn, ak_secure_string($_GET['id']));
+        $data = mysqli_query($conn, "SELECT `pid`, `name`, `slug`, `fulldesc`, `description`, `quantity`, `image`, `price`, `discount`, `offer_price`, `meta_title`, `meta_desc`, `meta_keywords`, `warranty`, `date_time`, `status` FROM `".$tblPrefix."products` WHERE pid = $Pid");
+        
+        if(mysqli_num_rows($data) == 0){
+            $_SESSION['toast']['msg']="No Product Found.";
+            header("location:shop.php");
+            exit();
+        }else{
+            $product = mysqli_fetch_assoc($data);
+        }
     }else{
         $_SESSION['toast']['msg']="No Product Found.";
         header("location:shop.php");
         exit();
     }
+
+    // Related PRoducts
+    $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `".$tblPrefix."products` WHERE status=2 AND pid != ".$_GET['id']." ORDER BY pid ASC");
+    print_r($_SESSION['cart']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php include('inc/head.php')?>
+    <link rel="stylesheet" href="admin/assets/css/alertify.rtl.min.css">
+        <link rel="stylesheet" href="admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
@@ -50,15 +64,20 @@
                         <div class="detail-content">
                             <div class="heading-what mb-4 mt-4 mt-sm-4 mt-md-4 mt-lg-0 mt-xxl-0 ">
                                 <h2 style="color:#d33696;">
-                                    TAPEEO CARD
+                                    <?php echo $product['name'];?>
                                     <div class="animationLine mt-2 w-25"></div>
                                 </h2>
                             </div>
                             <div class="price">
                                 <h3>
-                                    $1.499
+                                    $<?php echo $product['offer_price'];?>
                                     <span style="text-decoration:line-through">
-                                        $1.999
+                                        $<?php echo $product['price'];?>
+                                    </span>
+                                    &nbsp;
+                                    <span>
+                                        Discount
+                                        <?php echo $product['discount'];?>%
                                     </span>
                                 </h3>
 
@@ -68,18 +87,17 @@
                                         <p class="minus">
                                             <i class="fas fa-minus"></i>
                                         </p>
-                                        <p class="number">1</p>
+                                        <input type="number" name="quantity" id=""class="number" value="1" max="<?php echo $product['quantity'];?>" min="1">
                                         <p class="plus">
                                             <i class="fas fa-plus"></i>
                                         </p>
                                     </div>
-                                    <a href="" class="btn btn-gradient py-3 ms-3">Add to cart</a>
+                                    <button type="button" class="btn btn-gradient py-3 ms-3 add-to-cart"  data-this-pid="<?php echo $product['pid'];?>" data-this-qty="1" >Add to cart</button>
                                 </div>
                                 <!-- Card Button -->
                                 <div class="short-discription mt-4">
                                     <p style="color: #707070;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum in accusamus aut dolores qui nihil sint officia sed tenetur debitis, nam a quod et atque id ex non iste ducimus ullam libero. Eaque doloribus architecto libero ipsum in voluptas ratione sed
-                                        sint magni quidem saepe, impedit animi dolor ducimus a. Voluptas eaque culpa, laborum perspiciatis ipsum officia excepturi placeat molestiae consequuntur qui, magnam corporis quod rerum dolores dicta similique autem?
+                                        <?php echo $product['description'];?>
                                     </p>
                                 </div>
                             </div>
@@ -114,16 +132,17 @@
             <div class="row">
                 <div class="col-12">
                     <div class="content active_ContentOne ">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nihil placeat iste. Nam sunt sit fugit est odio quibusdam cupiditate?</p>
+                        <?php echo htmlspecialchars_decode($product['fulldesc']);?>
                     </div>
                     <div class="content active_ContentTwo hideDiv">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas odit sapiente minus veniam exercitationem ducimus, officia voluptates, aliquid quam temporibus libero! Dolores quisquam fugit in fugiat excepturi mollitia deleniti perferendis.
-                        </p>
+                        <?php echo htmlspecialchars_decode($product['warranty']);?>
                     </div>
                 </div>
             </div>
         </section>
+        <?php 
+            if(mysqli_num_rows($Rdata) != 0) {
+        ?>
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
@@ -135,73 +154,39 @@
                         </h2>
                     </div>
                     <div class="owl-carousel owl-theme">
-
-                        <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                            <a href="product-detail.php">
-                                <div class="product-box product-box-blue">
-                                    <div class="product-image text-center">
-                                        <img src="img/Untitled-1.png" />
-                                    </div>
-                                    <div class="product-heading text-center mt-3">
-                                        <h6>Tapeeo Card</h6>
-                                        <p>$19</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        <?php
+                            $i=0;
+                            while($related = mysqli_fetch_assoc($Rdata)) {
+                                $i++;
+                        ?>
                         <div class="item">
                             <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                <a href="product-detail.php">
-                                    <div class="product-box product-box-pink">
+                                <a href="product-detail.php?product=<?php echo $related['name']?>&id=<?php echo $related['pid']?>">
+                                    <div class="product-box <?php if($i % 2 == 0){echo 'product-box-pink';}else{echo 'product-box-blue';}?>">
                                         <div class="product-image text-center">
-                                            <img src="img/Untitled-5121.png" />
+                                            <img src="img/products/<?php echo $related['image']?>" class="w-100 img-fluid "/>
                                         </div>
                                         <div class="product-heading text-center mt-3">
-                                            <h6>Tapeeo Band</h6>
-                                            <p>$24</p>
+                                            <h6><?php echo $related['name']?></h6>
+                                            <p>$<?php echo $related['offer_price']?></p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                <a href="product-detail.php">
-                                    <div class="product-box product-box-purple">
-                                        <div class="product-image text-center">
-                                            <img src="img/Untitled-1.png" />
-                                        </div>
-                                        <div class="product-heading text-center mt-3">
-                                            <h6>Tapeeo Car</h6>
-                                            <p>$19</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-12 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                <a href="product-detail.php">
-                                    <div class="product-box product-box-blue">
-                                        <div class="product-image text-center">
-                                            <img src="img/dsfsfs.png" />
-                                        </div>
-                                        <div class="product-heading text-center mt-3">
-                                            <h6>Tapeeo Dot</h6>
-                                            <p>$19</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>
         </section>
+        <?php }?>
         <!-- Tab Section -->
     </main>
     <?php include('inc/footer.php')?>
     <?php include('inc/js.php')?>
+    <script src="admin/assets/js/alertify.min.js"></script>
+    
+<?php echo toast(1);?>
     <script>
         AOS.init();
 
