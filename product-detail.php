@@ -23,7 +23,7 @@
 
     // Related PRoducts
     $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `".$tblPrefix."products` WHERE status=2 AND pid != ".$_GET['id']." ORDER BY pid ASC");
-    print_r($_SESSION['cart']);
+    // print_r($_SESSION['cart']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,8 +55,8 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6">
                         <div class="product-box py-5">
-                            <div class="ProductimgBox">
-                                <img src="img/2.png" class="img-fluid img-responsive">
+                            <div class="ProductimgBox text-center">
+                                <img src="img/products/<?php echo $product['image'];?>" class="img-fluid img-responsive">
                             </div>
                         </div>
                     </div>
