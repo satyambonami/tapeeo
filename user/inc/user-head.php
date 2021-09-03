@@ -7,3 +7,4 @@
 <link href="css/accountdetails.css" rel="stylesheet" />
 <link href="css/track.css" rel="stylesheet" />
 <link href="css/signin.css" rel="stylesheet" />
+<link href="css/mobile.css" rel="stylesheet" />

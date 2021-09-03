@@ -60,7 +60,10 @@ ul {
 a {
     text-decoration: none !important;
 }
-
+.btn-check:focus + .btn, .btn:focus {
+	outline: 0;
+	box-shadow: none !important;
+}
 /* Section Padding */
 .section-padding-1{
     padding: 60px 0;
