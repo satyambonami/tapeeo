@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="menu-item active ">
-                    <a href="contact.php" class=" menu-link"> 
+                    <a href="logout.php" class=" menu-link"> 
                         <span class="menu-label"> 
                             <span class="menu-name">Logout
                         </span>

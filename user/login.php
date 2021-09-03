@@ -2,6 +2,31 @@
 include_once("../inc/config.php");
 $pageName = "Login With Tapeoo";
 $linkPrefix = "../";
+
+// Sign In
+if(isset($_POST['login'])){
+    $email= strtolower(mysqli_real_escape_string($conn,ak_secure_string($_POST['email'])));
+    $pass=mysqli_real_escape_string($conn,$_POST['password']);
+    $password=hash('sha512',$pass.HASH_KEY);
+      
+      $checkAdmin=mysqli_query($conn,"SELECT * FROM `".$tblPrefix."users` WHERE `email`='$email' AND `password`='$password' AND status>1 AND type=0");
+      if(mysqli_num_rows($checkAdmin)>0){
+          $adminData=mysqli_fetch_assoc($checkAdmin);
+          $_SESSION['user']=$adminData;
+          if(isset($_SESSION['user'])){
+              unset($_SESSION['user']['password']);
+              $_SESSION['toast']['type']="success";
+              $_SESSION['toast']['msg']="Successfully logged In.";
+              header("location:index.php");
+              exit();
+         }else{
+              $_SESSION['toast']['msg']='Something went wrong, Please try again.';
+         }
+      }else{
+          $_SESSION['toast']['msg']='Currently you are not registered with us, Or your account is deactivated. <br> Please contact to senior admin.';
+      }
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +34,8 @@ $linkPrefix = "../";
 <head>
     <?php include('../inc/head.php') ?>
     <?php include('inc/user-head.php') ?>
+    <link rel="stylesheet" href="../admin/assets/css/alertify.rtl.min.css">
+        <link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
@@ -31,12 +58,12 @@ $linkPrefix = "../";
                     <div class="col-5 g-0">
                         <div class="login-main d-flex justify-content-center flex-column">
                             <div class="text-center">
-                            <img src="../img/logo.png" alt="" class="img-responsive img-fluid login-form-image">
+                            <img src="../img/<?php echo $_SESSION['general']['logo'];?>" alt="" class="img-responsive img-fluid login-form-image">
                             <p class="mt-2">Sign In to your account</p>
-                            <form action="">
+                            <form method="POST">
                                 <input type="email" class="form-control" placeholder="Your Email" name="email" require
                                     autocomplete="off">
-                                <input type="text" class="form-control" placeholder="Enter Password" name="pass" require
+                                <input type="text" class="form-control" placeholder="Enter Password" name="password" require
                                     autocomplete="off">
                                 <div class="row">
                                     <div class="col-5">
@@ -52,7 +79,7 @@ $linkPrefix = "../";
                                 </div>
                                 <div
                                     class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-center text-xxl-center">
-                                    <button type="submit" class="btn btn-gradient" name="submit"> Submit </button>
+                                    <button type="submit" class="btn btn-gradient" name="login"> Submit </button>
                                 </div>
 
                             </form>
@@ -68,6 +95,8 @@ $linkPrefix = "../";
     </main>
     <?php include('../inc/footer.php') ?>
     <?php include('../inc/js.php') ?>
+    <script src="../admin/assets/js/alertify.min.js"></script>
+<?php echo toast(1);?>
 </body>
 
 </html>

@@ -2,6 +2,11 @@
 include_once("../inc/config.php");
 $pageName = "Your Order";
 $linkPrefix = "../";
+if(!isset($_SESSION['user'])){
+    $_SESSION['toast']['msg']="Please login to continue";
+    header('location:login.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

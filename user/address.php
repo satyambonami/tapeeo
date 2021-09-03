@@ -2,6 +2,11 @@
 include_once("../inc/config.php");
 $pageName = "Address";
 $linkPrefix = "../";
+if(!isset($_SESSION['user'])){
+    $_SESSION['toast']['msg']="Please login to continue";
+    header('location:login.php');
+    exit();
+}
 
 $dataAddress = mysqli_query($conn,"SELECT `id`, `user_id`, `default`, `type`, `name`, `email`, `phone`, `country`, `state`, `city`, `pincode`, `address`, `date_time`, `status` FROM `bnmi_user_address` WHERE `user_id` = 12 AND `status` !=0 ");
 
@@ -98,7 +103,7 @@ if(isset($_GET['delete-row'])){
                                     while($address = mysqli_fetch_assoc($dataAddress)){
                                 ?>
                                     <div class="col-6 gy-3">
-                                        <h6 class="ms-1">Default : <span style="color:#DF2C77"><b>HOME</b></span></h6>
+                                        <h6 class="ms-1"><?php if($address['default']==1){ echo 'DEFAULT';}?> : <span style="color:#DF2C77"><b>HOME</b></span></h6>
                                         <div class="address-card">
                                             <h5 class="mb-2">
                                                 <?php echo $address['name'];?>
@@ -108,7 +113,7 @@ if(isset($_GET['delete-row'])){
                                             </p>
                                             <p class="mb-2"><?php echo $address['address'];?></p>
                                             <p class="mb-2"><?php echo country($address['country']);?></p>
-                                            <p class="mb-2">Postal Code : 99579</p>
+                                            <p class="mb-2">Postal Code : <?php echo $address['pincode'];?></p>
                                             <div class="address-func">
                                                 <div class="default">
                                                     <a href="">Remove from default </a>
