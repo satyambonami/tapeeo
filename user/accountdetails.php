@@ -49,10 +49,19 @@ $linkPrefix = "../";
                                     <div class="col-12">
                                         <div class="content active_ContentOne ">
                                             <form action="" class="mb-4">
-                                                <input type="file" name="" id='input_file' hidden>
-                                                <div class="text-center mb-3 userImg position-realtive" onclick="open_file()">
-                                                    <img src="./img/Ellipse 3.png" alt="" class="inputuserimage">
-
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="text-center position-relative">
+                                                        <div class="text-center mb-3  userImg" onclick="open_file()">
+                                                            <div id="img-preview"><img src="./img/Ellipse 3.png" alt="" class="inputuserimage"
+                                                                id="target"></div>
+                                                                <input type="file" id="choose-file"
+                                                            name="choose-file" hidden/>
+                                                            <!-- <input type="file" name="" id='input_file' hidden> -->
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-6">
@@ -68,7 +77,7 @@ $linkPrefix = "../";
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Contact">
 
-                                                <input type="email" class="form-control" placeholder="Your Email">
+                                                <input type="email" class="form-control" placeholder="example@gmail.com" disabled>
                                                 <input type="text" class="form-control"
                                                     placeholder="Street , House , Locality">
 
@@ -109,9 +118,7 @@ $linkPrefix = "../";
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-                                            </form>
+                                        </form>
                                         </div>
                                         <div class="content active_ContentTwo hideDiv">
                                             <form action="" class="mb-4">
@@ -133,11 +140,7 @@ $linkPrefix = "../";
                                 </div>
                             </section>
                             <!-- data -->
-                            <div class="details-content">
-                                <div class="row">
-                                    <form action=""></form>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -198,7 +201,25 @@ $linkPrefix = "../";
     });
 
     function open_file() {
-        document.getElementById('input_file').click();
+        document.getElementById('choose-file').click();
+    }
+    // select image
+    const chooseFile = document.getElementById("choose-file");
+    const imgPreview = document.getElementById("img-preview");
+    chooseFile.addEventListener("change", function() {
+        getImgData();
+    });
+
+    function getImgData() {
+        const files = chooseFile.files[0];
+        if (files) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(files);
+            fileReader.addEventListener("load", function() {
+                imgPreview.style.display = "block";
+                imgPreview.innerHTML = '<img src="' + this.result + '" />';
+            });
+        }
     }
     </script>
 </body>

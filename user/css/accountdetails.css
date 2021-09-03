@@ -11,14 +11,30 @@
     height: 90px !important;
     width: 90px !important;
 }
-
-.userImg:after{
-    position:absolute;
-    bottom:0px;
-    right:10px;
-    content: '\f303';
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    background:#000;
-    color:#fff;
+.accountdetails .userImg{
+    width: fit-content;
+    padding: 0px !important;
 }
+.userImg::after {
+	content: '\f303';
+	font-family: "Font Awesome 5 Free";
+	font-weight: 600;
+	background: #ff7ba7;
+	color: #fff;
+	bottom: 24px;
+	right: 0;
+	margin-right: -67px;
+	padding: 8px;
+	height: 40px;
+	width: 40px;
+	border-radius: 50px;
+	position: relative;
+}
+
+
+#img-preview img {  
+    width: 100%;
+    height: 90px;
+    width: 90px; 
+    border-radius: 50%;   
+  }
