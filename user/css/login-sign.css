@@ -1,0 +1,13 @@
+.login-main{
+    background-color: #fff;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.10);
+    border-radius: 15px;
+    padding: 3vh;
+}
+.login-bg-image{
+    background: url(../img/donut.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    padding: 7vh;
+}
