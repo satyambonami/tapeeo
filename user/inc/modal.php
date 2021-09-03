@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" class="">
+                <form method="POST" >
                     <input type="hidden" name="this-id" value="0">
                     <div class="row">
                         <div class="col-6">
@@ -36,25 +36,34 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group border-0">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected disabled value="0">Select Country</option>
+                                    <?php $countryQuery = mysqli_query($conn, "SELECT `id`,`name` FROM `countries` ");  
+                                    while($country = mysqli_fetch_assoc($countryQuery)){ ?>
+                                        <option value="<?php echo $country['id']?>"><?php echo $country['name']?></option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group border-0">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected disabled value="0">Select Country</option>
+                                    <?php $countryQuery = mysqli_query($conn, "SELECT `id`,`name` FROM `countries` ");  
+                                    while($country = mysqli_fetch_assoc($countryQuery)){ ?>
+                                        <option value="<?php echo $country['id']?>"><?php echo $country['name']?></option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group border-0">
                                 <input type="text" class="form-control" placeholder="City">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group border-0">
                                 <input type="text" class="form-control" placeholder="Postal Code">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group border-0">
-                                <input type="text" class="form-control" placeholder="State">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group border-0">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected disabled value="0">Select Country</option>
-                                <?php $countryQuery = mysqli_query($conn, "SELECT `id`,`name` FROM `countries` ");  ?>
-                            </select>
                             </div>
                         </div>
                     </div>

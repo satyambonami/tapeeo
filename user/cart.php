@@ -9,7 +9,6 @@ $shippingTotal =$_SESSION['general']['shipping_charge'];
 $taxTotal =$_SESSION['general']['tax'];
 $totalPrice=0;
 $grandTotal=0;
-$TotalTax = ($totalPrice*$taxTotal)/100;
 
 // Remove Product From Cart
 if(isset($_GET['remove'])){
@@ -201,6 +200,7 @@ if(isset($_POST['checkout'])){
                             <div class="order-summary">
                                 <h3 class="heading-color">Cart Total</h3>
                                 <hr>
+                                <?php $TotalTax = ($totalPrice*$taxTotal)/100;?>
                                 <div class="product-details mt-1">
                                     <h6>Sub Total</h6>
                                     <h6>$<?php echo $totalPrice;?></h6>
