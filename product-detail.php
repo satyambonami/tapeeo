@@ -3,6 +3,15 @@
     $pageName="Product";
 
     $linkPrefix="";
+
+    // Product Details
+    if(isset($_GET['product']) && isset($_GET['id'])){
+        $Pid = mysqli_real_escape_string($conn, ak_secure_string($_GET['id']));
+    }else{
+        $_SESSION['toast']['msg']="No Product Found.";
+        header("location:shop.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
