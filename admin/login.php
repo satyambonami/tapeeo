@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
   $pass=mysqli_real_escape_string($conn,$_POST['password']);
   $password=hash('sha512',$pass.HASH_KEY);
     
-    $checkAdmin=mysqli_query($conn,"SELECT * FROM `".$tblPrefix."users` WHERE `email`='$email' AND `password`='$password' AND status>1");
+    $checkAdmin=mysqli_query($conn,"SELECT * FROM `".$tblPrefix."users` WHERE `email`='$email' AND `password`='$password' AND status>1 AND type=1");
     if(mysqli_num_rows($checkAdmin)>0){
         $adminData=mysqli_fetch_assoc($checkAdmin);
         $_SESSION['adi']=$adminData;
