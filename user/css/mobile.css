@@ -1,3 +1,17 @@
+
 @media (max-width:768px){
-    
+    .mobilelogo img{
+        height: 8vh;
+    }
+    .side-nav-img img{
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .mobilemenu{
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        background-color: #9FDEEA;
+    }
 }
+
