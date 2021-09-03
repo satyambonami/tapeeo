@@ -96,47 +96,47 @@
 
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div >
                                                     <input type="text" class="form-control" placeholder="First Name">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div >
                                                     <input type="text" class="form-control" placeholder="Last Name">
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div >
                                             <input type="text" class="form-control" placeholder="Contact">
                                         </div>
 
-                                        <div class="form-group">
+                                        <div >
                                             <input type="email" class="form-control" placeholder="Your Email">
                                         </div>
 
-                                        <div class="form-group">
+                                        <div >
                                             <input type="text" class="form-control"
                                                 placeholder="Street , House , Locality">
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div >
                                                     <input type="text" class="form-control" placeholder="City">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div >
                                                     <input type="text" class="form-control" placeholder="Postal Code">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div >
                                                     <input type="text" class="form-control" placeholder="State">
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form-group">
+                                                <div >
                                                     <input type="text" class="form-control" placeholder="Country">
                                                 </div>
                                             </div>
