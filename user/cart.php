@@ -9,6 +9,8 @@ $shippingTotal =$_SESSION['general']['shipping_charge'];
 $taxTotal =$_SESSION['general']['tax'];
 $totalPrice=0;
 $grandTotal=0;
+$cartCount = 0;
+
 
 // Remove Product From Cart
 if(isset($_GET['remove'])){
@@ -101,7 +103,6 @@ if(isset($_POST['checkout'])){
                                     <tbody>
                                     <?php
                                         if(isset($_SESSION['user']) && !isset($_SESSION['cart'])){ 
-                                            $cartCount = 0;
                                             $cartUser=mysqli_query($conn,"SELECT cart.id, cart.quantity as cartqty,pr.pid as prodId, pr.name, pr.offer_price, pr.image, pr.pid, pr.quantity as prq FROM `".$tblPrefix."cart` cart LEFT JOIN `".$tblPrefix."products` pr ON cart.prod_id=pr.pid WHERE user_id='".$_SESSION['user']['id']."'");
                                             while($cartData1=mysqli_fetch_assoc($cartUser)){
                                                 $cartCount++;
@@ -140,7 +141,6 @@ if(isset($_POST['checkout'])){
                                             </td>
                                         </tr>
                                     <?php } }elseif(isset($_SESSION['cart'])){ 
-                                        $cartCount=0;
                                                 foreach($_SESSION['cart'] as $key => $value){
                                                     $dataPrdC = mysqli_query($conn,"SELECT `pid`, `name`, `quantity`, `image`, `price`, `discount`, `offer_price`, `status` FROM `".$tblPrefix."products` WHERE pid = $key");
                                                     while($cartDataC = mysqli_fetch_assoc($dataPrdC)){

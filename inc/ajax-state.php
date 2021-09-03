@@ -3,7 +3,7 @@ require_once('config.php');
 if(isset($_POST['state'])){
 	$id=mysqli_real_escape_string($conn,$_POST['state']);
 
-	$sql="SELECT id, name FROM `".$tblPrefix."states` WHERE `country_id`='$id'";
+	$sql="SELECT id, name FROM `states` WHERE `country_id`='$id'";
 	$res=mysqli_query($conn,$sql);
 
 	echo '<option value="">State</option>';

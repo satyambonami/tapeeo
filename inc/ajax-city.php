@@ -1,9 +1,9 @@
 <?php 
 require_once('config.php');
-if(isset($_POST['state'])){
-	$id=mysqli_real_escape_string($conn,$_POST['state']);
+if(isset($_POST['city'])){
+	$id=mysqli_real_escape_string($conn,$_POST['city']);
 
-	$sql="SELECT id, name FROM `".$tblPrefix."cities` WHERE `state_id`='$id'";
+	$sql="SELECT id, name FROM `cities` WHERE `state_id`='$id'";
 	$res=mysqli_query($conn,$sql);
 
 	echo '<option value="">City</option>';

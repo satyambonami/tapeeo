@@ -168,11 +168,20 @@ function ak_shipping_status($status){
 	}
 }
 
+function country($countryId){
+	global $conn;
+	global $tblPrefix;
+
+	$country=mysqli_fetch_assoc(mysqli_query($conn,"SELECT name FROM `countries` WHERE id=$countryId"))['name'];
+
+	return $country;
+}
+
 function city($cityId){
 	global $conn;
 	global $tblPrefix;
 
-	$city=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `".$tblPrefix."cities` WHERE id=$cityId"))['name'];
+	$city=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `cities` WHERE id=$cityId"))['name'];
 
 	return $city;
 }
@@ -180,7 +189,7 @@ function state($stateId){
 	global $conn;
 	global $tblPrefix;
 
-	$state=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `".$tblPrefix."states` WHERE id=$stateId"))['name'];
+	$state=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `states` WHERE id=$stateId"))['name'];
 
 	return $state;
 }

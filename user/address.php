@@ -3,32 +3,36 @@ include_once("../inc/config.php");
 $pageName = "Address";
 $linkPrefix = "../";
 
+$dataAddress = mysqli_query($conn,"SELECT `id`, `user_id`, `default`, `type`, `name`, `email`, `phone`, `country`, `state`, `city`, `pincode`, `address`, `date_time`, `status` FROM `bnmi_user_address` WHERE `user_id` = 12 AND `status` !=0 ");
+
 // Add/Edit Address
 if(isset($_POST['submit-address'])){
-    $id=mysqli_real_escape_string($conn,ps_secure_string($_POST['this-id']));
-    $name=mysqli_real_escape_string($conn,ps_secure_string($_POST['name']));
-    $email=mysqli_real_escape_string($conn,ps_secure_string($_POST['email']));
-    $phone=mysqli_real_escape_string($conn,ps_secure_string($_POST['phone']));
-    $city=mysqli_real_escape_string($conn,ps_secure_string($_POST['city']));
-    $state=mysqli_real_escape_string($conn,ps_secure_string($_POST['state']));
-    $pincode=mysqli_real_escape_string($conn,ps_secure_string($_POST['pincode']));
+    $userId = 12;
+    $id=mysqli_real_escape_string($conn,ak_secure_string($_POST['this-id']));
+    $type= mysqli_real_escape_string($conn,ak_secure_string($_POST['type']));
+    $name=mysqli_real_escape_string($conn,ak_secure_string($_POST['name']));
+    $email=trim(strtolower(mysqli_real_escape_string($conn,ak_secure_string($_POST['email']))));
+    $phone=mysqli_real_escape_string($conn,ak_secure_string($_POST['phone']));
+    $city=mysqli_real_escape_string($conn,ak_secure_string($_POST['city']));
+    $state=mysqli_real_escape_string($conn,ak_secure_string($_POST['state']));
+    $country=mysqli_real_escape_string($conn,ak_secure_string($_POST['country']));
+    $pincode=mysqli_real_escape_string($conn,ak_secure_string($_POST['zipcode']));
     $address=htmlspecialchars($_POST['address']);
     $address=stripslashes($address);
     if($id!=0){
-        $query="UPDATE `".$tblPrefix."user_address` SET `name`='$name',`phone`='$phone',`city`='$city',`state`='$state',`address`='$address',`pincode`='$pincode' WHERE id='$id'";
+        $query="UPDATE `".$tblPrefix."user_address` SET `type`='$type',`name`='$name',`phone`='$phone',`country`='$country',`city`='$city',`state`='$state',`address`='$address',`pincode`='$pincode' WHERE id='$id'";
         $actionQ=mysqli_query($conn,$query);
     }else{
-        $actionQ=mysqli_query($conn,"INSERT INTO `".$tblPrefix."user_address`(`user_id`,`name`, `phone`, `city`, `state`, `address`, `pincode`, `status`, `date_time`) VALUES ('$userId','$name','$phone','$city','$state','$address','$pincode',2,'$cTime')");
-        $actionQ=mysqli_query($conn,"INSERT INTO `".$tblPrefix."user_address`(`user_id`, `default`, `name`, `email`, `phone`, `whatsapp`, `state`, `city`, `pincode`, `address`, `status`) VALUES ('$userId',0,'$name','$email','$phone','$phone','$state','$city','$pincode','$address',2)");
+        $actionQ=mysqli_query($conn,"INSERT INTO `".$tblPrefix."user_address`(`user_id`,`type`,`name`, `email`,`phone`, `country`, `city`, `state`, `address`, `pincode`, `status`, `date_time`) VALUES ('$userId','$type','$name','$email','$phone','$country','$city','$state','$address','$pincode',2,'$cTime')");
     }
     if($actionQ==true){
         $_SESSION['toast']['type']="success";
-        $_SESSION['toast']['msg']="Address succesfully submited.";
-        header("refresh:0");
+        $_SESSION['toast']['msg']="Address succesfully added.";
+        header("location:address.php");
         exit();
     }else{
         $_SESSION['toast']['msg']="Something went wrong, please try again.";
-        header("refresh:0");
+        header("location:address.php");
         exit();
     }
 }
@@ -46,7 +50,7 @@ if(isset($_GET['address'])){
             if($query==true){
                 $_SESSION['toast']['type']="success";
                 $_SESSION['toast']['msg']="Changes saved.";
-                header("refresh:0");
+                header("location:address.php");
                 exit();
             }else{
                 $_SESSION['toast']['msg']="Something went wrong, please try again.";
@@ -61,7 +65,7 @@ if(isset($_GET['delete-row'])){
     if(mysqli_query($conn, "UPDATE `".$tblPrefix."user_address` SET `status`='0' WHERE id='$id'")==true){
         $_SESSION['toast']['type']="success";
         $_SESSION['toast']['msg']= "Successfully deleted.";
-        header('refresh:0');
+        header('location:address.php');
         exit();
     }else{
         $_SESSION['toast']['msg']= "Something went wrong, Please try again.";
@@ -75,7 +79,8 @@ if(isset($_GET['delete-row'])){
 <head>
     <?php include('../inc/head.php') ?>
     <?php include('inc/user-head.php') ?>
-
+    <link rel="stylesheet" href="../admin/assets/css/alertify.rtl.min.css">
+        <link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
@@ -89,75 +94,33 @@ if(isset($_GET['delete-row'])){
                     <div class="col-9">
                         <div class="address-main-card">
                             <div class="row">
-                                <div class="col-6 gy-3">
-                                    <h6 class="ms-1">Default : <span style="color:#DF2C77"><b>HOME</b></span></h6>
-                                    <div class="address-card">
-                                        <h5 class="mb-2">
-                                            Address holder name
-                                        </h5>
-                                        <p class="mb-2">
-                                            Phone - +8144582619
-                                        </p>
-                                        <p class="mb-2">5 McBride Road, Viola,id, 83832 United States </p>
-                                        <p class="mb-2">Viola,id, 83832 United States</p>
-                                        <p class="mb-2">Postal Code : 99579</p>
-                                        <div class="address-func">
-                                            <div class="default">
-                                                <a href="">Remove from default </a>
-                                            </div>
-                                            <div class="edit-delete mt-2">
-                                            <a href="" class="me-2">Edit Address </a>
-                                            <a href="">Delete Address </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 gy-3">
-                                    <h6 class="ms-1"><span style="color:#DF2C77"><b>Office</b></span></h6>
-                                    <div class="address-card">
-                                        <h5 class="mb-2">
-                                            Address holder name
-                                        </h5>
-                                        <p class="mb-2">
-                                            Phone - +8144582619
-                                        </p>
-                                        <p class="mb-2">5 McBride Road, Viola,id, 83832 United States </p>
-                                        <p class="mb-2">Viola,id, 83832 United States</p>
-                                        <p class="mb-2">Postal Code : 99579</p>
-                                        <div class="address-func">
-                                            <div class="default">
-                                                <a href="">Set as default </a>
-                                            </div>
-                                            <div class="edit-delete mt-2">
-                                            <a href="" class="me-2">Edit Address </a>
-                                            <a href="">Delete Address </a>
+                                <?php
+                                    while($address = mysqli_fetch_assoc($dataAddress)){
+                                ?>
+                                    <div class="col-6 gy-3">
+                                        <h6 class="ms-1">Default : <span style="color:#DF2C77"><b>HOME</b></span></h6>
+                                        <div class="address-card">
+                                            <h5 class="mb-2">
+                                                <?php echo $address['name'];?>
+                                            </h5>
+                                            <p class="mb-2">
+                                                Phone - <?php echo $address['phone'];?>
+                                            </p>
+                                            <p class="mb-2"><?php echo $address['address'];?></p>
+                                            <p class="mb-2"><?php echo country($address['country']);?></p>
+                                            <p class="mb-2">Postal Code : 99579</p>
+                                            <div class="address-func">
+                                                <div class="default">
+                                                    <a href="">Remove from default </a>
+                                                </div>
+                                                <div class="edit-delete mt-2">
+                                                <a href="" class="me-2">Edit Address </a>
+                                                <a href="">Delete Address </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-6 gy-3">
-                                    <h6 class="ms-1"><commit commit -m span style="color:#DF2C77"><b>HOME</b></span></h6>
-                                    <div class="address-card">
-                                        <h5 class="mb-2">
-                                            Address holder name
-                                        </h5>
-                                        <p class="mb-2">
-                                            Phone - +8144582619
-                                        </p>
-                                        <p class="mb-2">5 McBride Road, Viola,id, 83832 United States </p>
-                                        <p class="mb-2">Viola,id, 83832 United States</p>
-                                        <p class="mb-2">Postal Code : 99579</p>
-                                        <div class="address-func">
-                                            <div class="default">
-                                                <a href="">Remove from default </a>
-                                            </div>
-                                            <div class="edit-delete mt-2">
-                                            <a href="" class="me-2">Edit Address </a>
-                                            <a href="">Delete Address </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php }?>
                                 <div class="col-6 gy-3 mt-5">
                                     <a data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <div class="add-address">
@@ -179,6 +142,7 @@ if(isset($_GET['delete-row'])){
     <?php include('inc/modal.php')?>
     <?php include('../inc/footer.php')?>
     <?php include('../inc/js.php')?>
+    <script src="../admin/assets/js/alertify.min.js"></script>
     <script type="text/javascript">
     $('.add-new').on('click', function(){
             //alert(sType);
@@ -207,7 +171,7 @@ if(isset($_GET['delete-row'])){
 $('.country').on('change', function(){
 	var state = $(this).val();
 	$.ajax({
-		url : 'inc/ajax-state.php',
+		url : '../inc/ajax-state.php',
 		type : 'post',
 		data : { state : state},
 
@@ -226,7 +190,7 @@ $('.country').on('change', function(){
 $('.state').on('change', function(){
 	var city = $(this).val();
 	$.ajax({
-		url : 'inc/ajax-city.php',
+		url : '../inc/ajax-city.php',
 		type : 'post',
 		data : { city : city},
 
@@ -242,5 +206,5 @@ $('.state').on('change', function(){
 });
 </script>
 </body>
-
+<?php echo toast(1);?>
 </html>
