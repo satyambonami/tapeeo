@@ -103,7 +103,7 @@ if(isset($_POST['checkout'])){
                                     <tbody>
                                     <?php
                                         if(isset($_SESSION['user']) && !isset($_SESSION['cart'])){ 
-                                            $cartUser=mysqli_query($conn,"SELECT cart.id, cart.quantity as cartqty,pr.pid as prodId, pr.name, pr.offer_price, pr.image, pr.pid, pr.quantity as prq FROM `".$tblPrefix."cart` cart LEFT JOIN `".$tblPrefix."products` pr ON cart.prod_id=pr.pid WHERE user_id='".$_SESSION['user']['id']."'");
+                                            $cartUser=mysqli_query($conn,"SELECT cart.id, cart.quantity as cartqty,pr.pid as prodId, pr.name,pr,price, pr.offer_price, pr.image, pr.pid, pr.quantity as prq FROM `".$tblPrefix."cart` cart LEFT JOIN `".$tblPrefix."products` pr ON cart.prod_id=pr.pid WHERE user_id='".$_SESSION['user']['id']."'");
                                             while($cartData1=mysqli_fetch_assoc($cartUser)){
                                                 $cartCount++;
                                                 $quantity=$value;
@@ -123,12 +123,12 @@ if(isset($_POST['checkout'])){
                                             <div class="quantity">
                                                 <div class="quantity-input">
                                                 <a class="btn btn-increase position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
-                                                    <input type="hidden" name="product-id[]" value="<?php echo $cartData1['pid']; ?>">
+                                                    <input type="hidden" name="product-id[]" value="<?php echo $cartData1['prodId']; ?>">
                                                     <input type="hidden" name="product-name[]" value="<?php echo $cartData1['name']; ?>">
                                                     <input type="hidden" name="product-price[]" value="<?php echo $cartData1['offer_price']; ?>">
                                                     <input type="hidden" name="product-image[]" value="<?php echo $cartData1['image']; ?>">
 
-                                                    <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartData1['quantity']; ?>" pattern="[0-9]*" readonly="">
+                                                    <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartData1['prq']; ?>" pattern="[0-9]*" readonly="">
                                                     
                                                     <a class="btn btn-reduce position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
                                                 </div>
@@ -137,7 +137,7 @@ if(isset($_POST['checkout'])){
                                             <td class="heading-color">$ <?php echo $cartData1['price']; ?></td>
                                             <td class="total heading-color">$ <?php echo $cartData1['offer_price']; ?></td>
                                             <td>
-                                                <small><a  data-this-id="<?php echo $cartData1['pid'];?>" class="remove-item"><i class="far fa-trash-alt"></i></a></small>
+                                                <small><a  data-this-id="<?php echo $cartData1['prodId'];?>" class="remove-item"><i class="far fa-trash-alt"></i></a></small>
                                             </td>
                                         </tr>
                                     <?php } }elseif(isset($_SESSION['cart'])){ 
@@ -186,10 +186,6 @@ if(isset($_POST['checkout'])){
                                                 echo "<h6>Your Cart is Empty..</h6>";
                                             }
                                         ?></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
                                     </tr>
                                     </tbody>
                                 </table>
