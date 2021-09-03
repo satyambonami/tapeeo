@@ -44,7 +44,7 @@ $linkPrefix = "../";
 
 
 
-                            <section class="container accountdetails mt-2">
+                            <section class="container accountdetails section-padding-2">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="content active_ContentOne ">
@@ -113,7 +113,7 @@ $linkPrefix = "../";
                                                     <div class="col-6">
                                                         <div
                                                             class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-end text-xxl-end">
-                                                            <a href="" class="btn btn-gradient">Send</a>
+                                                            <a href="" class="btn btn-gradient">Update Details</a>
 
                                                         </div>
                                                     </div>
@@ -130,7 +130,7 @@ $linkPrefix = "../";
 
                                                 <div
                                                     class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-end text-xxl-end">
-                                                    <a href="" class="btn btn-gradient">Save PassWord</a>
+                                                    <a href="" class="btn btn-gradient">Save Password</a>
 
                                                 </div>
 

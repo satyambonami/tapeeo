@@ -1,0 +1,21 @@
+.mobile-nav{
+    background-color: #9FDEEA;
+}
+/* .nav-dount {
+	background: url('../img/nav donut.png');
+	background-repeat: no-repeat;
+	background-size: 100% 167%;
+	padding: 0 30px;
+	background-position-y: 40%;
+} */
+.nav-dount-icon {
+	background: #fff;
+	border-radius: 50%;
+	padding: 10px;
+	height: 65px;
+	width: 65px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
