@@ -87,7 +87,7 @@
     </section>
     <!-- main tag start here  -->
     <main>
-        <section class="section-padding-2">
+        <section class="section-padding-1">
             <div class="container">
                 <div class="row">
                 <?php
