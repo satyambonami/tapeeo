@@ -44,7 +44,7 @@ if(isset($_POST['submit-address'])){
 
 // Set Defaylt Address
 if(isset($_GET['address'])){
-    $id=mysqli_real_escape_string($conn,ps_secure_string($_GET['address']));
+    $id=mysqli_real_escape_string($conn,ak_secure_string($_GET['address']));
     $data=mysqli_query($conn,"SELECT id FROM `".$tblPrefix."user_address` WHERE `default`=1 AND `user_id`='$userId'");
     if(mysqli_num_rows($data)>0){ 
         $prvdata=mysqli_fetch_assoc($data);
@@ -66,7 +66,7 @@ if(isset($_GET['address'])){
 
 // Delete Address
 if(isset($_GET['delete-row'])){
-    $id=mysqli_real_escape_string($conn,ps_secure_string($_GET['delete-row']));
+    $id=mysqli_real_escape_string($conn,ak_secure_string($_GET['delete-row']));
     if(mysqli_query($conn, "UPDATE `".$tblPrefix."user_address` SET `status`='0' WHERE id='$id'")==true){
         $_SESSION['toast']['type']="success";
         $_SESSION['toast']['msg']= "Successfully deleted.";
@@ -96,13 +96,13 @@ if(isset($_GET['delete-row'])){
             <div class="container">
                 <div class="row">
                     <?php include('inc/user-sidenav.php') ?>
-                    <div class="col-9">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xxl-9">
                         <div class="address-main-card">
                             <div class="row">
                                 <?php
                                     while($address = mysqli_fetch_assoc($dataAddress)){
                                 ?>
-                                    <div class="col-6 gy-3">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3">
                                         <h6 class="ms-1"><?php if($address['default']==1){ echo 'DEFAULT';}?> : <span style="color:#DF2C77"><b>HOME</b></span></h6>
                                         <div class="address-card">
                                             <h5 class="mb-2">
@@ -126,7 +126,7 @@ if(isset($_GET['delete-row'])){
                                         </div>
                                     </div>
                                 <?php }?>
-                                <div class="col-6 gy-3 mt-5">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3 mt-5">
                                     <a data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <div class="add-address">
                                         <div class=" d-flex align-items-center justify-content-center">
@@ -146,6 +146,7 @@ if(isset($_GET['delete-row'])){
     </main>
     <?php include('inc/modal.php')?>
     <?php include('../inc/footer.php')?>
+    <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php')?>
     <script src="../admin/assets/js/alertify.min.js"></script>
     <script type="text/javascript">

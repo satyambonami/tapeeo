@@ -229,6 +229,7 @@ if(isset($_POST['checkout'])){
         </section>
     </main>
     <?php include('../inc/footer.php') ?>
+    <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php') ?>
     <script type="text/javascript">
 		$(".btn-increase").on('click', function(){

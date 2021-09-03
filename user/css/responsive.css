@@ -5,5 +5,17 @@
     .footer-bg{
         padding-bottom: 90px;
     }
+    figure figcaption{
+        justify-content: center;
+    }
+    figure{
+        display: block;
+
+        }
+        .order-track{
+            
+            padding: 0;
+            padding-top: 1rem;
+        }
 }
 
