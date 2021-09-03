@@ -95,13 +95,13 @@ let imgArr = [{
         src: "img/Wallet_Cryptocurrency_Mobile_App.png",
     },
     {
-        src: "/img/shop.cf037be9.jpg",
+        src: "img/shop.cf037be9.jpg",
     },
     {
-        src: "/img/profile.af3b48e1.jpg",
+        src: "img/profile.af3b48e1.jpg",
     },
     {
-        src: "/img/12.png",
+        src: "img/12.png",
     },
 ];
 
@@ -218,3 +218,7 @@ const paymentActive = function(e) {
 };
 
 paymentActive();
+
+
+
+
