@@ -19,18 +19,18 @@ $linkPrefix = "../";
             <div class="container">
                 <div class="row">
                     <?php include('inc/user-sidenav.php') ?>
-                    <div class="col-9">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xxl-9">
                         <div class="dashboard-div">
                             <div class="dashboard-head">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-7 col-sm-7 col-md-7 col-lg-4 col-xxl-4">
                                         <h1>Good Morning </h1>
                                         <div class="animationLinetappeo ms-0 mt-2 w-100"></div>
                                         <h5 class="ms-4">
                                             its good to see you again
                                         </h5>
                                     </div>
-                                    <div class="col-6 d-flex align-items-center">
+                                    <div class="col-5 col-sm-5 col-md-5 col-lg-6 col-xxl-6 d-flex align-items-center">
                                         <h1 style="color:#D33696;">
                                             UserName
                                         </h1>
@@ -41,7 +41,7 @@ $linkPrefix = "../";
                             <!-- dashboard-copntent -->
                             <div class="dashboard-content">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3">
                                         <div class="details-dasboard mb-3">
                                             <h6 class="mb-3" style="color:#D33696;">
                                                 <b>Details</b>
@@ -72,7 +72,7 @@ $linkPrefix = "../";
                                             <p>Postal Code : 99579</p>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3">
                                         <div class="order-dashboard">
                                             <h6 class="mb-3" style="color:#D33696;">
                                                 <b>Recent Orders</b>

@@ -20,7 +20,7 @@ $linkPrefix = "../";
             <div class="container">
                 <div class="row">
                     <?php include('inc/user-sidenav.php'); ?>
-                    <div class="col-9 px-5">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xxl-9 px-5">
                         <div class="track-main-card">
                             <form class="row">
                                 <div class="col-9">
