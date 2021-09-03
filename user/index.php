@@ -163,7 +163,7 @@ $linkPrefix = "../";
         </section>
     </main>
     <?php include('../inc/footer.php') ?>
+    <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php') ?>
 </body>
-
 </html>
