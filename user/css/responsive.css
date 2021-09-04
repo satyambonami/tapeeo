@@ -1,4 +1,4 @@
-@media only screen and (min-width: 320px) and (max-width: 479px){
+@media only screen and (min-width: 320px) and (max-width: 746px){
     .mobile-nav h6{
         display: none;
     }
@@ -19,3 +19,9 @@
         }
 }
 
+
+@media only screen and (min-width: 320px) and (max-width: 468px){
+    .nav-icon .fab{
+        right: 10px ;
+    }
+}

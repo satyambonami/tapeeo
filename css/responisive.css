@@ -227,3 +227,31 @@
         background-position-x: 40%;
     }
 }
+
+@media only screen and (min-width: 468px) and (max-width: 768px){
+
+    .navbar-brand img{
+        width: 50% !important;
+    }
+
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+    .navbar-brand img{
+        width: 50% !important;
+    }
+
+
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 468px){
+
+    .navbar-brand img{
+        width: 50% !important;
+    }
+
+
+}
