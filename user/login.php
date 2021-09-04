@@ -35,7 +35,7 @@ if(isset($_POST['login'])){
     <?php include('../inc/head.php') ?>
     <?php include('inc/user-head.php') ?>
     <link rel="stylesheet" href="../admin/assets/css/alertify.rtl.min.css">
-        <link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
+<link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
@@ -63,7 +63,7 @@ if(isset($_POST['login'])){
                             <form method="POST">
                                 <input type="email" class="form-control" placeholder="Your Email" name="email" require
                                     autocomplete="off">
-                                <input type="text" class="form-control" placeholder="Enter Password" name="password" require
+                                <input type="password" class="form-control" placeholder="Enter Password" name="password" require
                                     autocomplete="off">
                                 <div class="row">
                                     <div class="col-5">
@@ -74,7 +74,7 @@ if(isset($_POST['login'])){
                                     <div class="col-7">
                                         <p class="heading-color mt-2 mb-2 text-end"> <a href="./signup.php"
                                                 style="color: #D33696; ">
-                                                Already have an account</a></p>
+                                                Do'nt have an account</a></p>
                                     </div>
                                 </div>
                                 <div
@@ -95,8 +95,8 @@ if(isset($_POST['login'])){
     </main>
     <?php include('../inc/footer.php') ?>
     <?php include('../inc/js.php') ?>
-    <script src="../admin/assets/js/alertify.min.js"></script>
-<?php echo toast(1);?>
+    <script src = "../admin/assets/js/alertify.min.js"> </script>
+    <?php echo toast(1);?>
 </body>
 
 </html>

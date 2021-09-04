@@ -16,6 +16,8 @@
 <head>
     <?php include('../inc/head.php')?>
     <?php include('inc/user-head.php')?>
+    <link rel="stylesheet" href="../admin/assets/css/alertify.rtl.min.css">
+<link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
@@ -179,6 +181,8 @@
     <?php include('../inc/footer.php')?>
     <?php include('../inc/js.php')?>
     <?php include('inc/modal.php')?>
+    <script src = "../admin/assets/js/alertify.min.js"> </script>
+    <?php echo toast(1);?>
 
 </body>
 

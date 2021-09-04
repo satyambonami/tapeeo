@@ -85,7 +85,7 @@ if(isset($_GET['delete-row'])){
     <?php include('../inc/head.php') ?>
     <?php include('inc/user-head.php') ?>
     <link rel="stylesheet" href="../admin/assets/css/alertify.rtl.min.css">
-        <link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
+    <link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
@@ -103,7 +103,8 @@ if(isset($_GET['delete-row'])){
                                     while($address = mysqli_fetch_assoc($dataAddress)){
                                 ?>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3">
-                                        <h6 class="ms-1"><?php if($address['default']==1){ echo 'DEFAULT';}?> : <span style="color:#DF2C77"><b>HOME</b></span></h6>
+                                        <h6 class="ms-1"><?php if($address['default']==1){ echo 'DEFAULT :';}?> <span style="color:#DF2C77"><b class='text-uppercase'><?php if($address['type']==1){
+                                            echo 'Residential';}else{ echo 'Commercial';} ?></b></span></h6>
                                         <div class="address-card">
                                             <h5 class="mb-2">
                                                 <?php echo $address['name'];?>
@@ -119,7 +120,7 @@ if(isset($_GET['delete-row'])){
                                                     <a href="">Remove from default </a>
                                                 </div>
                                                 <div class="edit-delete mt-2">
-                                                <a href="" class="me-2">Edit Address </a>
+                                                <a href="" class="me-2 edit-this">Edit Address </a>
                                                 <a href="">Delete Address </a>
                                                 </div>
                                             </div>
@@ -148,20 +149,9 @@ if(isset($_GET['delete-row'])){
     <?php include('../inc/footer.php')?>
     <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php')?>
-    <script src="../admin/assets/js/alertify.min.js"></script>
+    <script src = "../admin/assets/js/alertify.min.js"> </script>
+    <?php echo toast(1);?>  
     <script type="text/javascript">
-    $('.add-new').on('click', function(){
-            //alert(sType);
-        $('input[name="this-id"]').val(0);
-        $('input[name="name"]').val('');
-        $('input[name="email"]').val('');
-        $('input[name="phone"]').val('');
-        $('input[name="city"]').val('');
-        $('input[name="state"]').val('');
-        $('input[name="pincode"]').val('');
-        $('textarea[name="address"]').val('');
-    });
-
     $('.edit-this').on('click', function(){
         $('input[name="this-id"]').val($(this).data('this-id'));
         $('input[name="name"]').val($(this).data('name'));
@@ -212,5 +202,4 @@ $('.state').on('change', function(){
 });
 </script>
 </body>
-<?php echo toast(1);?>
 </html>
