@@ -26,19 +26,19 @@ if(!isset($_SESSION['user'])){
             <div class="container">
                 <div class="row">
                     <?php include('inc/user-sidenav.php') ?>
-                    <div class="col-9">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9">
                         <div class="details-div">
                             <!-- Tab Section -->
                             <section class="tab_section section-padding-2">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-12 col-md-6 col-lg-6">
+                                        <div class="col-6 col-md-6 col-lg-6">
                                             <div class="text-center line_Div buttonActiv">
                                                 <p>Edit Profile</p>
                                                 <div class="animationLine mt-2 w-100 tab-content animiLine"></div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6 col-lg-6 ">
+                                        <div class="col-6 col-md-6 col-lg-6 ">
                                             <div class="text-center line_Div buttonOneActiv">
                                                 <p>Password</p>
                                                 <div class="animationLine mt-2 w-100 tab-content removeLine animiLine">
@@ -119,8 +119,8 @@ if(!isset($_SESSION['user'])){
                                                     </div>
                                                     <div class="col-6">
                                                         <div
-                                                            class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-end text-xxl-end">
-                                                            <a href="" class="btn btn-gradient">Update Details</a>
+                                                            class="submit-btn  mt-2 text-end text-sm-end text-md-end text-lg-end text-xxl-end">
+                                                            <a href="" class="btn btn-gradient px-2 px-sm-2 px-md-3 px-lg-3 px-xxl-3 ">Update Details</a>
 
                                                         </div>
                                                     </div>
@@ -155,6 +155,7 @@ if(!isset($_SESSION['user'])){
         </section>
     </main>
     <?php include('../inc/footer.php') ?>
+    <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php') ?>
     <script src = "../admin/assets/js/alertify.min.js"> </script>
     <script>

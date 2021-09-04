@@ -90,7 +90,7 @@ if(isset($_POST['checkout'])){
                 <div class="row">
                     <form method="POST">
                         <div class="row">
-                        <div class="col-9">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9">
                             <div class="cart-section">
                                 <table class="table table-responsive list">
                                     <thead>
@@ -194,7 +194,7 @@ if(isset($_POST['checkout'])){
                             </div>
 
                         </div>
-                        <div class="col-3 ">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-3 col-xxl-3 gy-3 gy-sm-3 gy-md-3 gy-lg-3 gy-xl-0 gy-xxl-0">
                             <div class="order-summary">
                                 <h3 class="heading-color">Cart Total</h3>
                                 <hr>
@@ -231,6 +231,7 @@ if(isset($_POST['checkout'])){
         </section>
     </main>
     <?php include('../inc/footer.php') ?>
+    <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php') ?>
     <script src = "../admin/assets/js/alertify.min.js"> </script>
     <?php echo toast(1);?>

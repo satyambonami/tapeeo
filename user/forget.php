@@ -22,11 +22,11 @@ $linkPrefix = "../";
                 <div class="row">
                     <div class="offset-3 col-6">
                         <div class="login-main forget">
-                            <h3 class="heading-color my-3 text-center">Enter your mail</h3>
+                            <h3 class="heading-color my-3 text-center">Enter your Email</h3>
                             <form method="POST" class="mt-2 d-flex">
                                 <input type="email" class="form-control mt-0" placeholder="Your Email" name="email"
                                     require autocomplete="off">
-                                <button type="submit" class="btn-forget" name="submit">Submit</button>
+                                <button type="submit" class="btn btn-gradient rounded ms-2" name="submit">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ $linkPrefix = "../";
                                 <input type="pass" class="form-control" placeholder="Confirm Password" name=""
                                     require autocomplete="off">
 
-                                <button type="submit" class="btn-forget mt-2" name="submit">Submit</button>
+                                <button type="submit" class="btn btn-gradient rounded mt-2" name="submit">Submit</button>
                             </form>
                         </div>
                     </div>

@@ -27,7 +27,7 @@ if(!isset($_SESSION['user'])){
             <div class="container">
                 <div class="row">
                     <?php include('inc/user-sidenav.php') ?>
-                    <div class="col-9">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9">
                         <div class="order-card box-shadow" style="padding:30px 30px ;">
                             <!-- order-head -->
                             <div class="row mb-3">
@@ -147,6 +147,7 @@ if(!isset($_SESSION['user'])){
         </section>
     </main>
     <?php include('../inc/footer.php') ?>
+    <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php') ?>
     <script src = "../admin/assets/js/alertify.min.js"> </script>
     <?php echo toast(1);?>
