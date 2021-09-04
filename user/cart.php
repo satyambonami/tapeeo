@@ -82,6 +82,8 @@ if(isset($_POST['checkout'])){
 <body>
     <?php include('../inc/header.php') ?>
     <?php include('inc/header-user.php') ?>
+    <link rel="stylesheet" href="../admin/assets/css/alertify.rtl.min.css">
+<link rel="stylesheet" href="../admin/assets/css/alertify-default-theme.rtl.min.css">
     <main>
         <section class="section-padding-1">
             <div class="container">
@@ -230,6 +232,8 @@ if(isset($_POST['checkout'])){
     </main>
     <?php include('../inc/footer.php') ?>
     <?php include('../inc/js.php') ?>
+    <script src = "../admin/assets/js/alertify.min.js"> </script>
+    <?php echo toast(1);?>
     <script type="text/javascript">
 		$(".btn-increase").on('click', function(){
 			var price = parseInt($(this).data('price')),
