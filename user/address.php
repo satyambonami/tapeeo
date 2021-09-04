@@ -7,6 +7,7 @@ if(!isset($_SESSION['user'])){
     header('location:login.php');
     exit();
 }
+$userId=$_SESSION['user']['id'];
 
 $dataAddress = mysqli_query($conn,"SELECT `id`, `user_id`, `default`, `type`, `name`, `email`, `phone`, `country`, `state`, `city`, `pincode`, `address`, `date_time`, `status` FROM `bnmi_user_address` WHERE `user_id` = 12 AND `status` !=0 ");
 
@@ -102,7 +103,7 @@ if(isset($_GET['delete-row'])){
                                 <?php
                                     while($address = mysqli_fetch_assoc($dataAddress)){
                                 ?>
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3 d-table">
                                         <h6 class="ms-1"><?php if($address['default']==1){ echo 'DEFAULT :';}?> <span style="color:#DF2C77"><b class='text-uppercase'><?php if($address['type']==1){
                                             echo 'Residential';}else{ echo 'Commercial';} ?></b></span></h6>
                                         <div class="address-card">
@@ -113,14 +114,18 @@ if(isset($_GET['delete-row'])){
                                                 Phone - <?php echo $address['phone'];?>
                                             </p>
                                             <p class="mb-2"><?php echo $address['address'];?></p>
-                                            <p class="mb-2"><?php echo country($address['country']);?></p>
-                                            <p class="mb-2">Postal Code : <?php echo $address['pincode'];?></p>
+                                            <p class="mb-2"><?php echo city($address['city']);?>, <?php echo state($address['state']);?>, <?php echo country($address['country']);?></p>
+                                            <p class="<?php if($address['default']==0){echo 'mb-2';}else{echo 'mb-4 pb-2';}?>">Postal Code : <?php echo $address['pincode'];?></p>
                                             <div class="address-func">
-                                                <div class="default">
-                                                    <a href="">Remove from default </a>
+                                                <div class="default" style="display:table-cell;">
+                                                <?php if($address['default']==0){?>
+                                                    <a href="#" class="default-address" data-this-address="<?php echo $address['id'];?>">Set as default </a>
+                                                    <?php }?>
                                                 </div>
                                                 <div class="edit-delete mt-2">
-                                                <a href="" class="me-2 edit-this">Edit Address </a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-2 edit-this"
+                                                    data-                                                
+                                                >Edit Address </a>
                                                 <a href="">Delete Address </a>
                                                 </div>
                                             </div>
@@ -163,6 +168,18 @@ if(isset($_GET['delete-row'])){
         $('textarea[name="address"]').val($(this).data('address'));
     });
 </script>
+<script type="text/javascript">	
+//Default Address...
+$('.default-address').on('click', function(){
+	var id = $(this).data('this-address');
+	if(confirm("Do you want to Default this address.")==true){
+		window.location = "?address="+id;
+		return true;
+	}else{
+		return false;
+	}
+});
+</script> 
 <script type="text/javascript">
 $('.country').on('change', function(){
 	var state = $(this).val();
