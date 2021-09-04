@@ -42,6 +42,12 @@
                             <div class="form-group border-0">
                                 <select class="form-select country" aria-label="Default select example" name="country" required>
                                     <option selected disabled value="0">Select Country</option>
+                                    <?php
+                                        $DataCountry = mysqli_query($conn,"SELECT `id`, `name` FROM `countries`"); 
+                                        while($country = mysqli_fetch_assoc($DataCountry)){
+                                    ?>
+                                    <option value="<?php echo $country['id'];?>"><?php echo $country['name'];?></option>
+                                    <?php }?>
                                 </select>
                             </div>
                         </div>

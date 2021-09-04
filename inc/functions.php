@@ -171,25 +171,39 @@ function ak_shipping_status($status){
 function country($countryId){
 	global $conn;
 	global $tblPrefix;
+	
+	if($countryId != NULL){	
+		$country=mysqli_fetch_assoc(mysqli_query($conn,"SELECT name FROM `countries` WHERE id=$countryId"))['name'];
+		return $country;
+	}else{
+		$defaulCountry = 'United States';
+		return $defaulCountry;
+	}
 
-	$country=mysqli_fetch_assoc(mysqli_query($conn,"SELECT name FROM `countries` WHERE id=$countryId"))['name'];
-
-	return $country;
 }
 
 function city($cityId){
 	global $conn;
 	global $tblPrefix;
 
-	$city=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `cities` WHERE id=$cityId"))['name'];
+	if($cityId != NULL){
+		$city=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `cities` WHERE id=$cityId"))['name'];
+		return $city;
+	}else{
+		$defaultCity = '';
+		return $defaultCity;
+	}
 
-	return $city;
 }
 function state($stateId){
 	global $conn;
 	global $tblPrefix;
 
-	$state=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `states` WHERE id=$stateId"))['name'];
-
-	return $state;
+	if($stateId != NULL){	
+		$state=mysqli_fetch_assoc(mysqli_query($conn,"SELECT id,name FROM `states` WHERE id=$stateId"))['name'];	
+		return $state;
+	}else{
+		$defaultState = '';
+		return $defaultState;
+	}
 }

@@ -9,7 +9,7 @@ if(!isset($_SESSION['user'])){
 }
 $userId=$_SESSION['user']['id'];
 
-$dataAddress = mysqli_query($conn,"SELECT `id`, `user_id`, `default`, `type`, `name`, `email`, `phone`, `country`, `state`, `city`, `pincode`, `address`, `date_time`, `status` FROM `bnmi_user_address` WHERE `user_id` = 12 AND `status` !=0 ");
+$dataAddress = mysqli_query($conn,"SELECT `id`, `user_id`, `default`, `type`, `name`, `email`, `phone`, `country`, `state`, `city`, `pincode`, `address`, `date_time`, `status` FROM `bnmi_user_address` WHERE `user_id` = '$userId' AND `status` != 0  ORDER BY `default` DESC ");
 
 // Add/Edit Address
 if(isset($_POST['submit-address'])){
@@ -46,10 +46,10 @@ if(isset($_POST['submit-address'])){
 // Set Defaylt Address
 if(isset($_GET['address'])){
     $id=mysqli_real_escape_string($conn,ak_secure_string($_GET['address']));
-    $data=mysqli_query($conn,"SELECT id FROM `".$tblPrefix."user_address` WHERE `default`=1 AND `user_id`='$userId'");
-    if(mysqli_num_rows($data)>0){ 
-        $prvdata=mysqli_fetch_assoc($data);
-        $prvId=$prvdata['id'];
+    $dataUA=mysqli_query($conn,"SELECT id FROM `".$tblPrefix."user_address` WHERE `default`=1 AND `user_id`='$userId'");
+    if(mysqli_num_rows($dataUA) >= 1){ 
+        $prvdata=mysqli_fetch_assoc($dataUA);
+        echo $prvId=$prvdata['id'];
         $newQuery="UPDATE `".$tblPrefix."user_address` SET `default`='1' WHERE `id`='$id'";
         if(mysqli_query($conn,$newQuery)==true){
             $query=mysqli_query($conn,"UPDATE `".$tblPrefix."user_address` SET `default`='0' WHERE `id`='$prvId'");
@@ -124,9 +124,11 @@ if(isset($_GET['delete-row'])){
                                                 </div>
                                                 <div class="edit-delete mt-2">
                                                 <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-2 edit-this"
-                                                    data-                                                
-                                                >Edit Address </a>
-                                                <a href="">Delete Address </a>
+                                                    data-this-id='<?php echo $address['id'];?>' data-name='<?php echo $address['name'];?>' data-email='<?php echo $address['email'];?>'
+                                                    data-phone='<?php echo $address['phone'];?>' data-city='<?php echo $address['city'];?>' data-state='<?php echo $address['state'];?>'
+                                                    data-country='<?php echo $address['country'];?>' data-address='<?php echo $address['address'];?>' data-pincode='<?php echo $address['pincode'];?>'
+                                                    >Edit Address </a>
+                                                <a href="" class="delete-row" data-this-id='<?php echo $address['id'];?>' >Delete Address </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -156,16 +158,29 @@ if(isset($_GET['delete-row'])){
     <?php include('../inc/js.php')?>
     <script src = "../admin/assets/js/alertify.min.js"> </script>
     <?php echo toast(1);?>  
+    <script type="text/javascript">	
+        //delete row...
+        $('.delete-row').on('click', function(){
+            var id = $(this).data('this-id');
+            if(confirm("Do you want to delete this ?")==true){
+                window.location = "?delete-row="+id;
+                return true;
+            }else{
+                return false;
+            }
+        });
+        </script>
     <script type="text/javascript">
     $('.edit-this').on('click', function(){
         $('input[name="this-id"]').val($(this).data('this-id'));
         $('input[name="name"]').val($(this).data('name'));
         $('input[name="email"]').val($(this).data('email'));
         $('input[name="phone"]').val($(this).data('phone'));
-        $('input[name="city"]').val($(this).data('city'));
-        $('input[name="state"]').val($(this).data('state'));
-        $('input[name="pincode"]').val($(this).data('pincode'));
-        $('textarea[name="address"]').val($(this).data('address'));
+        $('input[name="address"]').val($(this).data('address'));
+        $('input[name="pincode"]').val($(this).data('zipcode'));
+        // $('select[name="country"]').val($(this)data('country'));
+        // $('select[name="city"]').val($(this).data('city'));
+        // $('select[name="state"]').val($(this).data('state'));
     });
 </script>
 <script type="text/javascript">	
