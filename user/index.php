@@ -94,7 +94,8 @@ $userId=$_SESSION['user']['id'];
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -106,7 +107,8 @@ $userId=$_SESSION['user']['id'];
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -118,7 +120,8 @@ $userId=$_SESSION['user']['id'];
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -130,7 +133,8 @@ $userId=$_SESSION['user']['id'];
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -142,7 +146,8 @@ $userId=$_SESSION['user']['id'];
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -154,7 +159,8 @@ $userId=$_SESSION['user']['id'];
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,4 +182,5 @@ $userId=$_SESSION['user']['id'];
     <script src = "../admin/assets/js/alertify.min.js"> </script>
     <?php echo toast(1);?>
 </body>
+
 </html>

@@ -52,8 +52,8 @@ if(isset($_POST['sign_up'])){
     <main>
         <section class=" section-padding-1 loginpage">
             <div class="container">
-                <div class="row offset-1">
-                    <div class="col-5 g-0 h-50">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 g-md-0 g-lg-0 g-xl-0 g-xxl-0">
                         <div class="sign-background p-5">
                             <h1 class="heading-color font-weight-bolder">Create an Account</h1>
                             <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam in tenetur
@@ -63,7 +63,7 @@ if(isset($_POST['sign_up'])){
                         </div>
                     </div>
 
-                    <div class="col-5 g-0">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 g-md-0 g-lg-0 g-xl-0 g-xxl-0">
                         <div class="sign-main d-flex justify-content-center flex-column">
                             <div class="text-center">
                             <img src="../img/logo.png" alt="" class="img-responsive img-fluid login-form-image">
@@ -91,7 +91,7 @@ if(isset($_POST['sign_up'])){
                                             Policy</h6></a>
                                 </div>
                                 <div
-                                    class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-start text-xxl-start">
+                                    class="submit-btn mt-2 text-center text-sm-center text-md-center text-lg-start text-xxl-start">
 
                                     <button type="submit" class="btn btn-gradient" name="sign_up">Submit</button>
                                 </div>
