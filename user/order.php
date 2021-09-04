@@ -7,6 +7,8 @@ if(!isset($_SESSION['user'])){
     header('location:login.php');
     exit();
 }
+$userId=$_SESSION['user']['id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
