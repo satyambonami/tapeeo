@@ -88,9 +88,9 @@ if(isset($_POST['checkout'])){
                 <div class="row">
                     <form method="POST">
                         <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9">
-                            <div class="cart-section">
-                                <table class="table table-responsive list">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9 gx-md-0">
+                            <div class="cart-section table-responsive-lg">
+                                <table class="table list">
                                     <thead>
                                         <tr>
                                             <th scope="col">Products Details</th>

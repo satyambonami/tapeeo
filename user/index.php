@@ -90,7 +90,8 @@ if(!isset($_SESSION['user'])){
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -102,7 +103,8 @@ if(!isset($_SESSION['user'])){
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -114,7 +116,8 @@ if(!isset($_SESSION['user'])){
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -126,7 +129,8 @@ if(!isset($_SESSION['user'])){
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -138,7 +142,8 @@ if(!isset($_SESSION['user'])){
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -150,7 +155,8 @@ if(!isset($_SESSION['user'])){
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="order-success text-end">
-                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                                            <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -170,5 +176,7 @@ if(!isset($_SESSION['user'])){
     <?php include('../inc/footer.php') ?>
     <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php') ?>
+    
 </body>
+
 </html>

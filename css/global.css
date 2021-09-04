@@ -80,12 +80,13 @@ a {
     border-radius: 20px;
     padding: 10px 25px;
     color: #fff;
-    background-image: linear-gradient(to left, #ff7ba7, #e19ff2, #9fc8ff, #66e8ff, #82feff);
+    background-image: linear-gradient(to left, #ff7ba7 0%, #e19ff2 25%, #9fc8ff 50%, #66e8ff 75%, #82feff 100%);
 }
 .btn.btn-gradient:hover{
-    background-image: linear-gradient(to right, #ff7ba7, #e19ff2, #9fc8ff, #66e8ff, #82feff);
+    /* background-image: linear-gradient(to right, #ff7ba7 0%, #e19ff2 25%, #9fc8ff 50%, #66e8ff 75%, #82feff 100%); */
     color:#fff;
-}
+    background-position: right !important;
+} 
 
 /*  */
 .terms-of-use h1 strong , .terms-of-use h1{

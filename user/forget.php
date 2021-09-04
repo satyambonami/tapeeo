@@ -18,13 +18,13 @@ $linkPrefix = "../";
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
-                    <div class="offset-3 col-6">
+                    <div class="offset-lg-3 offset-xl-3 offset-xxl-3 col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                         <div class="login-main forget">
                             <h3 class="heading-color my-3 text-center">Enter your Email</h3>
                             <form method="POST" class="mt-2 d-flex">
                                 <input type="email" class="form-control mt-0" placeholder="Your Email" name="email"
                                     require autocomplete="off">
-                                <button type="submit" class="btn btn-gradient rounded ms-2" name="submit">Submit</button>
+                                <button type="submit" class="btn btn-gradient rounded ms-lg-2 ms-xl-2 ms-xxl-2" name="submit">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ $linkPrefix = "../";
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
-                    <div class="offset-3 col-6">
+                    <div class="offset-lg-3 offset-xl-3 offset-xxl-3 col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                         <div class="login-main forget">
                             <h3 class="heading-color my-3 text-center">Enter your Password</h3>
                             <form method="POST" class="mt-2 text-center">
