@@ -13,7 +13,6 @@ $dataAddress = mysqli_query($conn,"SELECT `id`, `user_id`, `default`, `type`, `n
 
 // Add/Edit Address
 if(isset($_POST['submit-address'])){
-    $userId = 12;
     $id=mysqli_real_escape_string($conn,ak_secure_string($_POST['this-id']));
     $type= mysqli_real_escape_string($conn,ak_secure_string($_POST['type']));
     $name=mysqli_real_escape_string($conn,ak_secure_string($_POST['name']));
