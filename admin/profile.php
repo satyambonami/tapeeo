@@ -26,23 +26,31 @@ $userId=$_SESSION['adi']['id'];
                 $ext = pathinfo($fileName, PATHINFO_EXTENSION);
                 if($ext=='jpg' || $ext=='jpeg' || $ext=='png'){
                     $fileName = 'user-'.$userId.'.'.$ext;
-                    if(move_uploaded_file($tmpName, '../assets/img/users/'.$fileName)==true){
+                    if(move_uploaded_file($tmpName, 'assets/img/users/'.$fileName)==true){
                         mysqli_query($conn, "UPDATE `".$tblPrefix."users` SET `img`='$fileName' WHERE id=$userId");
                         $_SESSION['adi']['img']=$fileName;
                         $_SESSION['toast']['type']="success";
                         $_SESSION['toast']['msg']="Profile Image Successfully Updated.";
+                        header('refresh:0');
+                        exit();
                     }else{
                          $_SESSION['toast']['type']="error";
                         $_SESSION['toast']['msg']="Something went wrong, Please try again.";
+                        header('refresh:0');
+                        exit();
                     }
                 }else{
                     $_SESSION['toast']['type']="warning";
                     $_SESSION['toast']['msg']="Upload only image format(jpg, jpeg, png).";
+                    header('refresh:0');
+                    exit();
                 }
             }
         }else{
              $_SESSION['toast']['type']="error";
              $_SESSION['toast']['msg']="Something went wrong.";
+             header('refresh:0');
+            exit();
         }
     }
 
