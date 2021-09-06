@@ -81,25 +81,6 @@ $userId=$_SESSION['user']['id'];
                                 </div>
                             </div>
                             <?php } } }?>
-                            <!-- <div class="row order-main order-card order-blue  mt-3 align-items-center">
-                                <div class="col-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="img/Untitled-5121.png" class="w-25 img-fluid ">
-                                        <p class="mb-0 ms-2">Tapeoo Card x2</p>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <p>$43</p>
-                                </div>
-                                <div class="col-3">
-                                    <p>12 Aug 2021</p>
-                                </div>
-                                <div class="col-3">
-                                    <div class="order-success ">
-                                        <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
