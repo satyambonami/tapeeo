@@ -91,11 +91,11 @@ if(isset($_POST['checkout'])){
                     <form method="POST">
                         <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9 gx-md-0">
-                            <div class="cart-section table-responsive-lg">
-                                <table class="table list">
+                            <div class="cart-section table-responsive">
+                                <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Products Details</th>
+                                            <th scope="row" style="width: 400px !important;">Products Details</th>
                                             <th scope="col">Quantity</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">Total</th>
@@ -163,20 +163,27 @@ if(isset($_POST['checkout'])){
                                             <td>
                                             <div class="quantity">
                                                 <div class="quantity-input">
-                                                <a class="btn btn-increase position-relative" data-price="<?php echo $cartDataC['price']?>"></a>
+                                                    <a class="btn btn-reduce position-relative" data-price="<?php echo $cartDataC['price']?>"></a>
                                                     <input type="hidden" name="product-id[]" value="<?php echo $cartDataC['pid']?>">
                                                     <input type="hidden" name="product-name[]" value="<?php echo $cartDataC['name']?>">
                                                     <input type="hidden" name="product-price[]" value="<?php echo $cartDataC['offer_price']?>">
                                                     <input type="hidden" name="product-image[]" value="<?php echo $cartDataC['image']?>">
-
+                                                    
                                                     <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartDataC['quantity']?>" pattern="[0-9]*" readonly="">
                                                     
-                                                    <a class="btn btn-reduce position-relative" data-price="<?php echo $cartDataC['price']?>"></a>
+                                                    <a class="btn btn-increase position-relative" data-price="<?php echo $cartDataC['price']?>"></a>
                                                 </div>
                                             </div>
                                             </td>
-                                            <td class="heading-color">$ <?php echo $cartDataC['price']?></td>
-                                            <td class="total heading-color">$ <?php echo $cartDataC['offer_price']?></td>
+                                            <td class="heading-color ">
+                                                <div class="cart-price">
+                                                    $ <?php echo $cartDataC['price']?></td>
+                                                </div>
+                                            <td class="total heading-color">
+                                                <div class="cart-total">
+                                                    $ <?php echo $cartDataC['offer_price']?>
+                                                </div>
+                                            </td>
                                             <td>
                                                 <small><a data-this-id="<?php echo $cartDataC['pid'];?>" class="remove-item"><i class="far fa-trash-alt"></i></a></small>
                                             </td>

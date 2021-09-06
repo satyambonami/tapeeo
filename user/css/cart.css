@@ -15,7 +15,7 @@
 }
 
 .cart-section input {
-    width: 30px !important;
+    width: 22px !important;
 }
 
 .cart-section tbody tr {
@@ -37,6 +37,7 @@
 .cart-section tbody .detailsrow {
     display: flex;
     flex-wrap: nowrap;
+    align-items: center;
 
 }
 
@@ -78,7 +79,7 @@
 	border: 1px solid #e6e6e6;
 	background-color: #fff;
 	max-width: 112px;
-	padding: 6px 5px;
+	padding: 6px 9px;
 	border-radius: 15px;
 }
 
