@@ -168,7 +168,7 @@ if(isset($_POST['change-password'])){
 
                                                 <input type="email" class="form-control" placeholder="example@gmail.com" disabled value="<?php echo $_SESSION['user']['email'];?>">
                                                 <input type="text" class="form-control"
-                                                    placeholder="Street , House , Locality" value="<?php if(isset($address)){ echo $address['address']};?>"  name="address" autocomplete="off" required >
+                                                    placeholder="Street , House , Locality" value="<?php if(isset($address)){ echo $address['address']} };?>"  name="address" autocomplete="off" required >
 
                                                 <div class="row">
                                                     <div class="col-6">
@@ -185,7 +185,7 @@ if(isset($_POST['change-password'])){
                                                                 $DataState = mysqli_query($conn,"SELECT `id`, `name` FROM `states`"); 
                                                                 while($State = mysqli_fetch_assoc($DataState)){
                                                             ?>
-                                                            <option value="<?php echo $State['id'];?>" <?php if(isset($address)){  if($State['id'] == $address['state']){echo 'selected';} } ?>><?php echo $State['name'];?></option>
+                                                            <option value="<?php echo $State['id'];?>" <?php if(isset($address)){ if($State['id'] == $address['state']){echo 'selected';} } ?>><?php echo $State['name'];?></option>
                                                             <?php }?>
                                                             </select>
                                                         </div>
@@ -204,7 +204,7 @@ if(isset($_POST['change-password'])){
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="text" class="form-control" placeholder="Postal Code" value="<?php echo if(isset($address)){ $address['pincode']};?>"  name="pincode" autocomplete="off" required >
+                                                        <input type="text" class="form-control" placeholder="Postal Code" value="<?php if(isset($address)){ $address['pincode']};?>"  name="pincode" autocomplete="off" required >
                                                     </div>
                                                 </div>
 

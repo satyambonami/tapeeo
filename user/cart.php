@@ -105,7 +105,7 @@ if(isset($_POST['checkout'])){
                                     <tbody>
                                     <?php
                                         if(isset($_SESSION['user']) && !isset($_SESSION['cart'])){ 
-                                            $cartUser=mysqli_query($conn,"SELECT cart.id, cart.quantity as cartqty,pr.pid as prodId, pr.name,pr.price, pr.offer_price, pr.image, pr.pid, pr.quantity as prq FROM `".$tblPrefix."cart` cart LEFT JOIN `".$tblPrefix."products` pr ON cart.prod_id=pr.pid WHERE user_id='".$_SESSION['user']['id']."'");
+                                            $cartUser=mysqli_query($conn,"SELECT cart.id as cID, cart.quantity as cartqty,pr.pid as prodId, pr.name,pr.price, pr.offer_price, pr.image, pr.pid, pr.quantity as prq FROM `".$tblPrefix."cart` cart LEFT JOIN `".$tblPrefix."products` pr ON cart.prod_id=pr.pid WHERE user_id='".$_SESSION['user']['id']."'");
                                             while($cartData1=mysqli_fetch_assoc($cartUser)){
                                                 $cartCount++;
                                                 $quantity=$cartData1['cartqty'];
@@ -138,7 +138,7 @@ if(isset($_POST['checkout'])){
                                             <td class="heading-color">$ <?php echo $cartData1['price']; ?></td>
                                             <td class="total heading-color">$ <?php echo $cartData1['offer_price']; ?></td>
                                             <td>
-                                            <small><a data-this-id="<?php echo $cartData1['pid'];?>" class="remove-item"><i class="far fa-trash-alt"></i></a></small>
+                                            <small><a data-this-id="<?php echo $cartData1['cID'];?>" class="remove-item"><i class="far fa-trash-alt"></i></a></small>
                                             </td>
                                         </tr>
                                     <?php } }elseif(isset($_SESSION['cart'])){ 
