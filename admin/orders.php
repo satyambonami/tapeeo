@@ -71,7 +71,7 @@ if(isset($_POST['status']) && isset($_POST['order_id'])){
                                                 <td width="120px">
                                                     <div>
                                                         <!-- 0=deleted, 1= cancelled, 2=processing, 3= packaging, 4=out for delivery, 5=delivered -->
-                                                        <select class="order-status" data-order-id="<?php echo $data['id'];?>">
+                                                        <select class="order-status form-control" data-order-id="<?php echo $data['id'];?>">
                                                             <option value="" selected="" disabled="">Change Status</option>
                                                             <option value="1" <?php if($data['status']==1){ echo ' selected';} ?>>Cancelled</option>
                                                             <option value="2" <?php if($data['status']==2){ echo ' selected';} ?>>Processing</option>
@@ -84,7 +84,7 @@ if(isset($_POST['status']) && isset($_POST['order_id'])){
                                                 <td>								
                                                     <a href="generate-invoice.php?id=<?php echo $data['id'];?>&download=true" data-this-id="" class="btn btn-primary" data-position="top" data-delay="40" data-tooltip="Download Invoice"><i class="mdi mdi-cloud-download"></i></a>	
                                                     								
-                                                    <a href="view-order.php?id=<?php echo $data['id'];?>" data-this-id="" class="btn btn-primary" data-position="top" data-delay="40" data-tooltip="View Order Details"><i class="mdi mdi-eye"></i></a>									
+                                                    <a href="view-orders.php?id=<?php echo $data['id'];?>" data-this-id="" class="btn btn-primary" data-position="top" data-delay="40" data-tooltip="View Order Details"><i class="mdi mdi-eye"></i></a>									
                                                 </td>
                                             </tr>
                                             <?php }?>
@@ -125,7 +125,6 @@ if(isset($_POST['status']) && isset($_POST['order_id'])){
 					type: 'post',
 					data:{status: status, order_id: orderId},
 					success: function(){
-						console.log(orderId);
 						alertify.warning("Status changed.", 3000);
 					},
 					error: function(){

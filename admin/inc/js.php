@@ -49,14 +49,12 @@ $('.change-status').on('change', function(){
 		url : '',
 		data: {id : id, status: status},
 		success: function(response){
-			console.log(response);
 			//alert(id);
 			alertify.message("Changes saved.", 3000);
 			//alert(status);
 
 		},
 		error: function(response){
-			console.log(response);
 			alertify.message("Something went wrong, Please try again.", 3000);
 		}
 	});
