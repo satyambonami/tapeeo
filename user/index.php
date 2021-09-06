@@ -75,6 +75,9 @@ $address = mysqli_fetch_assoc($dataAddress);
                                             <h6 class="mb-3" style="color:#D33696;">
                                                 <b>Default Address</b>
                                             </h6>
+                                            <?php 
+                                                if(isset($address)){ 
+                                            ?>
                                             <h5 class="mb-3">
                                                 <?php echo $address['name'];?>
                                             </h5>
@@ -86,6 +89,9 @@ $address = mysqli_fetch_assoc($dataAddress);
                                             <p>State: <?php echo state($address['state']);?></p>
                                             <p>city: <?php echo city($address['city']);?></p>
                                             <p>Postal Code : <?php echo $address['pincode'];?></p>
+                                            <?php }else{ ?>
+                                                <h6>No Deafult Address Found</h6>
+                                            <?php }?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3">

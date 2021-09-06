@@ -70,7 +70,8 @@
                             </div>
                             <div class="price">
                                 <h3>
-                                    $<?php echo $product['offer_price'];?>
+                                    <span data-price="<?php echo $product['offer_price'];?>" class="priceHead">$<?php echo $product['offer_price'];?></span>
+                                    
                                     <span style="text-decoration:line-through">
                                         $<?php echo $product['price'];?>
                                     </span>
@@ -87,7 +88,8 @@
                                         <p class="minus">
                                             <i class="fas fa-minus"></i>
                                         </p>
-                                        <input type="number" name="quantity" id=""class="number" value="1" max="<?php echo $product['quantity'];?>" min="1">
+                                        <input type="number" class="showNumber">
+                                        <!-- <input type="number" name="quantity" id=""class="number" value="1" max="<?php echo $product['quantity'];?>" min="1"> -->
                                         <p class="plus">
                                             <i class="fas fa-plus"></i>
                                         </p>
@@ -201,34 +203,58 @@
 
         const tab = document.querySelectorAll(".tab-content");
         const animiLine = document.querySelectorAll(".animiLine");
+        const cardBtn = document.querySelectorAll(".card_btn");
+const minus = document.querySelector(".minus");
+const plus = document.querySelector(".plus");
+const num = document.querySelector(".number");
 
-        const minus = document.querySelector(".minus");
-        const plus = document.querySelector(".plus");
-        const num = document.querySelector(".number");
+const price = document.querySelector(".priceHead");
+const priceHead = +document.querySelector(".priceHead").getAttribute("data-price");
+const showNumber = document.querySelector(".showNumber");
 
-        // card js
-        let startNumebr = 1;
+// card js
+let startNumebr = 1;
+const totalrice = [priceHead];
+showNumber.value = 1;
 
-        // inc the number
-        plus.addEventListener("click", function() {
-            startNumebr++;
-            num.textContent = startNumebr;
-        });
+cardBtn.forEach((item) => {
+  const arr = [...item.children];
 
-        // minus the number
-        // if the number is less then one so stop
-        const desnumerb = function() {
-            minus.addEventListener("click", function() {
-                if (startNumebr >= 2) {
-                    startNumebr--;
-                    num.textContent = startNumebr;
-                } else {
-                    return;
-                }
-            });
-        };
+  // plus the number
+  arr[2].addEventListener("click", function () {
+    startNumebr++;
+    arr[1].textContent = startNumebr;
+    // change input value
+    showNumber.value = startNumebr;
+    totalrice.push(priceHead);
 
-        desnumerb();
+    let sum = 0;
+    for (let i = 0; i < totalrice.length; i++) {
+      sum += totalrice[i];
+    }
+    price.textContent = sum;
+  });
+
+  // minus the number
+  arr[0].addEventListener("click", function () {
+    if (startNumebr >= 2) {
+      startNumebr--;
+      arr[1].textContent = startNumebr;
+      // change input value
+      showNumber.value = startNumebr;
+
+      totalrice.pop();
+      let sumReduce = 0;
+      for (let i = 0; i < totalrice.length; i++) {
+        sumReduce += totalrice[i];
+      }
+      price.textContent = sumReduce;
+    } else {
+      return;
+    }
+  });
+});
+
 
         // tab-content
         function tabContentFunction(e) {
