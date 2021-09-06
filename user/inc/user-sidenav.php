@@ -1,6 +1,6 @@
 <div class="col-3 side-nav d-none d-sm-none d-md-none d-lg-block d-xxl-block">
     <div class="side-nav-img text-center p-5">
-        <img src="../img/users/<?php echo $_SESSION['user']['img'];?>" class="img-responsive w-75 rounded-circle">
+        <img src="../img/users/<?php if($_SESSION['user']['img'] == NULL){echo 'user.png';}else{echo $_SESSION['user']['img'];}?>" class="img-responsive w-75 rounded-circle">
     </div>
     <nav class="side-nav-list mt-3">
         <ul>

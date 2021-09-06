@@ -37,7 +37,7 @@ $address = mysqli_fetch_assoc($dataAddress);
                         <div class="dashboard-div">
                             <div class="dashboard-head">
                                 <div class="row">
-                                    <div class="col-7 col-sm-7 col-md-7 col-lg-4 col-xxl-4">
+                                    <div class="col-7 col-sm-7 col-md-7 col-lg-5 col-xxl-5">
                                         <h1 class="msContent">Good,  </h1>
                                         <div class="animationLinetappeo ms-0 mt-2 w-100"></div>
                                         <h5 class="ms-4">
@@ -114,13 +114,13 @@ $address = mysqli_fetch_assoc($dataAddress);
                                                             <?php if($data['status'] == 2){
                                                                     echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Processing</h6>';
                                                                 }elseif($data['status'] == 3){
-                                                                    echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i>Packaging</h6>';
+                                                                    echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Packaging</h6>';
                                                                 }elseif($data['status'] == 4){
                                                                     echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Out for Delivery</h6>';
                                                                 }elseif($data['status'] == 5){
-                                                                    echo '<h6 class="mb-0 text-success"><i class="fas fa-circle"></i>Delivered</h6>';
+                                                                    echo '<h6 class="mb-0 text-success"><i class="fas fa-circle"></i> Delivered</h6>';
                                                                 }else{
-                                                                    echo '<h6 class="mb-0 text-danger"><i class="fas fa-circle"></i>Cancelled</h6>';
+                                                                    echo '<h6 class="mb-0 text-danger"><i class="fas fa-circle"></i> Cancelled</h6>';
                                                                 }
                                                             ?>
                                                             </div>
@@ -151,7 +151,7 @@ $address = mysqli_fetch_assoc($dataAddress);
             const date = new Date();
             const hour = date.getHours();
             // update the dom
-            hour < 12 ? msContent.textContent = 'Good Morning' : msContent.textContent = 'Good Afternon';
+            hour < 12 ? msContent.textContent = 'Good, Morning' : msContent.textContent = 'Good, Afternoon';
             // update time every single second
             }, 1000)
     </script>

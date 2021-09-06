@@ -40,28 +40,34 @@
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
                             <div class="form-group border-0">
-                                <select class="form-select country" aria-label="Default select example" name="country" required>
-                                    <option selected value="231">United States</option>
+                                <select class="form-select country" aria-label="Default select example" name="country" >
+                                    <option selected disabled value="231">United States</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
+                            <div class="form-group border-0">
+                                <select class="form-select state" id="state" aria-label="Default select example" name="state" >
+                                <option selected disabled value="0">Select State</option>
+                                <?php
+                                    $DataState = mysqli_query($conn,"SELECT `id`, `name` FROM `states`"); 
+                                    while($State = mysqli_fetch_assoc($DataState)){
+                                ?>
+                                <option value="<?php echo $State['id'];?>" ><?php echo $State['name'];?></option>
+                                <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
+                            <div class="form-group border-0">
+                                <select class="form-select" id="city" aria-label="Default select example" name="city" >
+                                    <option selected disabled value="0">Select City</option>
                                     <?php
-                                        $DataCountry = mysqli_query($conn,"SELECT `id`, `name` FROM `countries`"); 
-                                        while($country = mysqli_fetch_assoc($DataCountry)){
+                                        $Datacity = mysqli_query($conn,"SELECT `id`, `name` FROM `cities`"); 
+                                        while($City = mysqli_fetch_assoc($Datacity)){
                                     ?>
-                                    <option value="<?php echo $country['id'];?>"><?php echo $country['name'];?></option>
+                                    <option value="<?php echo $City['id'];?>" ><?php echo $City['name'];?></option>
                                     <?php }?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
-                            <div class="form-group border-0">
-                                <select class="form-select state" id="state" aria-label="Default select example" name="state" required >
-                                    <option disabled value="0">Select State</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
-                            <div class="form-group border-0">
-                                <select class="form-select" id="city" aria-label="Default select example" name="city" required>
-                                    <option disabled value="0">Select City</option>
                                 </select>
                             </div>
                         </div>
@@ -73,11 +79,7 @@
                     </div>
 
                     <div class="row mt-2">
-
-                        <div class="col-6 mt-3">
-                            <a href="" class="heading-color ps-2">Clear Form Data</a>
-                        </div>
-                        <div class="col-6">
+                        <div class="col-12 text-end ">
                             <div
                                 class="submit-btn mt-2 text-end text-sm-end text-md-end text-lg-end text-xxl-end">
                                 <button type="submit" class="btn btn-gradient" name="submit-address">Save</button>

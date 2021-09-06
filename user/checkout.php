@@ -38,7 +38,7 @@ $totalPrice = 0;
     $shipping = mysqli_real_escape_string($conn,ak_secure_string($_POST['shipping']));
   
     $actionQ = "INSERT INTO `".$tblPrefix."orders`(`user_id`, `prod_id`, `prod_prices`, `total_amount`, `prod_quantity`, `tax`, `shipping`, `address_id`, `status`, `date_time`) 
-    VALUES ('".$_SESSION['user']['id']."', '".implode(',',$_SESSION['checkout']['id'])."', '".implode(',',$_SESSION['checkout']['price'])."','$totalAmount', '".implode(',',$_SESSION['checkout']['qnty'])."', '$tax', '$shipping', '$addressId', 2, '$cTime')";
+    VALUES ('".$_SESSION['user']['id']."', '".implode(',',$_SESSION['checkout']['id'])."', '".implode(',',$_SESSION['checkout']['price'])."','".$_SESSION['checkout']['grand-total']."', '".implode(',',$_SESSION['checkout']['qnty'])."', '$tax', '$shipping', '$addressId', 2, '$cTime')";
   
     if(mysqli_query($conn, $actionQ)==true){
       $totalAmount = $_SESSION['checkout']['grand-total'];
@@ -145,36 +145,42 @@ $totalPrice = 0;
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group border-0">
-                                                        <input type="text" class="form-control" placeholder="Postal Code" name="pincode" autocomplete="">
+                                                        <input type="text" class="form-control" placeholder="Postal Code" name="zipcode" autocomplete="">
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    <div class="form-group border-0">
-                                                        <select class="form-select country" aria-label="Default select example" name="country">
-                                                            <option selected value="231">United States</option>
-                                                            <?php
-                                                                $DataCountry = mysqli_query($conn,"SELECT `id`, `name` FROM `countries`"); 
-                                                                while($country = mysqli_fetch_assoc($DataCountry)){
-                                                            ?>
-                                                            <option value="<?php echo $country['id'];?>"><?php echo $country['name'];?></option>
-                                                            <?php }?>
-                                                        </select>
+                                                        <div class="form-group border-0">
+                                                            <select class="form-select country" aria-label="Default select example" name="country" >
+                                                                <option selected disabled value="231">United States</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="form-group border-0">
-                                                        <select class="form-select state" id="state" aria-label="Default select example" name="state" >
+                                                    <div class="col-6">
+                                                        <div class="form-group border-0">
+                                                            <select class="form-select state" id="state" aria-label="Default select example" name="state" >
                                                             <option selected disabled value="0">Select State</option>
-                                                        </select>
+                                                            <?php
+                                                                $DataState = mysqli_query($conn,"SELECT `id`, `name` FROM `states`"); 
+                                                                while($State = mysqli_fetch_assoc($DataState)){
+                                                            ?>
+                                                            <option value="<?php echo $State['id'];?>" ><?php echo $State['name'];?></option>
+                                                            <?php }?>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="form-group border-0">
-                                                        <select class="form-select" id="city" aria-label="Default select example" name="city">
-                                                            <option selected disabled value="0">Select City</option>
-                                                        </select>
+                                                    <div class="col-6">
+                                                        <div class="form-group border-0">
+                                                            <select class="form-select" id="city" aria-label="Default select example" name="city" >
+                                                                <option selected disabled value="0">Select City</option>
+                                                                <!-- <?php
+                                                                    $Datacity = mysqli_query($conn,"SELECT `id`, `name` FROM `cities`"); 
+                                                                    while($City = mysqli_fetch_assoc($Datacity)){
+                                                                ?>
+                                                                <option value="<?php echo $City['id'];?>"> <?php echo $City['name'];?></option>
+                                                                <?php }?> -->
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

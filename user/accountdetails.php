@@ -63,6 +63,40 @@ if(isset($_POST['updateDetails'])){
 $dataAddress = mysqli_query($conn,"SELECT * FROM `".$tblPrefix."user_address` WHERE `user_id`='$userId' AND `default`=1 ");
 $address = mysqli_fetch_assoc($dataAddress);
 
+// Update Password
+if(isset($_POST['change-password'])){
+    $oldPass=mysqli_real_escape_string($conn,ak_secure_string($_POST['oldpass']));
+    $newPass=mysqli_real_escape_string($conn,ak_secure_string($_POST['newpass']));
+    $cnfpass=mysqli_real_escape_string($conn,ak_secure_string($_POST['cnfpass']));
+    if($newPass == $cnfpass)
+    {
+        $pass= hash('sha512',$oldPass.HASH_KEY);
+        $checkUser=mysqli_query($conn, "SELECT `id` FROM `".$tblPrefix."users` WHERE `id`=$userId AND `password`='$pass'");
+        if(mysqli_fetch_assoc($checkUser)>0){
+            $newPassword=hash('sha512',$newPass.HASH_KEY);
+                $updateQ="UPDATE `".$tblPrefix."users` SET password='$newPassword' WHERE id=".$userId;
+                $update=mysqli_query($conn, $updateQ);
+                if($update==true){
+                    $_SESSION['toast']['type']='success';
+                    $_SESSION['toast']['msg']='Password successfully changed.';
+                    header("Refresh:0");
+                    exit();
+                }else{
+                    $_SESSION['toast']['msg']='Something went wrong, Please try again.';
+                    header("Refresh:0");
+                    exit();
+                }
+        }else{
+        $_SESSION['toast']['msg']="Old password not matched.";
+        header("Refresh:0");
+        exit();
+        }
+    }else{
+        $_SESSION['toast']['msg']="Password not matched, Please try again later!";
+        header("Refresh:0");
+        exit();
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +148,7 @@ $address = mysqli_fetch_assoc($dataAddress);
                                                     <div class="col-12">
                                                         <div class="text-center position-relative">
                                                         <div class="text-center mb-3 mx-auto userImg" onclick="open_file()">
-                                                            <div id="img-preview"><img src="../img/users/<?php echo $_SESSION['user']['img'];?>" alt="" class="inputuserimage"
+                                                            <div id="img-preview"><img src="../img/users/<?php if($_SESSION['user']['img'] == NULL){echo 'user.png';}else{echo $_SESSION['user']['img'];}?>" alt="" class="inputuserimage"
                                                                 id="target"></div>
                                                                 <input type="file" id="choose-file"
                                                             name="Pimage" hidden/>
@@ -140,20 +174,19 @@ $address = mysqli_fetch_assoc($dataAddress);
                                                     <div class="col-6">
                                                         <div class="form-group border-0">
                                                             <select class="form-select country" aria-label="Default select example" name="country" >
-                                                            <option selected disabled value="0">Select Country</option>
-                                                                <?php
-                                                                    $DataCountry = mysqli_query($conn,"SELECT `id`, `name` FROM `countries`"); 
-                                                                    while($country = mysqli_fetch_assoc($DataCountry)){
-                                                                ?>
-                                                                <option value="<?php echo $country['id'];?>" <?php if($country['id'] == $address['country']){echo 'selected';} ?>><?php echo $country['name'];?></option>
-                                                                <?php }?>
+                                                                <option selected disabled value="231">United States</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group border-0">
                                                             <select class="form-select state" id="state" aria-label="Default select example" name="state" >
-                                                                <option selected disabled value="0">Select State</option>
+                                                            <?php
+                                                                $DataState = mysqli_query($conn,"SELECT `id`, `name` FROM `states`"); 
+                                                                while($State = mysqli_fetch_assoc($DataState)){
+                                                            ?>
+                                                            <option value="<?php echo $State['id'];?>" <?php if($State['id'] == $address['state']){echo 'selected';} ?>><?php echo $State['name'];?></option>
+                                                            <?php }?>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -161,6 +194,12 @@ $address = mysqli_fetch_assoc($dataAddress);
                                                         <div class="form-group border-0">
                                                             <select class="form-select" id="city" aria-label="Default select example" name="city" >
                                                                 <option selected disabled value="0">Select City</option>
+                                                                <?php
+                                                                    $Datacity = mysqli_query($conn,"SELECT `id`, `name` FROM `cities`"); 
+                                                                    while($City = mysqli_fetch_assoc($Datacity)){
+                                                                ?>
+                                                                <option value="<?php echo $City['id'];?>" <?php if($City['id'] == $address['city']){echo 'selected';} ?>><?php echo $City['name'];?></option>
+                                                                <?php }?>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -171,10 +210,7 @@ $address = mysqli_fetch_assoc($dataAddress);
 
                                                 <div class="row">
 
-                                                    <div class="col-6 mt-3">
-                                                        <a href="" class="heading-color ps-2">Clear Form Data</a>
-                                                    </div>
-                                                    <div class="col-6">
+                                                    <div class="col-12 text-end mt-3">
                                                         <div class="submit-btn  mt-2 text-end text-sm-end text-md-end text-lg-end text-xxl-end">
                                                             <button type="submit" class="btn btn-gradient px-2 px-sm-2 px-md-3 px-lg-3 px-xxl-3 " name="updateDetails">Update Details
                                                             </button>
@@ -185,18 +221,16 @@ $address = mysqli_fetch_assoc($dataAddress);
                                         </div>
                                         <div class="content active_ContentTwo hideDiv">
                                             <form method="POST" class="mb-4">
-                                                <input type="text" class="form-control" placeholder="Current Password">
+                                                <input type="password" class="form-control" placeholder="Current Password" name="oldpass" required autoocomplete="off">
 
-                                                <input type="email" class="form-control" placeholder="New Password">
+                                                <input type="password" class="form-control" placeholder="New Password" name="newpass" required autoocomplete="off">
 
-                                                <input type="text" class="form-control" placeholder="Confirm Password">
+                                                <input type="password" class="form-control" placeholder="Confirm Password" name="cnfpass" required autoocomplete="off">
 
                                                 <div
                                                     class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-end text-xxl-end">
-                                                    <a href="" class="btn btn-gradient">Save Password</a>
-
+                                                    <button type="submit" class="btn btn-gradient" name="change-password">Update</button>
                                                 </div>
-
                                             </form>
                                         </div>
                                     </div>
@@ -214,6 +248,7 @@ $address = mysqli_fetch_assoc($dataAddress);
     <?php include('inc/mobileNav.php') ?>
     <?php include('../inc/js.php') ?>
     <script src = "../admin/assets/js/alertify.min.js"> </script>
+    <?php echo toast(1);?>
     <script>
     AOS.init();
 
@@ -287,44 +322,6 @@ $address = mysqli_fetch_assoc($dataAddress);
         }
     }
     </script>
-    <script type="text/javascript">
-$('.country').on('change', function(){
-	var state = $(this).val();
-	$.ajax({
-		url : '../inc/ajax-state.php',
-		type : 'post',
-		data : { state : state},
-
-		success: function(response){
-			$('#state').html(response);
-			console.log(response);
-
-		},
-		error: function(response){
-			console.log(response);
-		}
-	});
-});
-</script>
-<script type="text/javascript">
-$('.state').on('change', function(){
-	var city = $(this).val();
-	$.ajax({
-		url : '../inc/ajax-city.php',
-		type : 'post',
-		data : { city : city},
-
-		success: function(response){
-			$('#city').html(response);
-			console.log(response);
-
-		},
-		error: function(response){
-			console.log(response);
-		}
-	});
-});
-</script>
 </body>
 
 </html>

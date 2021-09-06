@@ -126,7 +126,7 @@ if(isset($_GET['delete-row'])){
                                                 <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-2 edit-this"
                                                     data-this-id='<?php echo $address['id'];?>' data-name='<?php echo $address['name'];?>' data-email='<?php echo $address['email'];?>'
                                                     data-phone='<?php echo $address['phone'];?>' data-city='<?php echo $address['city'];?>' data-state='<?php echo $address['state'];?>'
-                                                    data-country='<?php echo $address['country'];?>' data-address='<?php echo $address['address'];?>' data-pincode='<?php echo $address['pincode'];?>'
+                                                    data-country='<?php echo $address['country'];?>' data-address='<?php echo $address['address'];?>' data-pincode='<?php echo $address['pincode'];?>' data-type='<?php echo $address['type'];?>'
                                                     >Edit Address </a>
                                                 <a href="" class="delete-row" data-this-id='<?php echo $address['id'];?>' >Delete Address </a>
                                                 </div>
@@ -178,9 +178,9 @@ if(isset($_GET['delete-row'])){
         $('input[name="phone"]').val($(this).data('phone'));
         $('input[name="address"]').val($(this).data('address'));
         $('input[name="zipcode"]').val($(this).data('pincode'));
-        // $('select[name="country"]').val($(this)data('country'));
-        // $('select[name="city"]').val($(this).data('city'));
-        // $('select[name="state"]').val($(this).data('state'));
+        $('select[name="city"]').val($(this).data('city'));
+        $('select[name="state"]').val($(this).data('state'));
+        $('select[name="type"]').val($(this).data('type'));
     });
 </script>
 <script type="text/javascript">	
@@ -195,43 +195,5 @@ $('.default-address').on('click', function(){
 	}
 });
 </script> 
-<script type="text/javascript">
-$('.country').on('change', function(){
-	var state = $(this).val();
-	$.ajax({
-		url : '../inc/ajax-state.php',
-		type : 'post',
-		data : { state : state},
-
-		success: function(response){
-			$('#state').html(response);
-			console.log(response);
-
-		},
-		error: function(response){
-			console.log(response);
-		}
-	});
-});
-</script>
-<script type="text/javascript">
-$('.state').on('change', function(){
-	var city = $(this).val();
-	$.ajax({
-		url : '../inc/ajax-city.php',
-		type : 'post',
-		data : { city : city},
-
-		success: function(response){
-			$('#city').html(response);
-			console.log(response);
-
-		},
-		error: function(response){
-			console.log(response);
-		}
-	});
-});
-</script>
 </body>
 </html>

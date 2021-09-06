@@ -205,36 +205,38 @@ if(isset($_POST['checkout'])){
                             </div>
 
                         </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-3 col-xxl-3 gy-3 gy-sm-3 gy-md-3 gy-lg-3 gy-xl-0 gy-xxl-0">
-                            <div class="order-summary">
-                                <h3 class="heading-color">Cart Total</h3>
-                                <hr>
-                                <?php $TotalTax = ($totalPrice*$taxTotal)/100;?>
-                                <div class="product-details mt-1">
-                                    <h6>Sub Total</h6>
-                                    <h6>$<?php echo $totalPrice;?></h6>
-                                </div>
-                                <div class="product-details mt-1">
-                                    <h6>Tax Charges</h6>
-                                    <h6>$<?php echo $TotalTax;?>
-                                    <small>(<?php echo $_SESSION['general']['tax']?>%)</small>
-                                </h6>
-                                </div>
-                                <div class="product-details mt-1">
-                                    <h6>Deleviery Charges</h6>
-                                    <h6>$<?php if($shippingTotal!=0){echo $shippingTotal;}elseif($shippingTotal==0){echo 'Free Shipping';}?></h6>
-                                </div>
+                            <?php  if($cartCount != 0 ){ ?>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-3 col-xxl-3 gy-3 gy-sm-3 gy-md-3 gy-lg-3 gy-xl-0 gy-xxl-0">
+                                    <div class="order-summary">
+                                        <h3 class="heading-color">Cart Total</h3>
+                                        <hr>
+                                        <?php $TotalTax = ($totalPrice*$taxTotal)/100;?>
+                                        <div class="product-details mt-1">
+                                            <h6>Sub Total</h6>
+                                            <h6>$<?php echo $totalPrice;?></h6>
+                                        </div>
+                                        <div class="product-details mt-1">
+                                            <h6>Tax Charges</h6>
+                                            <h6>$<?php echo $TotalTax;?>
+                                            <small>(<?php echo $_SESSION['general']['tax']?>%)</small>
+                                        </h6>
+                                        </div>
+                                        <div class="product-details mt-1">
+                                            <h6>Deleviery Charges</h6>
+                                            <h6>$<?php if($shippingTotal!=0){echo $shippingTotal;}elseif($shippingTotal==0){echo 'Free Shipping';}?></h6>
+                                        </div>
 
-                                <div class="product-details mt-1">
-                                    <h6>Total</h6>
-                                    <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
-                                    <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>">
-                                    <h6>$<?php echo $grandTotal;?></h6>
+                                        <div class="product-details mt-1">
+                                            <h6>Total</h6>
+                                            <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
+                                            <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>">
+                                            <h6>$<?php echo $grandTotal;?></h6>
+                                        </div>
+                                        <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Proceed To
+                                            Checkout</button>
+                                    </div>
                                 </div>
-                                <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Proceed To
-                                    Checkout</button>
-                            </div>
-                        </div>
+                            <?php }?>
                         </div>
                     </form>
                 </div>

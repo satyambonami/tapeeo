@@ -80,13 +80,13 @@ $userId=$_SESSION['user']['id'];
                                         <?php if($data['status'] == 2){
                                             echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Processing</h6>';
                                         }elseif($data['status'] == 3){
-                                            echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i>Packaging</h6>';
+                                            echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Packaging</h6>';
                                         }elseif($data['status'] == 4){
                                             echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Out for Delivery</h6>';
                                         }elseif($data['status'] == 5){
-                                            echo '<h6 class="mb-0 text-success"><i class="fas fa-circle"></i>Delivered</h6>';
+                                            echo '<h6 class="mb-0 text-success"><i class="fas fa-circle"></i> Delivered</h6>';
                                         }else{
-                                            echo '<h6 class="mb-0 text-danger"><i class="fas fa-circle"></i>Cancelled</h6>';
+                                            echo '<h6 class="mb-0 text-danger"><i class="fas fa-circle"></i> Cancelled</h6>';
                                         }
                                         ?>
                                     </div>
