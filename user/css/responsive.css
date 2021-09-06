@@ -48,10 +48,25 @@
         padding: 0;
         padding-top: 1rem;
     }
+    .table-scrollable{
+        overflow-x: auto;
+        max-width: 600px;
+        box-shadow: inset 0 0 5px rgba(150, 150 ,150,0.35);
+        margin: auto;
+    }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 468px) {
     .nav-icon .fab {
         right: 10px;
+    }
+    .cart-section tbody .detailsrow{
+        width: 225px;
+    }
+    .cart-section tbody .quantity{
+        width: 120px;
+    }
+    .cart-section tbody .cart-price, .cart-section tbody .cart-total{
+        width: 100px;
     }
 }

@@ -93,9 +93,9 @@ if(isset($_POST['sign_up'])){
 
                                     </div>
                                             <div class="col-6">
-                                        <p class="heading-color mt-2 mb-2 text-end"> <a href="./signup.php"
+                                        <p class="heading-color mt-2 mb-2 text-end"> <a href="login.php"
                                                 style="color: #D33696; ">
-                                                Aready have a account</a></p>
+                                                Aready have a account?</a></p>
                                     </div> 
                                 </div>
                                 <div
