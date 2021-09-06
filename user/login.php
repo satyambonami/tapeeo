@@ -45,7 +45,7 @@ if (isset($_POST['login'])) {
         <section class=" section-padding-1 loginpage">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 g-md-0 g-lg-0 g-xl-0 g-xxl-0">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 g-md-0 g-lg-0 g-xl-0 g-xxl-0 order-2 order-sm-2 order-md-1 order-lg-1 order-xxl-1">
                         <div class="login-background p-5">
                             <h1 class="heading-color font-weight-bolder">Welcome Back</h1>
                             <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam in tenetur
@@ -55,7 +55,7 @@ if (isset($_POST['login'])) {
                         </div>
                     </div>
 
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 g-md-0 g-lg-0 g-xl-0 g-xxl-0">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 gx-md-0 gx-lg-0 gx-xl-0 gx-xxl-0 order-1 order-sm-1 order-md-2 order-lg-2 order-xxl-2">
                         <div class="login-main d-flex justify-content-center flex-column">
                             <div class="text-center">
                                 <img src="../img/<?php echo $_SESSION['general']['logo']; ?>" alt="" class="img-responsive img-fluid login-form-image">

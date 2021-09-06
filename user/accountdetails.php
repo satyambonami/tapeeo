@@ -82,7 +82,7 @@ $address = mysqli_fetch_assoc($dataAddress);
             <div class="container">
                 <div class="row">
                     <?php include('inc/user-sidenav.php') ?>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-9">
                         <div class="details-div">
                             <!-- Tab Section -->
                             <section class="tab_section section-padding-2">
