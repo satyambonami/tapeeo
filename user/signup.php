@@ -55,7 +55,7 @@ if(isset($_POST['sign_up'])){
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 g-md-0 g-lg-0 g-xl-0 g-xxl-0">
                         <div class="sign-background p-5">
-                            <h1 class="heading-color font-weight-bolder">Create an Account</h1>
+                            <h1 class="heading-color font-weight-bolder">Already Have An Account?</h1>
                             <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam in tenetur
                                 corrupti nostrum doloribus tempora. Reprehenderit sint laborum consectetur
                                 nesciunt! </p>
@@ -85,10 +85,18 @@ if(isset($_POST['sign_up'])){
                                     autocomplete="off">
                                 <input type="password" class="form-control" placeholder="Confirm Password" name="cpass"
                                     require autocomplete="off">
-                                <div class="d-flex align-items-center ms-2">
-                                    <input type="checkbox" name="TcPc" id="" required>
-                                    <h6 class="mt-2 ms-2"> I have read <a href="" style="color: #707070; ">Privacy
-                                            Policy</h6></a>
+                                <div class="ms-2 row">
+                                    <div class="col-6 d-flex align-items-center">
+                                        <input type="checkbox" name="TcPc" id="" required>
+                                        <h6 class="mt-2 ms-2"> I have read <a href="" style="color: #707070; ">Privacy
+                                                Policy</h6></a>
+
+                                    </div>
+                                            <div class="col-6">
+                                        <p class="heading-color mt-2 mb-2 text-end"> <a href="./signup.php"
+                                                style="color: #D33696; ">
+                                                Aready have a account</a></p>
+                                    </div> 
                                 </div>
                                 <div
                                     class="submit-btn mt-2 text-center text-sm-center text-md-center text-lg-start text-xxl-start">
