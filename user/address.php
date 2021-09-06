@@ -177,7 +177,7 @@ if(isset($_GET['delete-row'])){
         $('input[name="email"]').val($(this).data('email'));
         $('input[name="phone"]').val($(this).data('phone'));
         $('input[name="address"]').val($(this).data('address'));
-        $('input[name="pincode"]').val($(this).data('zipcode'));
+        $('input[name="zipcode"]').val($(this).data('pincode'));
         // $('select[name="country"]').val($(this)data('country'));
         // $('select[name="city"]').val($(this).data('city'));
         // $('select[name="state"]').val($(this).data('state'));

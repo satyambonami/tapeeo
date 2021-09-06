@@ -53,6 +53,7 @@
                                             <thead>
                                             <tr>
                                                 <th>Id</th>
+                                                <th>Image</th>
                                                 <th>Name</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
@@ -64,13 +65,14 @@
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                                    $dataPrd = mysqli_query($conn,"SELECT `pid`,`name`,`quantity`,`price`,`discount`,`offer_price`,`date_time`,`status` FROM `".$tblPrefix."products` WHERE status!=0");
+                                                    $dataPrd = mysqli_query($conn,"SELECT `pid`,`name`,`quantity`,`image`,`price`,`discount`,`offer_price`,`date_time`,`status` FROM `".$tblPrefix."products` WHERE status!=0");
                                                     $no = 0;
                                                     while($data = mysqli_fetch_assoc($dataPrd)){ 
                                                         $no++;
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $no;?></td>
+                                                    <td><img src="../img/products/<?php echo $data['image'];?>" alt="<?php echo $data['name'];?>"></td>
                                                     <td><?php echo $data['name'];?></td>
                                                     <td><?php echo $data['quantity'];?></td>
                                                     <td><?php echo $data['price'];?></td>
@@ -99,6 +101,7 @@
                                             <tfoot>
                                             <tr>
                                                 <th>Id</th>
+                                                <th>Image</th>
                                                 <th>Name</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
