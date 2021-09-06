@@ -179,6 +179,7 @@ $userId=$_SESSION['user']['id'];
     </main>
     <?php include('../inc/footer.php') ?>
     <?php include('inc/mobileNav.php') ?>
+    <?php include('../inc/js.php') ?>
     <script src = "../admin/assets/js/alertify.min.js"> </script>
     <?php echo toast(1);?>
 </body>
