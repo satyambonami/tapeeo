@@ -62,7 +62,7 @@ $userId=$_SESSION['user']['id'];
                                             $i++;
                             ?>
                             <div class="row order-main order-card <?php if($i %2!= 0){echo 'order-pink';}else{echo 'order-blue';}?> mt-3 align-items-center ">
-                                <div class="col-6 py-2">
+                                <div class="col-4 py-2">
                                     <div class="d-flex align-items-center">
                                         <img src="img/Untitled-5121.png" class="w-25 img-fluid ">
                                         <p class="mb-0 ms-2"><?php echo $prodData['name'];?> (x<?php echo $quantityArr[$idKey];?>)</p>
@@ -71,10 +71,10 @@ $userId=$_SESSION['user']['id'];
                                 <div class="col-2">
                                     <p>$<?php echo $priceArr[$idKey];?></p>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-3">
                                     <p><?php echo date("d/M/Y",strtotime($data['date_time']));?></p>
                                 </div>
-                                <div class="col-2 text-end">
+                                <div class="col-3 text-end">
                                     <div class="order-success ">
                                         <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
                                     </div>
