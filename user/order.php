@@ -29,20 +29,20 @@ $userId=$_SESSION['user']['id'];
             <div class="container">
                 <div class="row">
                     <?php include('inc/user-sidenav.php') ?>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-9 col-xxl-9">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-9">
                         <div class="order-card box-shadow" style="padding:30px 30px ;">
                             <!-- order-head -->
-                            <div class="row mb-3">
-                                <div class="col-4">
+                            <div class="row mb-3 ">
+                                <div class="col-4 d-none d-sm-none d-md-block d-lg-block d-xxl-block">
                                     <h5 class="mb-0">Product</h5>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-2 d-none d-sm-none d-md-block d-lg-block d-xxl-block">
                                     <h5 class="mb-0">Price</h5>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 d-none d-sm-none d-md-block d-lg-block d-xxl-block">
                                     <h5 class="mb-0">Order date</h5>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 d-none d-sm-none d-md-block d-lg-block d-xxl-block">
                                     <h5 class="mb-0">Order status</h5>
                                 </div>
                             </div>
@@ -62,20 +62,20 @@ $userId=$_SESSION['user']['id'];
                                             $i++;
                             ?>
                             <div class="row order-main order-card <?php if($i %2!= 0){echo 'order-pink';}else{echo 'order-blue';}?> mt-3 align-items-center ">
-                                <div class="col-4 py-2">
-                                    <div class="d-flex align-items-center">
+                                <div class="col-12 col-sm-7 col-md-4 col-lg-4 col-xxl-4 py-2">
+                                    <div class="d-flex align-items-center ">
                                         <img src="img/Untitled-5121.png" class="w-25 img-fluid ">
                                         <p class="mb-0 ms-2"><?php echo $prodData['name'];?> (x<?php echo $quantityArr[$idKey];?>)</p>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-6 col-sm-5  col-md-2 col-lg-2 col-xxl-2 text-center">
                                     <p>$<?php echo $priceArr[$idKey];?></p>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-7 col-md-3 col-lg-3 col-xxl-3 text-center">
                                     <p><?php echo date("d/M/Y",strtotime($data['date_time']));?></p>
                                 </div>
-                                <div class="col-3">
-                                    <div>
+                                <div class="col-12 col-sm-5 col-md-3 col-lg-3 col-xxl-3 ">
+                                    <div class="text-center text-sm-center text-md-start text-lg-start text-xxl-center  mt-2">
                                         <!--1= , 2=processing, 3= packaging, 4=out for delivery, 5=delivered -->
                                         <?php if($data['status'] == 2){
                                             echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Processing</h6>';

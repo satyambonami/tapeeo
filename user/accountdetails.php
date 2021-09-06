@@ -130,7 +130,7 @@ $address = mysqli_fetch_assoc($dataAddress);
 
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control" placeholder="Contact" value="<?php echo $_SESSION['user']['phone'];?>"  name="phone" autocomplete="off" required >
+                                                <input type="number" class="form-control"  placeholder="Contact" value="<?php echo $_SESSION['user']['phone'];?>"  name="phone" autocomplete="off" required >
 
                                                 <input type="email" class="form-control" placeholder="example@gmail.com" disabled value="<?php echo $_SESSION['user']['email'];?>">
                                                 <input type="text" class="form-control"
