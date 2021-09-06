@@ -106,11 +106,11 @@ $address = mysqli_fetch_assoc($dataAddress);
                                             ?>
                                                 <div class="order-card <?php if($i %2!= 0){echo 'order-pink';}else{echo 'order-blue';}?> mb-3">
                                                     <div class="row">
-                                                        <div class="col-6">
+                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xxl-6">
                                                             <h6 class="mb-0"><?php echo $dataPrd['name'];?></h6>
                                                         </div>
-                                                        <div class="col-6">
-                                                            <div class="text-end">
+                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xxl-6">
+                                                            <div class="text-start text-sm-end text-md-end text-lg-end text-xxl-end mt-2 mt-sm-0 mt-md-0 mt-lg-0 mt-xxl-0">
                                                             <?php if($data['status'] == 2){
                                                                     echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Processing</h6>';
                                                                 }elseif($data['status'] == 3){

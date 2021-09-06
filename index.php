@@ -48,7 +48,7 @@
                         <!-- animtion line -->
                         <div class="animationLine"></div>
                         <!-- Animation div -->
-                        <a href="" class="btn btn-gradient mt-2">Shop Now</a>
+                        <a href="shop.php" class="btn btn-gradient mt-2">Shop Now</a>
                     </div>
                 </div>
                 <div class="
