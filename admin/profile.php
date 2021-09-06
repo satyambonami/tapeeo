@@ -101,7 +101,7 @@ $userId=$_SESSION['adi']['id'];
                                             <div class="text-center">
                                                 <label class="avatar-input"> 
                                                     <span class="avatar avatar-xl"> 
-                                                        <img src="../assets/img/users/<?php echo $_SESSION['adi']['img'];?>" alt="<?php echo $_SESSION['adi']['name'];?>" class="avatar-img rounded-circle"> 
+                                                        <img src="assets/img/users/<?php echo $_SESSION['adi']['img'];?>" alt="<?php echo $_SESSION['adi']['name'];?>" class="avatar-img rounded-circle"> 
                                                         <span class="avatar-input-icon rounded-circle"> 
                                                             <i class="mdi mdi-upload mdi-24px"></i> 
                                                         </span> 

@@ -46,3 +46,22 @@
 
   });  
 </script>
+<script type="text/javascript">
+$('.state').on('change', function(){
+	var city = $(this).val();
+	$.ajax({
+		url : '../inc/ajax-city.php',
+		type : 'post',
+		data : { city : city},
+
+		success: function(response){
+			$('#city').html(response);
+			console.log(response);
+
+		},
+		error: function(response){
+			console.log(response);
+		}
+	});
+});
+</script>
