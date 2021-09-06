@@ -74,7 +74,7 @@ $userId=$_SESSION['user']['id'];
                                 <div class="col-3">
                                     <p><?php echo date("d/M/Y",strtotime($data['date_time']));?></p>
                                 </div>
-                                <div class="col-3 text-end">
+                                <div class="col-3">
                                     <div class="order-success ">
                                         <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
                                     </div>
