@@ -9,6 +9,57 @@
         header('location:cart.php');
         exit();
     }
+$shippingTotal =$_SESSION['general']['shipping_charge'];
+$taxTotal =$_SESSION['general']['tax'];
+$userId = $_SESSION['user']['id'];
+$totalPrice = 0;
+
+// add/Update address...
+// echo"<pre>";
+//   print_r($_SESSION['checkout']);
+// echo"</pre>";
+  if(isset($_POST['checkout'])){
+      if(isset($_POST['shipping-address'])){
+        $addressId = mysqli_real_escape_string($conn, ak_secure_string($_POST['shipping-address']));
+      }else{
+        $type= mysqli_real_escape_string($conn,ak_secure_string($_POST['type']));
+        $name=mysqli_real_escape_string($conn,ak_secure_string($_POST['name']));
+        $email=trim(strtolower(mysqli_real_escape_string($conn,ak_secure_string($_POST['email']))));
+        $phone=mysqli_real_escape_string($conn,ak_secure_string($_POST['phone']));
+        $city=mysqli_real_escape_string($conn,ak_secure_string($_POST['city']));
+        $state=mysqli_real_escape_string($conn,ak_secure_string($_POST['state']));
+        $country=mysqli_real_escape_string($conn,ak_secure_string($_POST['country']));
+        $pincode=mysqli_real_escape_string($conn,ak_secure_string($_POST['zipcode']));
+        $address=htmlspecialchars($_POST['address']);
+        mysqli_query($conn,"INSERT INTO `".$tblPrefix."user_address`(`user_id`,`type`,`name`, `email`,`phone`, `country`, `city`, `state`, `address`, `pincode`, `status`, `date_time`) VALUES ('$userId','$type','$name','$email','$phone','$country','$city','$state','$address','$pincode',2,'$cTime')");
+        $addressId = mysqli_insert_id($conn);
+      }
+    
+  
+    $actionQ = "INSERT INTO `".$tblPrefix."orders`(`user_id`, `prod_id`, `prod_prices`, `prod_quantity`, `address_id`, `status`, `date_time`) VALUES ('".$_SESSION['user']['id']."', '".implode(',',$_SESSION['checkout']['id'])."', '".implode(',',$_SESSION['checkout']['price'])."', '".implode(',',$_SESSION['checkout']['qnty'])."', '$addressId', 2, '$cTime')";
+  
+    if(mysqli_query($conn, $actionQ)==true){
+      $totalAmount = $_SESSION['checkout']['grand-total'];
+      $orderId = mysqli_insert_id($conn);
+      $txnId = rand(111111,999999).$orderId;
+  
+      mysqli_query($conn, "INSERT INTO `".$tblPrefix."order_txn`(`txn_id`, `order_id`, `total_amount`, `date_time`, `payment_status`) VALUES ('$txnId', '$orderId', '$totalAmount', '$cTime', 'Pending')");
+      mysqli_query($conn, "DELETE FROM `".$tblPrefix."cart` WHERE user_id=$userId");
+  
+    //   $_SESSION['checkout']['amount'] = $_SESSION['checkout']['grand-total'];
+    //   $_SESSION['checkout']['product_info'] = SITE_NAME." | Product";
+    //   $_SESSION['checkout']['txn_id'] = $txnId;
+      $_SESSION['toast']['type'] = 'success';
+      $_SESSION['toast']['msg'] = "Order Successfully Placed";
+      header('location:index.php');
+      exit();
+    }else{
+      $_SESSION['toast']['type']='error';
+      $_SESSION['toast']['msg']='Something went wrong, please try again.';
+    }
+  
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,153 +78,151 @@
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
-                    <div class="col-8 my-3">
-                        <div class="address-main-card">
-                            <div class="row">
-                                <div class="col-6 gy-3">
-                                    <div class="address-card">
-                                        <h5 class="mb-2">
-                                            Address holder name
-                                        </h5>
-
-                                        <p class="mb-2">5 McBride Road, Viola,id, 83832 United States </p>
-
-                                        <div class="address-func">
-                                            <div class="edit-delete mt-2 d-flex justify-content-between">
-                                                <H6><a href="" class="me-2">Select Address </a></H6>
-                                                <h6 class="ms-1">Default <span style="color:#DF2C77"><b></b></span></h6>
-
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-8 my-3">
+                                <div class="address-main-card">
+                                    <div class="row">
+                                        <h6 class="mb-0">Select Existing Address</h6>
+                                        <?php 
+                                            $address1 = mysqli_query($conn,"SELECT * FROM `".$tblPrefix."user_address` WHERE `user_id` = '$userId' ");
+                                            while($userAddress = mysqli_fetch_assoc($address1)){
+                                        ?>
+                                            <div class="col-6 gy-3">
+                                                <div class="address-card">
+                                                    <h5 class="mb-2">
+                                                        <?php echo $userAddress['name'];?>
+                                                    </h5>
+        
+                                                    <p class="mb-2"><?php echo $userAddress['address'];?>,<?php echo city($userAddress['city']);?>,<?php echo state($userAddress['state']);?><?php echo country($userAddress['country']);?></p>
+        
+                                                    <div class="address-func">
+                                                        <div class="edit-delete mt-2 d-flex justify-content-between">
+                                                            <H6> <input type="radio" name="shipping-address" id="address" value="<?php echo $userAddress['id'];?>" required
+                                                             > Select Address</H6>
+                                                            <h6 class="ms-1"><?php if($userAddress['default']==1){ echo 'Default';}?> <span style="color:#DF2C77"><b></b></span></h6>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }?>
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="mt-4">Or Add a new address </h6>
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <select class="form-select" aria-label="Default select example" name="type" required>
+                                                            <option selected disabled value="0">Select Address Type</option>
+                                                            <option value="1">Residential</option>
+                                                            <option value="2">Commercial</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <input type="text" class="form-control" placeholder=" Name" name="name" autocomplete="">
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="form-group border-0">
+                                                <input type="text" class="form-control" placeholder="Contact" name="phone" autocomplete="">
+                                            </div>
+    
+                                            <div class="form-group border-0">
+                                                <input type="email" class="form-control" placeholder="Your Email" name="email" autocomplete="">
+                                            </div>
+    
+                                            <div class="form-group border-0">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Street , House , Locality" name="address" autocomplete="">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <input type="text" class="form-control" placeholder="Postal Code" name="pincode" autocomplete="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <select class="form-select country" aria-label="Default select example" name="country" required>
+                                                            <option selected value="231">United States</option>
+                                                            <?php
+                                                                $DataCountry = mysqli_query($conn,"SELECT `id`, `name` FROM `countries`"); 
+                                                                while($country = mysqli_fetch_assoc($DataCountry)){
+                                                            ?>
+                                                            <option value="<?php echo $country['id'];?>"><?php echo $country['name'];?></option>
+                                                            <?php }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <select class="form-select state" id="state" aria-label="Default select example" name="state" required >
+                                                            <option selected disabled value="0">Select State</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <select class="form-select" id="city" aria-label="Default select example" name="city" required>
+                                                            <option selected disabled value="0">Select City</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 gy-3">
-                                    <div class="address-card">
-                                        <h5 class="mb-2">
-                                            Address holder name
-                                        </h5>
-
-                                        <p class="mb-2">5 McBride Road, Viola,id, 83832 United States </p>
-
-                                        <div class="address-func">
-                                            <div class="edit-delete mt-2 ">
-
-                                                <h6><a href="" class="me-2">Select Address </a></h6>
-                                            </div>
-                                        </div>
+                                <!-- Button trigger modal -->
+        
+        
+                            </div>
+                            <div class="col-4 my-3">
+                                <div class="trackorder-summary">
+                                    <h3 class="heading-color">Your Order</h3>
+                                    <hr>
+                                    <?php 
+                                        foreach ($_SESSION['checkout']['id'] as $key => $value) {
+                                            $totalPrice += $_SESSION['checkout']['price'][$key];
+                                    ?>
+                                    <div class="product-details">
+                                        <h6 class="product_name"><?php echo $_SESSION['checkout']['name'][$key];?><small>(x <?php echo $_SESSION['checkout']['qnty'][$key];?>)</small></h6>
+                                        <h6 class="product_price">$<?php echo $_SESSION['checkout']['price'][$key];?></h6>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <form action="" class="my-4">
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group border-0">
-                                                    <input type="text" class="form-control" placeholder="First Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group border-0">
-                                                    <input type="text" class="form-control" placeholder="Last Name">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group border-0">
-                                            <input type="text" class="form-control" placeholder="Contact">
-                                        </div>
-
-                                        <div class="form-group border-0">
-                                            <input type="email" class="form-control" placeholder="Your Email">
-                                        </div>
-
-                                        <div class="form-group border-0">
-                                            <input type="text" class="form-control"
-                                                placeholder="Street , House , Locality">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group border-0">
-                                                    <input type="text" class="form-control" placeholder="City">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group border-0">
-                                                    <input type="text" class="form-control" placeholder="Postal Code">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group border-0">
-                                                    <input type="text" class="form-control" placeholder="State">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group border-0">
-                                                    <input type="text" class="form-control" placeholder="Country">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-6 mt-3">
-                                                <a href="" class="heading-color ps-2">Clear Form Data</a>
-                                            </div>
-                                            <div class="col-6">
-                                                <div
-                                                    class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-end text-xxl-end">
-                                                    <a href="" class="btn btn-gradient">Send Message</a>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </form>
+                                    <?php } 
+                                        $TotalTax = ($totalPrice*$taxTotal)/100;
+                                    ?>
+                                    <div class="product-details mt-1">
+                                        <h6>Tax Charges</h6>
+                                        <h6>$<?php echo $TotalTax;?></h6>
+                                    </div>
+                                    <div class="product-details mt-1">
+                                        <h6>Deleviery Charges</h6>
+                                        <h6>$<?php echo $shippingTotal;?></h6>
+                                    </div>
+                                    <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
+                                    <div class="product-details mt-1">
+                                        <h6>Total</h6>
+                                        <h6>$<?php echo $grandTotal;?></h6>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="COD" name="fav_language" value="COD" required>
+                                        <label for="html">
+                                            <h6>Cash On Delivery</h6>
+                                        </label>
+                                    </div>
+                                    <input type="checkbox" name="" id="" required> I've read and <span style="color: #D33696">accept the
+                                        terms & condition *</span>
+        
+                                    <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Place Order</button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Button trigger modal -->
-
-
-                    </div>
-                    <div class="col-4 my-3">
-                        <div class="trackorder-summary">
-                            <h3 class="heading-color">Your Order</h3>
-                            <hr>
-                            <div class="product-details">
-                                <h6 class="product_name">Tappeo Brand</h6>
-                                <h6 class="product_price">$ 150.00</h6>
-                            </div>
-                            <div class="product-details mt-1">
-                                <h6>Tax Charges</h6>
-                                <h6>$ 200</h6>
-                            </div>
-                            <div class="product-details mt-1">
-                                <h6>Deleviery Charges</h6>
-                                <h6>$ 200</h6>
-                            </div>
-
-                            <div class="product-details mt-1">
-                                <h6>Total</h6>
-                                <h6>$ 200</h6>
-                            </div>
-                            <input type="radio" id="COD" name="fav_language" value="COD">
-                            <label for="html">
-                                <h6>Cash On Delivery</h6>
-                            </label><br>
-                            <input type="radio" id="PUM" name="fav_language" value="PUM">
-                            <label for="css">
-                                <h6>PayPal</h6>
-                            </label><br>
-                            <input type="checkbox" name="" id=""> I've read and <span style="color: #D33696">accept the
-                                terms & condition *</span>
-
-                            <button class="w-100 btn btn-gradient mt-3 rounded" type="submit">Place Order</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -183,6 +232,44 @@
     <?php include('inc/modal.php')?>
     <script src = "../admin/assets/js/alertify.min.js"> </script>
     <?php echo toast(1);?>
+    <script type="text/javascript">
+$('.country').on('change', function(){
+	var state = $(this).val();
+	$.ajax({
+		url : '../inc/ajax-state.php',
+		type : 'post',
+		data : { state : state},
+
+		success: function(response){
+			$('#state').html(response);
+			console.log(response);
+
+		},
+		error: function(response){
+			console.log(response);
+		}
+	});
+});
+</script>
+<script type="text/javascript">
+$('.state').on('change', function(){
+	var city = $(this).val();
+	$.ajax({
+		url : '../inc/ajax-city.php',
+		type : 'post',
+		data : { city : city},
+
+		success: function(response){
+			$('#city').html(response);
+			console.log(response);
+
+		},
+		error: function(response){
+			console.log(response);
+		}
+	});
+});
+</script>
 
 </body>
 

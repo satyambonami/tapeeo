@@ -41,7 +41,7 @@
                         <div class="col-6">
                             <div class="form-group border-0">
                                 <select class="form-select country" aria-label="Default select example" name="country" required>
-                                    <option selected disabled value="0">Select Country</option>
+                                    <option selected value="231">United States</option>
                                     <?php
                                         $DataCountry = mysqli_query($conn,"SELECT `id`, `name` FROM `countries`"); 
                                         while($country = mysqli_fetch_assoc($DataCountry)){
@@ -54,14 +54,14 @@
                         <div class="col-6">
                             <div class="form-group border-0">
                                 <select class="form-select state" id="state" aria-label="Default select example" name="state" required >
-                                    <option selected disabled value="0">Select State</option>
+                                    <option disabled value="0">Select State</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group border-0">
-                            <select class="form-select" id="city" aria-label="Default select example" name="city" required>
-                                    <option selected disabled value="0">Select City</option>
+                                <select class="form-select" id="city" aria-label="Default select example" name="city" required>
+                                    <option disabled value="0">Select City</option>
                                 </select>
                             </div>
                         </div>

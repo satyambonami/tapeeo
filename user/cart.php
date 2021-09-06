@@ -10,8 +10,8 @@ $taxTotal =$_SESSION['general']['tax'];
 $totalPrice=0;
 $grandTotal=0;
 $cartCount = 0;
-
-
+// print_r($_SESSION['cart']);
+// print_r($_SESSION['checkout']);
 // Remove Product From Cart
 if(isset($_GET['remove'])){
     $cartId = mysqli_real_escape_string($conn, ak_secure_string($_GET['remove']));
@@ -38,13 +38,13 @@ if(isset($_POST['checkout'])){
     $_SESSION['checkout']['id']=$_POST['product-id'];
     $_SESSION['checkout']['name']=$_POST['product-name'];
     $_SESSION['checkout']['price']=$_POST['product-price'];
-    $_SESSION['checkout']['qnty']=$_POST['product-qnty'];
+    $_SESSION['checkout']['qnty']=$_POST['product-quantity'];
     $_SESSION['checkout']['grand-total']=$_POST['grand-total'];
 
     if(isset($_SESSION['user'])){
         if(isset($_SESSION['checkout'])){
-        header("location:checkout.php");
-        exit();
+            header("location:checkout.php");
+            exit();
         }else{
         $_SESSION['toast']['msg'] = "Something went wrong, Please try again.";
         }
@@ -105,11 +105,11 @@ if(isset($_POST['checkout'])){
                                     <tbody>
                                     <?php
                                         if(isset($_SESSION['user']) && !isset($_SESSION['cart'])){ 
-                                            $cartUser=mysqli_query($conn,"SELECT cart.id, cart.quantity as cartqty,pr.pid as prodId, pr.name,pr,price, pr.offer_price, pr.image, pr.pid, pr.quantity as prq FROM `".$tblPrefix."cart` cart LEFT JOIN `".$tblPrefix."products` pr ON cart.prod_id=pr.pid WHERE user_id='".$_SESSION['user']['id']."'");
+                                            $cartUser=mysqli_query($conn,"SELECT cart.id, cart.quantity as cartqty,pr.pid as prodId, pr.name,pr.price, pr.offer_price, pr.image, pr.pid, pr.quantity as prq FROM `".$tblPrefix."cart` cart LEFT JOIN `".$tblPrefix."products` pr ON cart.prod_id=pr.pid WHERE user_id='".$_SESSION['user']['id']."'");
                                             while($cartData1=mysqli_fetch_assoc($cartUser)){
                                                 $cartCount++;
-                                                $quantity=$value;
-                                                $ProdTotal=$cartData1['offer_price']*$value;
+                                                $quantity=$cartData1['cartqty'];
+                                                $ProdTotal=$cartData1['offer_price']*$quantity;
                                                 $totalPrice= $totalPrice+$ProdTotal;
                                     ?>
                                         <tr>
@@ -139,7 +139,7 @@ if(isset($_POST['checkout'])){
                                             <td class="heading-color">$ <?php echo $cartData1['price']; ?></td>
                                             <td class="total heading-color">$ <?php echo $cartData1['offer_price']; ?></td>
                                             <td>
-                                                <small><a  data-this-id="<?php echo $cartData1['prodId'];?>" class="remove-item"><i class="far fa-trash-alt"></i></a></small>
+                                            <small><a data-this-id="<?php echo $cartData1['pid'];?>" class="remove-item"><i class="far fa-trash-alt"></i></a></small>
                                             </td>
                                         </tr>
                                     <?php } }elseif(isset($_SESSION['cart'])){ 
@@ -182,13 +182,18 @@ if(isset($_POST['checkout'])){
                                             </td>
                                         </tr>
                                     <?php } } }?>
+                                    <?php 
+                                            if($cartCount==0){ ?>
                                     <tr>
-                                        <td><?php 
-                                            if($cartCount==0){
-                                                echo "<h6>Your Cart is Empty..</h6>";
-                                            }
-                                        ?></td>
+                                        <td>
+                                            <h6>Your Cart is Empty..</h6>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
+                                    <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -247,7 +252,7 @@ if(isset($_POST['checkout'])){
 			if(maxQuan>=prodQuan){
 				$('.final-price').text(finalPrice);
 				$('.sub-total').text(finalPrice);
-				$('input[name="grand-total"]').val(finalPrice);
+				//$('input[name="grand-total"]').val(finalPrice);
 				$(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);	
 			}
 		});
@@ -261,7 +266,7 @@ if(isset($_POST['checkout'])){
 			if(prodQuan >0){
 				$('.final-price').text(finalPrice);
 				$('.sub-total').text(finalPrice);
-				$('input[name="grand-total"]').val(finalPrice);
+				//$('input[name="grand-total"]').val(finalPrice);
 				$(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);	
 			}
 		});

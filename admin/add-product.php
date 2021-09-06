@@ -192,7 +192,7 @@
                         <?php if(isset($_GET['id'])){ ?>
                         <div class="col-lg-4 mx-auto mt-2">
                              <div class="card py-3 m-b-30">
-                                <div class="card-body">
+                                <div class="card-body text-center">
                                     <img src="../img/products/<?php echo $data['image'];?>" alt="<?php echo $data['name']?>">
                                 </div>
                             </div>
