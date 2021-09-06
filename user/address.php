@@ -46,7 +46,7 @@ if(isset($_POST['submit-address'])){
 if(isset($_GET['address'])){
     $id=mysqli_real_escape_string($conn,ak_secure_string($_GET['address']));
     $dataUA=mysqli_query($conn,"SELECT id FROM `".$tblPrefix."user_address` WHERE `default`=1 AND `user_id`='$userId'");
-    if(mysqli_num_rows($dataUA) >= 1){ 
+    if(mysqli_num_rows($dataUA) >= 0){ 
         $prvdata=mysqli_fetch_assoc($dataUA);
         echo $prvId=$prvdata['id'];
         $newQuery="UPDATE `".$tblPrefix."user_address` SET `default`='1' WHERE `id`='$id'";
