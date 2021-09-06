@@ -10,7 +10,7 @@
                 <form method="POST">
                     <input type="hidden" name="this-id" value="0">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
                             <div class="form-group border-0">
                                 <select class="form-select" aria-label="Default select example" name="type" required>
                                     <option selected disabled value="0">Select Address Type</option>
@@ -19,7 +19,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
                             <div class="form-group border-0">
                                 <input type="text" class="form-control" placeholder="Name" value="" name="name" autocomplete="off" required>
                             </div>
@@ -38,7 +38,7 @@
                         <input type="text" class="form-control" placeholder="Street , House , Locality" value="" name="address" autocomplete="off" required>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
                             <div class="form-group border-0">
                                 <select class="form-select country" aria-label="Default select example" name="country" required>
                                     <option selected value="231">United States</option>
@@ -51,21 +51,21 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
                             <div class="form-group border-0">
                                 <select class="form-select state" id="state" aria-label="Default select example" name="state" required >
                                     <option disabled value="0">Select State</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
                             <div class="form-group border-0">
                                 <select class="form-select" id="city" aria-label="Default select example" name="city" required>
                                     <option disabled value="0">Select City</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
                             <div class="form-group border-0">
                                 <input type="text" class="form-control" placeholder="Postal Code" value="" name="zipcode" autocomplete="off" required>
                             </div>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="col-6">
                             <div
-                                class="submit-btn mt-2 text-start text-sm-start text-md-start text-lg-end text-xxl-end">
+                                class="submit-btn mt-2 text-end text-sm-end text-md-end text-lg-end text-xxl-end">
                                 <button type="submit" class="btn btn-gradient" name="submit-address">Save</button>
 
                             </div>
