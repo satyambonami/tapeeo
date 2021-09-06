@@ -96,7 +96,7 @@ $address = mysqli_fetch_assoc($dataAddress);
                                             <!-- start loop from here -->
                                             <?php
                                                 $i=0;
-                                                $dataQ = mysqli_query($conn, "SELECT `prod_id` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=3  ORDER BY id DESC");
+                                                $dataQ = mysqli_query($conn, "SELECT `prod_id`,`status` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=0 ORDER BY id DESC");
                                                 while ($data = mysqli_fetch_assoc($dataQ)) {
                                                     $prodIdArr = explode(',', $data['prod_id']);
                                                     foreach($prodIdArr as $id => $prd){
@@ -110,9 +110,19 @@ $address = mysqli_fetch_assoc($dataAddress);
                                                             <h6 class="mb-0"><?php echo $dataPrd['name'];?></h6>
                                                         </div>
                                                         <div class="col-6">
-                                                            <div class="order-success text-end">
-                                                                <h6 class="mb-0"><i class="fas fa-circle"></i> Completed
-                                                                </h6>
+                                                            <div class="text-end">
+                                                            <?php if($data['status'] == 2){
+                                                                    echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Processing</h6>';
+                                                                }elseif($data['status'] == 3){
+                                                                    echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i>Packaging</h6>';
+                                                                }elseif($data['status'] == 4){
+                                                                    echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Out for Delivery</h6>';
+                                                                }elseif($data['status'] == 5){
+                                                                    echo '<h6 class="mb-0 text-success"><i class="fas fa-circle"></i>Delivered</h6>';
+                                                                }else{
+                                                                    echo '<h6 class="mb-0 text-danger"><i class="fas fa-circle"></i>Cancelled</h6>';
+                                                                }
+                                                            ?>
                                                             </div>
                                                         </div>
                                                     </div>

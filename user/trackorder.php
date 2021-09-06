@@ -31,9 +31,9 @@ $userId=$_SESSION['user']['id'];
                     <?php include('inc/user-sidenav.php'); ?>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xxl-9 px-5">
                         <div class="track-main-card">
-                            <form class="row">
+                            <form class="row" method="POST">
                                 <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xxl-9">
-                                    <input type="text" class="form-control mt-0 mb-0" placeholder="Enter Order Tracking Number">
+                                    <input type="text" class="form-control mt-0 mb-0" placeholder="Enter Order Tracking Number eg.TAPEEO6">
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xxl-3 d-flex align-items-center justify-content-center justify-content-lg-start mt-3 mt-md-0">
                                     <button type="submit" class="btn btn-gradient rounded px-4 ">Track Order</button>

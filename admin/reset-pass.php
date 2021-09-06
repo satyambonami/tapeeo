@@ -13,7 +13,7 @@
     <main class="admin-main  bg-pattern">
         <div class="container">
             <div class="row m-h-100 ">
-                <div class="col-md-8 col-lg-4  m-auto">
+                <div class="col-md-12 col-lg-4  m-auto">
                     <div class="card shadow-lg ">
                         <?php
                             if(isset($_GET['resetpassword'])){

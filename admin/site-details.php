@@ -118,7 +118,7 @@ if(isset($_POST['sub-favicon'])){
             <section class="pull-up">
                 <div class="container">
                     <div class="row ">
-                        <div class="col-lg-8 mx-auto mt-2">
+                        <div class="col-lg-12 mx-auto mt-2">
                             <div class="card py-3 m-b-30">
                                 <div class="card-body">
                                 <ul class="nav nav-tabs tab-line" id="myTab2" role="tablist">

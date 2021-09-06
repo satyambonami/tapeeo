@@ -49,7 +49,7 @@ $userId=$_SESSION['user']['id'];
                             <!-- order-card -->
                             <?php
                                 $i=0;
-                                $dataQ = mysqli_query($conn, "SELECT `id`, `prod_id`, `prod_prices`, `prod_quantity`, `status`, `date_time` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=3  ORDER BY id DESC");
+                                $dataQ = mysqli_query($conn, "SELECT `id`, `prod_id`, `prod_prices`, `prod_quantity`, `status`, `date_time` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=0  ORDER BY id DESC");
                                   while ($data = mysqli_fetch_assoc($dataQ)) {
                                     $priceArr = explode(',', $data['prod_prices']);
                                     $quantityArr = explode(',', $data['prod_quantity']);
@@ -75,8 +75,20 @@ $userId=$_SESSION['user']['id'];
                                     <p><?php echo date("d/M/Y",strtotime($data['date_time']));?></p>
                                 </div>
                                 <div class="col-3">
-                                    <div class="order-success ">
-                                        <h6 class="mb-0"><i class="fas fa-circle"></i> Completed</h6>
+                                    <div>
+                                        <!--1= , 2=processing, 3= packaging, 4=out for delivery, 5=delivered -->
+                                        <?php if($data['status'] == 2){
+                                            echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Processing</h6>';
+                                        }elseif($data['status'] == 3){
+                                            echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i>Packaging</h6>';
+                                        }elseif($data['status'] == 4){
+                                            echo '<h6 class="mb-0 text-info"><i class="fas fa-circle"></i> Out for Delivery</h6>';
+                                        }elseif($data['status'] == 5){
+                                            echo '<h6 class="mb-0 text-success"><i class="fas fa-circle"></i>Delivered</h6>';
+                                        }else{
+                                            echo '<h6 class="mb-0 text-danger"><i class="fas fa-circle"></i>Cancelled</h6>';
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

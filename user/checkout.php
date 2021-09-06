@@ -34,9 +34,11 @@ $totalPrice = 0;
         mysqli_query($conn,"INSERT INTO `".$tblPrefix."user_address`(`user_id`,`type`,`name`, `email`,`phone`, `country`, `city`, `state`, `address`, `pincode`, `status`, `date_time`) VALUES ('$userId','$type','$name','$email','$phone','$country','$city','$state','$address','$pincode',2,'$cTime')");
         $addressId = mysqli_insert_id($conn);
       }
-    
+    $tax = mysqli_real_escape_string($conn,ak_secure_string($_POST['tax']));
+    $shipping = mysqli_real_escape_string($conn,ak_secure_string($_POST['shipping']));
   
-    $actionQ = "INSERT INTO `".$tblPrefix."orders`(`user_id`, `prod_id`, `prod_prices`, `prod_quantity`, `address_id`, `status`, `date_time`) VALUES ('".$_SESSION['user']['id']."', '".implode(',',$_SESSION['checkout']['id'])."', '".implode(',',$_SESSION['checkout']['price'])."', '".implode(',',$_SESSION['checkout']['qnty'])."', '$addressId', 2, '$cTime')";
+    $actionQ = "INSERT INTO `".$tblPrefix."orders`(`user_id`, `prod_id`, `prod_prices`, `total_amount`, `prod_quantity`, `tax`, `shipping`, `address_id`, `status`, `date_time`) 
+    VALUES ('".$_SESSION['user']['id']."', '".implode(',',$_SESSION['checkout']['id'])."', '".implode(',',$_SESSION['checkout']['price'])."','$totalAmount', '".implode(',',$_SESSION['checkout']['qnty'])."', '$tax', '$shipping', '$addressId', 2, '$cTime')";
   
     if(mysqli_query($conn, $actionQ)==true){
       $totalAmount = $_SESSION['checkout']['grand-total'];
@@ -98,7 +100,7 @@ $totalPrice = 0;
         
                                                     <div class="address-func">
                                                         <div class="edit-delete mt-2 d-flex justify-content-between">
-                                                            <H6> <input type="radio" name="shipping-address" id="address" value="<?php echo $userAddress['id'];?>" required
+                                                            <H6> <input type="radio" name="shipping-address" id="address" value="<?php echo $userAddress['id'];?>" require
                                                              > Select Address</H6>
                                                             <h6 class="ms-1"><?php if($userAddress['default']==1){ echo 'Default';}?> <span style="color:#DF2C77"><b></b></span></h6>
         
@@ -114,7 +116,7 @@ $totalPrice = 0;
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group border-0">
-                                                        <select class="form-select" aria-label="Default select example" name="type" required>
+                                                        <select class="form-select" aria-label="Default select example" name="type" >
                                                             <option selected disabled value="0">Select Address Type</option>
                                                             <option value="1">Residential</option>
                                                             <option value="2">Commercial</option>
@@ -148,7 +150,7 @@ $totalPrice = 0;
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group border-0">
-                                                        <select class="form-select country" aria-label="Default select example" name="country" required>
+                                                        <select class="form-select country" aria-label="Default select example" name="country">
                                                             <option selected value="231">United States</option>
                                                             <?php
                                                                 $DataCountry = mysqli_query($conn,"SELECT `id`, `name` FROM `countries`"); 
@@ -161,14 +163,14 @@ $totalPrice = 0;
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group border-0">
-                                                        <select class="form-select state" id="state" aria-label="Default select example" name="state" required >
+                                                        <select class="form-select state" id="state" aria-label="Default select example" name="state" >
                                                             <option selected disabled value="0">Select State</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group border-0">
-                                                        <select class="form-select" id="city" aria-label="Default select example" name="city" required>
+                                                        <select class="form-select" id="city" aria-label="Default select example" name="city">
                                                             <option selected disabled value="0">Select City</option>
                                                         </select>
                                                     </div>
@@ -215,6 +217,8 @@ $totalPrice = 0;
                                             <h6>Cash On Delivery</h6>
                                         </label>
                                     </div>
+                                    <input type="hidden" name="tax" value="<?php echo $TotalTax;?>">
+                                    <input type="hidden" name="shipping" value="<?php echo $shippingTotal;?>">
                                     <input type="checkbox" name="" id="" required> I've read and <span style="color: #D33696">accept the
                                         terms & condition *</span>
         

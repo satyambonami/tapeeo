@@ -45,7 +45,7 @@
             <section class="pull-up">
                 <div class="container">
                     <div class="row ">
-                        <div class="col-lg-10 mx-auto mt-2">
+                        <div class="col-lg-12 mx-auto mt-2">
                             <div class="card py-3 m-b-30">
                                 <div class="card-body">
                                     <div class="table-responsive p-t-10">
