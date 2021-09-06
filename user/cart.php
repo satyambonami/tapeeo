@@ -124,15 +124,14 @@ if(isset($_POST['checkout'])){
                                             <td>
                                             <div class="quantity">
                                                 <div class="quantity-input">
-                                                <a class="btn btn-increase position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
+                                                <a class="btn btn-reduce position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
                                                     <input type="hidden" name="product-id[]" value="<?php echo $cartData1['prodId']; ?>">
                                                     <input type="hidden" name="product-name[]" value="<?php echo $cartData1['name']; ?>">
                                                     <input type="hidden" name="product-price[]" value="<?php echo $cartData1['offer_price']; ?>">
                                                     <input type="hidden" name="product-image[]" value="<?php echo $cartData1['image']; ?>">
 
                                                     <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartData1['prq']; ?>" pattern="[0-9]*" readonly="">
-                                                    
-                                                    <a class="btn btn-reduce position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
+                                                    <a class="btn btn-increase position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
                                                 </div>
                                             </div>
                                             </td>
