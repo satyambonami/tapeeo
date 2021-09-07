@@ -47,6 +47,34 @@
     .detail-background {
         background: transparent;
       }
+      @keyframes animiCard {
+        0% {
+          top: 20px;
+          left: 20%;
+        }
+        30% {
+          top: 20px;
+          left: 50%;
+        }
+        50%{
+        
+            left: 50%;
+        }
+        70% {
+          top: 470px;
+          transform: scale(0.9) skew(-0.09turn, 40deg);
+          left: 70%;
+          backface-visibility: hidden;
+        }
+        100% {
+          top: 20px;
+          left: 0%;
+          backface-visibility: hidden;
+        }
+      }
+      .scene{
+          margin-bottom: 20px;
+      }
 }
 @media only screen and (min-width: 767px) and (max-width: 1024px){
         /* Banner Responsive */
@@ -81,8 +109,7 @@
             justify-content: center;
         }
         .donutBg{
-            background-size: cover;
-            background-position: center;
+            background-size: 100% 100%;
         }
     
         /* How its Work */
@@ -109,6 +136,28 @@
             background-size: cover ;
             background-position-x: 40%;
         }
+        @keyframes animiCard {
+            0% {
+              top: 20px;
+            }
+            30% {
+              top: 20px;
+            }
+            50%{
+                top: 300px;
+            }
+            70% {
+              top: 400px;
+              transform: scale(0.9) skew(-0.09turn, 40deg);
+            
+              backface-visibility: hidden;
+            }
+            100% {
+              top: 20px;
+              left: 0%;
+              backface-visibility: hidden;
+            }
+          }
 }
 @media only screen and (min-width: 479px) and (max-width: 767px){
     /* Banner Responsive */
@@ -171,6 +220,29 @@
         background-size: cover ;
         background-position-x: 40%;
     }
+    
+    @keyframes animiCard {
+        0% {
+          top: 20px;
+        }
+        30% {
+          top: 20px;
+        }
+        50%{
+            top: 300px;
+        }
+        70% {
+          top: 400px;
+          transform: scale(0.9) skew(-0.09turn, 40deg);
+        
+          backface-visibility: hidden;
+        }
+        100% {
+          top: 20px;
+          left: 0%;
+          backface-visibility: hidden;
+        }
+      }
 }
 @media only screen and (min-width: 320px) and (max-width: 479px){
     /* Banner Responsive */
@@ -226,6 +298,28 @@
         background-size: cover ;
         background-position-x: 40%;
     }
+    @keyframes animiCard {
+        0% {
+          top: 20px;
+        }
+        30% {
+          top: 20px;
+        }
+        50%{
+            top: 300px;
+        }
+        70% {
+          top: 400px;
+          transform: scale(0.9) skew(-0.09turn, 40deg);
+        
+          backface-visibility: hidden;
+        }
+        100% {
+          top: 20px;
+          left: 0%;
+          backface-visibility: hidden;
+        }
+      }
 }
 
 @media only screen and (min-width: 468px) and (max-width: 768px){

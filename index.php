@@ -28,7 +28,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
     <section class="banner-section">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 offset-0 offset-sm-0 offset-md-4 offset-lg-4 offset-xxl-4  ">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6 offset-0 offset-sm-0 offset-md-3 offset-lg-3 offset-xxl-3  ">
                     <div class="scene scene--card">
                         <div class="card-flip">
                             <div class="card__face card__face--front">
@@ -37,7 +37,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                                 </div>
                             </div>
                             <div class="card__face card__face--back">
-                            <div class="bar-code">
+                                <div class="bar-code">
                                     <img src="img/card 3.png" class="img-fluid img-responsive ">
                                 </div>
                             </div>
