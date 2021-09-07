@@ -17,22 +17,22 @@ if(isset($_POST['sign_up'])){
         if ($checkMail==0) {
             $data=mysqli_query($conn,"INSERT INTO `".$tblPrefix."users`(`type`, `name`, `email`, `password`,`date_time`, `status`) VALUES (0,'$name','$email','$password','$cTime',2)");
                 if ($data==true) {
-                    $_SESSION['toast']['type']="alert";
+                    $_SESSION['toast']['type']="success";
                     $_SESSION['toast']['msg']="Account succesfully created, Please login to continue";
-                    // header("location:login.php");
-                    // exit();
+                    header("location:login.php");
+                    exit();
                 }
         }else{
             $_SESSION['toast']['type']="error";
             $_SESSION['toast']['msg'] = "Email Already Regerstered";
-            // header("location:signup.php");
-            // exit();
+            header("location:signup.php");
+            exit();
         }
     }else{
             $_SESSION['toast']['type']="error";
             $_SESSION['toast']['msg'] = "Password not Matched";
-            // header("location:signup.php");
-            // exit();
+            header("location:signup.php");
+            exit();
     }
 }
 ?>

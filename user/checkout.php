@@ -18,6 +18,8 @@ $totalPrice = 0;
 // echo"<pre>";
 //   print_r($_SESSION['checkout']);
 // echo"</pre>";
+// unset($_SESSION['checkout']);
+
   if(isset($_POST['checkout'])){
       if(isset($_POST['shipping-address'])){
         $addressId = mysqli_real_escape_string($conn, ak_secure_string($_POST['shipping-address']));
@@ -45,9 +47,14 @@ $totalPrice = 0;
       $orderId = mysqli_insert_id($conn);
       $txnId = rand(111111,999999).$orderId;
   
-      mysqli_query($conn, "INSERT INTO `".$tblPrefix."order_txn`(`txn_id`, `order_id`, `total_amount`, `date_time`, `payment_status`) VALUES ('$txnId', '$orderId', '$totalAmount', '$cTime', 'Pending')");
-      mysqli_query($conn, "DELETE FROM `".$tblPrefix."cart` WHERE user_id=$userId");
-  
+    mysqli_query($conn, "INSERT INTO `".$tblPrefix."order_txn`(`txn_id`, `order_id`, `total_amount`, `date_time`, `payment_status`) VALUES ('$txnId', '$orderId', '$totalAmount', '$cTime', 'Pending')");
+    mysqli_query($conn, "DELETE FROM `".$tblPrefix."cart` WHERE user_id=$userId");
+    foreach ($_SESSION['checkout']['id'] as $key => $value) {
+        $query = mysqli_query($conn,"UPDATE `".$tblPrefix."products` SET `quantity` = `quantity` - '".$_SESSION['checkout']['qnty'][$key]."' WHERE id='".$value."' ");
+    }
+    $userMail = $_SESSION['user']['email'];
+    // $mail = CnfProductMail($userMail,$orderId);
+    
     //   $_SESSION['checkout']['amount'] = $_SESSION['checkout']['grand-total'];
     //   $_SESSION['checkout']['product_info'] = SITE_NAME." | Product";
     //   $_SESSION['checkout']['txn_id'] = $txnId;
@@ -172,12 +179,6 @@ $totalPrice = 0;
                                                         <div class="form-group border-0">
                                                             <select class="form-select" id="city" aria-label="Default select example" name="city" >
                                                                 <option selected disabled value="0">Select City</option>
-                                                                <!-- <?php
-                                                                    $Datacity = mysqli_query($conn,"SELECT `id`, `name` FROM `cities`"); 
-                                                                    while($City = mysqli_fetch_assoc($Datacity)){
-                                                                ?>
-                                                                <option value="<?php echo $City['id'];?>"> <?php echo $City['name'];?></option>
-                                                                <?php }?> -->
                                                             </select>
                                                         </div>
                                                     </div>

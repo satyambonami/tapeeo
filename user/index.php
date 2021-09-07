@@ -90,7 +90,9 @@ $address = mysqli_fetch_assoc($dataAddress);
                                             <p>city: <?php echo city($address['city']);?></p>
                                             <p>Postal Code : <?php echo $address['pincode'];?></p>
                                             <?php }else{ ?>
-                                                <h6>No Deafult Address Found</h6>
+                                                <div class="text-center">
+                                                    <img src="../img/noaddress.png" alt="No Address Found" class="img-fluid img-responsive">
+                                                </div>
                                             <?php }?>
                                         </div>
                                     </div>
@@ -103,6 +105,7 @@ $address = mysqli_fetch_assoc($dataAddress);
                                             <?php
                                                 $i=0;
                                                 $dataQ = mysqli_query($conn, "SELECT `prod_id`,`status` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=0 ORDER BY id DESC");
+                                                if(mysqli_num_rows($dataQ)){
                                                 while ($data = mysqli_fetch_assoc($dataQ)) {
                                                     $prodIdArr = explode(',', $data['prod_id']);
                                                     foreach($prodIdArr as $id => $prd){
@@ -133,7 +136,11 @@ $address = mysqli_fetch_assoc($dataAddress);
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <?php } } }?>
+                                            <?php } } } }else{ ?>
+                                                <div class="text-center">
+                                                    <img src="../img/no-order.png" alt="No Address Found" class="img-fluid img-responsive">
+                                                </div>
+                                                <?php }?>
                                             <!-- end loop -->
                                         </div>
                                     </div>

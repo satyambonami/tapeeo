@@ -34,6 +34,7 @@ if($conn!=true){
 }
 
 require_once('functions.php');
+require_once('sendMails.php');
 
 $genDataQ = mysqli_query($conn, "SELECT key_name, key_value FROM `".$tblPrefix."general` WHERE key_name!=''");
 while($genData = mysqli_fetch_assoc($genDataQ)){

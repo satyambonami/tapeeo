@@ -50,7 +50,8 @@ $userId=$_SESSION['user']['id'];
                             <?php
                                 $i=0;
                                 $dataQ = mysqli_query($conn, "SELECT `id`, `prod_id`, `prod_prices`, `prod_quantity`, `status`, `date_time` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=0  ORDER BY id DESC");
-                                  while ($data = mysqli_fetch_assoc($dataQ)) {
+                                    if(mysqli_num_rows($dataQ)){  
+                                    while ($data = mysqli_fetch_assoc($dataQ)) {
                                     $priceArr = explode(',', $data['prod_prices']);
                                     $quantityArr = explode(',', $data['prod_quantity']);
                                     $prodIdArr = explode(',', $data['prod_id']);
@@ -62,6 +63,7 @@ $userId=$_SESSION['user']['id'];
                                             $i++;
                             ?>
                             <div class="row order-main order-card <?php if($i %2!= 0){echo 'order-pink';}else{echo 'order-blue';}?> mt-3 align-items-center ">
+                            <a href="../inc/invoice.php?id=<?php echo $data['id'];?>">Download Invoice</a>
                                 <div class="col-12 col-sm-7 col-md-4 col-lg-4 col-xxl-4 py-2">
                                     <div class="d-flex align-items-center ">
                                         <img src="img/Untitled-5121.png" class="w-25 img-fluid ">
@@ -92,7 +94,11 @@ $userId=$_SESSION['user']['id'];
                                     </div>
                                 </div>
                             </div>
-                            <?php } } }?>
+                            <?php } } } }else{ ?>
+                                <div class="text-center">
+                                    <img src="../img/no-order.png" alt="No Address Found" class="img-fluid img-responsive">
+                                </div>
+                                <?php } ?>
                         </div>
                     </div>
                 </div>

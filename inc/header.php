@@ -17,11 +17,15 @@
                         <a class="nav-link" href="<?php echo $linkPrefix; ?>contact.php">Contact</a>
                     </li>
                 </ul>
+                <?php if(isset($_SESSION['user'])) {?>
                 <a href="<?php if ($linkPrefix == "" || $linkPrefix == NULL) {
                                 echo 'user/index.php';
                             } else {
                                 echo 'index.php';
                             } ?>" class="btn btn-gradient">My Account</a>
+                            <?php }else{ ?>
+                                <a href="login.php" class="btn btn-gradient">Login</a>
+                                <?php }?>
             </div>
         </div>
     </nav>

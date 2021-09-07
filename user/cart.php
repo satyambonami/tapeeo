@@ -188,20 +188,14 @@ if(isset($_POST['checkout'])){
                                             </td>
                                         </tr>
                                     <?php } } }?>
-                                    <?php 
-                                            if($cartCount==0){ ?>
-                                    <tr>
-                                        <td>
-                                            <h6>Your Cart is Empty..</h6>
-                                        </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <?php } ?>
                                     </tbody>
                                 </table>
+                                <?php 
+                                if($cartCount==0){ ?>
+                                <div class="text-center">
+                                    <img src="../img/emptycart.png" alt="Cart Is Empty"  class="img-fluid img-responsive">
+                                </div>
+                                <?php } ?>
                             </div>
 
                         </div>
@@ -259,9 +253,9 @@ if(isset($_POST['checkout'])){
                 // alert(finalPrice);
 				//alert(maxQuan);
 			if(maxQuan>=prodQuan){
-				$('.final-price').text(finalPrice);
-				$('.sub-total').text(finalPrice);
-				$('input[name="grand-total"]').val(finalPrice);
+				// $('.final-price').text(finalPrice);
+				// $('.sub-total').text(finalPrice);
+				// $('input[name="grand-total"]').val(finalPrice);
 				$(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);	
 			}
 		});

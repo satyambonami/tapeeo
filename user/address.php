@@ -42,7 +42,7 @@ if (isset($_POST['submit-address'])) {
     }
 }
 
-// Set Defaylt Address
+// Set Default Address
 if (isset($_GET['address'])) {
     $id = mysqli_real_escape_string($conn, ak_secure_string($_GET['address']));
     $dataUA = mysqli_query($conn, "SELECT id FROM `" . $tblPrefix . "user_address` WHERE `default`=1 AND `user_id`='$userId'");
@@ -99,20 +99,23 @@ if (isset($_GET['delete-row'])) {
                         <div class="address-main-card">
                             <div class="row">
                                 <?php
-                                while ($address = mysqli_fetch_assoc($dataAddress)) {
+                                if(mysqli_num_rows($dataAddress)>0){
+                                    while ($address = mysqli_fetch_assoc($dataAddress)) {
                                 ?>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3 d-table">
-                                        <h6 class="ms-1"><?php if ($address['default'] == 1) {
-                                                                echo 'DEFAULT :';
-                                                            } ?> <span style="color:#DF2C77"><b class='text-uppercase'><?php if ($address['type'] == 1) {
-                                                                                                                                                                            echo 'Residential';
-                                                                                                                                                                        } else {
-                                                                                                                                                                            echo 'Commercial';
-                                                                                                                                                                        } ?></b></span></h6>
+                                        <h6 class="ms-1">
+                                            <?php if ($address['default'] == 1) {
+                                                    echo 'DEFAULT :';
+                                                } ?> <span style="color:#DF2C77"><b class='text-uppercase'><?php if ($address['type'] == 1) {
+                                                    echo 'Residential';
+                                                } else {
+                                                    echo 'Commercial';
+                                                } ?></b></span></h6>
                                         <div class="address-card">
                                             <h5 class="mb-2">
                                                 <?php echo $address['name']; ?>
                                             </h5>
+                                            <p class="mb-2"><?php echo $address['email']; ?></p>
                                             <p class="mb-2">
                                                 Phone - <?php echo $address['phone']; ?>
                                             </p>
@@ -136,7 +139,11 @@ if (isset($_GET['delete-row'])) {
                                             </div>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                <?php } } else{ ?>
+                                    <div class="text-center">
+                                        <img src="../img/noaddress.png" alt="No Address Found" class="img-fluid img-responsive">
+                                    </div>
+                                    <?php }?>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3 mt-5">
                                     <a data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <div class="add-address">

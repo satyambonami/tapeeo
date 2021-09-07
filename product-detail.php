@@ -70,7 +70,7 @@
                             </div>
                             <div class="price">
                                 <h3>
-                                    <span data-price="<?php echo $product['offer_price'];?>" class="priceHead">$<?php echo $product['offer_price'];?></span>
+                                    $<span data-price="<?php echo $product['offer_price'];?>" class="priceHead"><?php echo $product['offer_price'];?></span>
                                     
                                     <span style="text-decoration:line-through">
                                         $<?php echo $product['price'];?>
@@ -88,7 +88,7 @@
                                         <p class="minus">
                                             <i class="fas fa-minus"></i>
                                         </p>
-                                        <input type="number" class="showNumber">
+                                        <input type="text" class="showNumber" readonly>
                                         <!-- <input type="number" name="quantity" id=""class="number" value="1" max="<?php echo $product['quantity'];?>" min="1"> -->
                                         <p class="plus">
                                             <i class="fas fa-plus"></i>
