@@ -22,9 +22,9 @@ const showBeforeStart = document.querySelector(".showBeforeStart");
     ml4.opacityIn = [0, 1];
     ml4.scaleIn = [0.2, 1];
     ml4.scaleOut = 3;
-    ml4.durationIn = 800;
-    ml4.durationOut = 600;
-    ml4.delay = 500;
+    ml4.durationIn = 300;
+    ml4.durationOut = 300;
+    ml4.delay = 300;
 
     anime
         .timeline({ loop: true })
@@ -73,8 +73,8 @@ const showBeforeStart = document.querySelector(".showBeforeStart");
         .add({
             targets: ".ml4",
             opacity: 0,
-            duration: 500,
-            delay: 500,
+            duration: 100,
+            delay:100,
         });
 })();
 
@@ -84,7 +84,7 @@ documentDiv.style.overflow = "hidden";
 setTimeout(() => {
     showBeforeStart.remove();
     documentDiv.style.overflowY = "scroll";
-}, 5700);
+}, 3000);
 
 // ✓ -  add and remove
 // ✓ - if the usr clike first button so add the active class

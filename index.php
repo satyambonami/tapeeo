@@ -1,9 +1,9 @@
 <?php
-    include_once("inc/config.php");
-    $pageName="Home";
+include_once("inc/config.php");
+$pageName = "Home";
 
-    $linkPrefix="";
-    $product = mysqli_query($conn,"SELECT `pid`,`name`,`image`,`offer_price` FROM `".$tblPrefix."products` WHERE status=2 ORDER BY pid ASC LIMIT 3");
+$linkPrefix = "";
+$product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" . $tblPrefix . "products` WHERE status=2 ORDER BY pid ASC LIMIT 3");
 
 ?>
 <!DOCTYPE html>
@@ -28,11 +28,29 @@
     <section class="banner-section">
         <div class="container">
             <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 offset-0 offset-sm-0 offset-md-4 offset-lg-4 offset-xxl-4  ">
+                    <div class="scene scene--card">
+                        <div class="card-flip">
+                            <div class="card__face card__face--front">
+                                <div class="flip-logo">
+                                    <img src="img/logo.png" class="img-fluid img-responsive ">
+                                </div>
+                            </div>
+                            <div class="card__face card__face--back">
+                            <div class="bar-code">
+                                    <img src="img/card 3.png" class="img-fluid img-responsive ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="
               offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xxl-1
               col-12 col-sm-12 col-md-12 col-lg-5 col-xxl-5 
-              d-flex
-              align-items-center banner-justify
+              d-flex 
+              align-items-center banner-justify order-2 order-sm-2 order-md-2 order-lg-1 order-xxl-1
             ">
                     <div class="banner-content px-3">
                         <h1>
@@ -57,7 +75,7 @@
               justify-content-center
               align-items-center
               donutBg
-              position-relative
+              position-relative order-1 order-sm-1 order-md-1 order-lg-2 order-xxl-2
             ">
                     <!-- extra file link -->
 
@@ -90,25 +108,29 @@
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
-                <?php
-                    $i=0;
-                    while($dataP = mysqli_fetch_assoc($product)){
+                    <?php
+                    $i = 0;
+                    while ($dataP = mysqli_fetch_assoc($product)) {
                         $i++;
-                ?>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                        <a href="product-detail.php?product=<?php ak_url_encode( $dataP['name'])?>&id=<?php echo $dataP['pid']?>">
-                            <div class="product-box  <?php if($i % 2 == 0){echo 'product-box-pink';}else{echo 'product-box-blue';}?>">
-                                <div class="product-image text-center">
-                                    <img src="img/products/<?php echo $dataP['image']?>" class="w-100 img-fluid ">
+                    ?>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
+                            <a href="product-detail.php?product=<?php ak_url_encode($dataP['name']) ?>&id=<?php echo $dataP['pid'] ?>">
+                                <div class="product-box  <?php if ($i % 2 == 0) {
+                                                                echo 'product-box-pink';
+                                                            } else {
+                                                                echo 'product-box-blue';
+                                                            } ?>">
+                                    <div class="product-image text-center">
+                                        <img src="img/products/<?php echo $dataP['image'] ?>" class="w-100 img-fluid ">
+                                    </div>
+                                    <div class="product-heading text-center mt-3">
+                                        <h6><?php echo $dataP['name']; ?></h6>
+                                        <p>$<?php echo $dataP['offer_price']; ?></p>
+                                    </div>
                                 </div>
-                                <div class="product-heading text-center mt-3">
-                                    <h6><?php echo $dataP['name'];?></h6>
-                                    <p>$<?php echo $dataP['offer_price'];?></p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                <?php }?>
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
@@ -252,14 +274,12 @@
                                 <div class="step-3 mt-4">
                                     <h6 class="">3.Select a Tapeeo for the moment</h6>
                                     <div class="step-2-img mt-4">
-                                        <img src="img/Wallet_Cryptocurrency_Mobile_App.png"
-                                            class="w-75 img-fluid img-responsive imgDivContent" />
+                                        <img src="img/Wallet_Cryptocurrency_Mobile_App.png" class="w-75 img-fluid img-responsive imgDivContent" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-7 col-xxl-7">
-                                <div
-                                    class="content-text px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
+                                <div class="content-text px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
                                     <p>
                                         After signing up on Tapeeo.app. You can start making single purpose web pages
                                         called Tapeeo. You can make Sitches to take payments, share links like a
@@ -292,12 +312,8 @@
                                         consequatur labore autem eius sit adipisci at deleniti?
                                     </p>
                                 </div>
-                                <div
-                                    class="vedio-what px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/7YH5CQqMuWM"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
+                                <div class="vedio-what px-0 px-sm-0 px-md-0 px-lg-5 px-xxl-5 pt-3 pt-sm-3 pt-md-3 pt-lg-0 pt-xxl-0">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/7YH5CQqMuWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -391,50 +407,42 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="sectionContent my-2 " data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="300">
+                    <div class="sectionContent my-2 " data-aos="fade-right" data-aos-easing="linear" data-aos-duration="300">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Photographer/Trainer/Freelancer</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="500">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Restaurant/Small Business Owner </p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="700">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="700">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Streamer/Instructor/Influencer</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="900">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Non-Verbal Communicator</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="1100">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1100">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Sales Person/Networker</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="1300">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1300">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Event Host</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="1400">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1400">
                         <div class="cardFr product-box-blue animationSec">
                             <p>Traveller</p>
                         </div>
                     </div>
-                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear"
-                        data-aos-duration="1500">
+                    <div class="sectionContent my-2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1500">
                         <div class="cardFr product-box-pink animationSec">
                             <p>Human Being</p>
                         </div>
@@ -502,7 +510,13 @@
     <?php include('inc/footer.php') ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <?php include('inc/js.php') ?>
-    
+    <script>
+        var card = document.querySelector('.card-flip');
+        card.addEventListener('click', function() {
+            card.classList.toggle('is-flipped');
+        });
+    </script>
+
 </body>
 
 </html>
