@@ -334,7 +334,7 @@
         left: 70%;
     }
     70% {
-      top: 400px;
+      top: 450px;
       transform: scale(0.9) skew(-0.09turn, 40deg);
       left: 100%;
       backface-visibility: hidden;
