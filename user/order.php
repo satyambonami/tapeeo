@@ -71,7 +71,7 @@ $userId=$_SESSION['user']['id'];
                                     </div>
                                 </div>
                                 <div class="col-6 col-sm-5  col-md-2 col-lg-2 col-xxl-2 text-center">
-                                    <p>$<?php echo $priceArr[$idKey];?></p>
+                                    <p>$<?php echo $priceArr[$idKey] * $quantityArr[$idKey];?></p>
                                 </div>
                                 <div class="col-6 col-sm-7 col-md-3 col-lg-3 col-xxl-3 text-center">
                                     <p><?php echo date("d/M/Y",strtotime($data['date_time']));?></p>

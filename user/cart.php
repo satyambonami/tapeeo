@@ -124,14 +124,14 @@ if(isset($_POST['checkout'])){
                                             <td>
                                             <div class="quantity">
                                                 <div class="quantity-input">
-                                                <a class="btn btn-reduce position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
+                                                <a class="btn btn-reduce position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>" data-tax="<?php echo $taxTotal?>" ></a>
                                                     <input type="hidden" name="product-id[]" value="<?php echo $cartData1['prodId']; ?>">
                                                     <input type="hidden" name="product-name[]" value="<?php echo $cartData1['name']; ?>">
                                                     <input type="hidden" name="product-price[]" value="<?php echo $cartData1['offer_price']; ?>">
                                                     <input type="hidden" name="product-image[]" value="<?php echo $cartData1['image']; ?>">
 
                                                     <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartData1['prq']; ?>" pattern="[0-9]*" readonly="">
-                                                    <a class="btn btn-increase position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>"></a>
+                                                    <a class="btn btn-increase position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>" data-tax="<?php echo $taxTotal?>" ></a>
                                                 </div>
                                             </div>
                                             </td>
@@ -162,7 +162,7 @@ if(isset($_POST['checkout'])){
                                             <td>
                                             <div class="quantity">
                                                 <div class="quantity-input">
-                                                    <a class="btn btn-reduce position-relative" data-price="<?php echo $cartDataC['price']; ?>"></a>
+                                                    <a class="btn btn-reduce position-relative" data-price="<?php echo $cartDataC['price']; ?>" data-tax="<?php echo $taxTotal?>" data-shipping="<?php echo $shippingTotal;?>"></a>
                                                     <input type="hidden" name="product-id[]" value="<?php echo $cartDataC['pid']?>">
                                                     <input type="hidden" name="product-name[]" value="<?php echo $cartDataC['name']?>">
                                                     <input type="hidden" name="product-price[]" value="<?php echo $cartDataC['offer_price']?>">
@@ -170,7 +170,7 @@ if(isset($_POST['checkout'])){
                                                     
                                                     <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartDataC['quantity']?>" pattern="[0-9]*" readonly="">
                                                     
-                                                    <a class="btn btn-increase position-relative" data-price="<?php echo $cartDataC['price']; ?>"></a>
+                                                    <a class="btn btn-increase position-relative" data-price="<?php echo $cartDataC['price']; ?>" data-tax="<?php echo $taxTotal?>" data-shipping="<?php echo $shippingTotal;?>"></a>
                                                 </div>
                                             </div>
                                             </td>
@@ -204,27 +204,27 @@ if(isset($_POST['checkout'])){
                                     <div class="order-summary">
                                         <h3 class="heading-color">Cart Total</h3>
                                         <hr>
-                                        <?php $TotalTax = ($totalPrice*$taxTotal)/100;?>
                                         <div class="sub-total product-details mt-1">
                                             <h6>Sub Total</h6>
-                                            <h6>$<?php echo $totalPrice;?></h6>
+                                            <h6 class="showSubTotal"><?php echo $totalPrice;?></h6>
                                         </div>
+                                        <?php $TotalTax = ($totalPrice*$taxTotal)/100;?>
                                         <div class="product-details mt-1">
                                             <h6>Tax Charges</h6>
-                                            <h6>$<?php echo $TotalTax;?>
+                                            <h6><b class="taxDiv"><?php echo $TotalTax;?></b>
                                             <small>(<?php echo $_SESSION['general']['tax']?>%)</small>
                                         </h6>
                                         </div>
                                         <div class="product-details mt-1">
                                             <h6>Deleviery Charges</h6>
-                                            <h6>$<?php if($shippingTotal!=0){echo $shippingTotal;}elseif($shippingTotal==0){echo 'Free Shipping';}?></h6>
+                                            <h6 class="shippigDiv"><?php if($shippingTotal!=0){echo $shippingTotal;}elseif($shippingTotal==0){echo 'Free Shipping';}?></h6>
                                         </div>
 
                                         <div class="product-details mt-1">
                                             <h6>Total</h6>
                                             <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
                                             <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>">
-                                            <h6 class="final-price">$<?php echo $grandTotal;?></h6>
+                                            <h6 class="final-price"><?php echo $grandTotal;?></h6>
                                         </div>
                                         <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Proceed To
                                             Checkout</button>
@@ -245,32 +245,43 @@ if(isset($_POST['checkout'])){
     <script type="text/javascript">
 		$(".btn-increase").on('click', function(){
 			var price = parseInt($(this).data('price')),
-				finalPrice = $('.final-price').text();
-				finalPrice += price;
+            subTotal = Number($('.showSubTotal').text()),
+                tax = parseInt($(this).data('tax')),
+                shipping = Number($('.shippigDiv').text()),
+                finalPrice = Number($('.final-price').text());
+                subTotal += price;
 				prodQuan = $(this).closest('.quantity-input').find('.prod-quantity').val();
 				maxQuan = $(this).closest('.quantity-input').find('.prod-quantity').data('max');
 				prodQuan++;
-                // alert(finalPrice);
-				//alert(maxQuan);
-			if(maxQuan>=prodQuan){
-				// $('.final-price').text(finalPrice);
-				// $('.sub-total').text(finalPrice);
-				// $('input[name="grand-total"]').val(finalPrice);
-				$(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);	
+            if(maxQuan>=prodQuan){
+                Ttax = (subTotal*tax)/100;
+                finalPrice = subTotal + Ttax + shipping;
+			 	$('.showSubTotal').text(subTotal);
+			 	$(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);	
+			 	$('.taxDiv').text(Ttax);
+                $('.final-price').text(finalPrice);
+			 	$('input[name="grand-total"]').val(finalPrice);
 			}
 		});
 
 		$(".btn-reduce").on('click', function(){
-			var price = parseInt($(this).data('price')),
-				finalPrice = parseInt($('.final-price').text()),
+            var price = parseInt($(this).data('price')),
+            subTotal = Number($('.showSubTotal').text()),
+                tax = parseInt($(this).data('tax')),
+                shipping = Number($('.shippigDiv').text()),
+                finalPrice = Number($('.final-price').text());
+                subTotal -= price;
 				prodQuan = $(this).closest('.quantity-input').find('.prod-quantity').val();
+				maxQuan = $(this).closest('.quantity-input').find('.prod-quantity').data('max');
 				prodQuan--;
-				finalPrice -= price;
-			if(prodQuan >0){
-				$('.final-price').text(finalPrice);
-				$('.sub-total').text(finalPrice);
-				//$('input[name="grand-total"]').val(finalPrice);
-				$(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);	
+            if(maxQuan>=prodQuan){
+                Ttax = (subTotal*tax)/100;
+                finalPrice = subTotal + Ttax + shipping;
+			 	$('.showSubTotal').text(subTotal);
+			 	$(this).closest('.quantity-input').find('.prod-quantity').val(prodQuan);	
+			 	$('.taxDiv').text(Ttax);
+                $('.final-price').text(finalPrice);
+			 	$('input[name="grand-total"]').val(finalPrice);
 			}
 		});
 	</script>
