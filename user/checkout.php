@@ -287,7 +287,76 @@ $('.state').on('change', function(){
 });
 </script>
 
+<script src="https://www.paypal.com/sdk/js?client-id=Ab2EH23j3dFGxSN8ELJmFkK20gTSyqnpsjGyzYRZ6pjqiJYQqd55Cd1XY8nCV1nrx8169FxmmHLAbyrr"></script>
 
+<script>
+      paypal.Buttons({
+
+        // Sets up the transaction when a payment button is clicked
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                "purchase_units": [{
+                    "amount": {
+                    "currency_code": "USD",
+                    "value": "<?php echo $_SESSION['checkout']['grand-total']?>",
+                    "breakdown": {
+                        "item_total": {  /* Required when including the `items` array */
+                        "currency_code": "USD",
+                        "value": "<?php echo $_SESSION['checkout']['grand-total']?>"
+                        }
+                    }
+                    },
+                    "items": [
+                        <?php foreach($_SESSION['checkout']['id'] as $items => $it) {?>
+                    {
+                        "name": "<?php echo $_SESSION['checkout']['name'][$items]?>", /* Shows within upper-right dropdown during payment approval */
+                        "description": "<?php echo $_SESSION['checkout']['name'][$items]?>", /* Item details will also be in the completed paypal.com transaction view */
+                        "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "<?php echo $_SESSION['checkout']['price'][$items]?>"
+                        },
+                        "quantity": "<?php echo $_SESSION['checkout']['qnty'][$items]?>"
+                    },
+                    <?php }?>
+                    {
+                        "name": "Tax", /* Shows within upper-right dropdown during payment approval */
+                        "description": "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
+                        "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "<?php echo $TotalTax?>"
+                        },
+                        "quantity": "1"
+                    },
+                    {
+                        "name": "Shipping", /* Shows within upper-right dropdown during payment approval */
+                        "description": "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
+                        "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "<?php echo $shippingTotal?>"
+                        },
+                        "quantity": "1"
+                    },
+                    ]
+                }]
+            });
+            },
+
+        // Finalize the transaction after payer approval
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            // Successful capture! For dev/demo purposes:
+                var transaction = orderData.purchase_units[0].payments.captures[0];
+                var status = orderData.purchase_units[0].payments.captures[1];
+            // When ready to go live, remove the alert and show a success message within this page. For example:
+            // var element = document.getElementById('paypal-button-container');
+            // element.innerHTML = '';
+            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            // actions.redirect('thank_you.html');
+          });
+        }
+      }).render('#paypal-button-container');
+
+    </script>
 
 </body>
 
