@@ -1,7 +1,8 @@
+ 
  <!-- Required meta tags -->
  <meta charset="utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- 
+
  <link href="<?php echo $linkPrefix; ?>css/global.css" rel="stylesheet" />
  <link href="<?php echo $linkPrefix; ?>css/header.css" rel="stylesheet" />
  <link href="<?php echo $linkPrefix; ?>css/footer.css" rel="stylesheet" />

@@ -35,7 +35,7 @@
         background: url("../img/Ellipse\ 3.png");
         background-size: cover;
         padding: 60px 0 !important;
-        background-position-x: 48%;
+        margin-top: 60px;
     }
     .footer-bg{
         background: url('../img/Ellipse\ 4.png');
@@ -79,15 +79,15 @@
 @media only screen and (min-width: 767px) and (max-width: 1024px){
         /* Banner Responsive */
         .banner-section{
-            background-size: cover;
+            background-size: 100% 100% !important;
+            background: url(../img/mobile-banner.png);
+            background-repeat: no-repeat;
         }
-        .banner-justify{
-            justify-content: center;
-            text-align: center;
-        }
+    
         .banner-content h1{
             font-size: 48px;
             font-weight: 700;
+            text-align: left;
         }
         .banner-content span{
             font-size: 48px;
@@ -162,15 +162,15 @@
 @media only screen and (min-width: 479px) and (max-width: 767px){
     /* Banner Responsive */
     .banner-section{
-        background-size: cover;
+        background-size: 100% 100% !important;
+        background: url(../img/mobile-banner.png);
+        background-repeat: no-repeat;
     }
-    .banner-justify{
-        justify-content: center;
-        text-align: center;
-    }
+
     .banner-content h1{
         font-size: 48px;
         font-weight: 700;
+        text-align: left;
     }
     .banner-content span{
         font-size: 48px;
@@ -187,9 +187,6 @@
         color: #F18AB1;
         letter-spacing: 4px;
         text-align: center;
-    }
-    .animationText_div{
-        justify-content: center;
     }
     .donutBg{
         background-size: cover;
@@ -247,8 +244,9 @@
 @media only screen and (min-width: 320px) and (max-width: 479px){
     /* Banner Responsive */
     .banner-section{
-        background-size: cover;
+        background-size: 100% 100% !important;
         background: url(../img/mobile-banner.png);
+        background-repeat: no-repeat;
     }
     .banner-content h1{
         font-size: 48px;

@@ -42,3 +42,6 @@
 .breadcrumb-detail{
   background: url('../img/29.png'); background-size: 100% 100%;  padding-top: 180px; padding-bottom: 60px;
 }
+.price h3 span{
+  font-size: 24px !important;
+}

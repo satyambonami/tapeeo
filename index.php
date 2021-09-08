@@ -45,14 +45,14 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ">
                 <div class="
               offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xxl-1
               col-12 col-sm-12 col-md-12 col-lg-5 col-xxl-5 
               d-flex 
               align-items-center banner-justify order-2 order-sm-2 order-md-2 order-lg-1 order-xxl-1
             ">
-                    <div class="banner-content px-3">
+                    <div class="banner-content px-3 m-auto mt-3 mt-lg-0 mt-xxl-0">
                         <h1>
                             Others <br />
                             <span>tap</span> or <span style="color: #d33696">scan</span>

@@ -16,15 +16,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo $linkPrefix; ?>contact.php">Contact</a>
                     </li>
+                    <li class="nav-item d-none d-lg-block d-xxl-block">
+                        <a class="nav-link" href="<?php echo $linkPrefix; ?>user/cart.php"><img src="<?php echo $linkPrefix; ?>img/shopping-cart.png" class="w-100"></a>
+                    </li>
+                    <li class="nav-item d-block d-lg-none d-xxl-none">
+                        <a class="nav-link" href="<?php echo $linkPrefix; ?>user/cart.php">Cart</a>
+                    </li>
                 </ul>
                 <?php if(isset($_SESSION['user'])) {?>
-                <a href="<?php if ($linkPrefix == "" || $linkPrefix == NULL) {
+                <a style="margin: 0 10px;" href="<?php if ($linkPrefix == "" || $linkPrefix == NULL) {
                                 echo 'user/index.php';
                             } else {
                                 echo 'index.php';
                             } ?>" class="btn btn-gradient">My Account</a>
                             <?php }else{ ?>
-                                <a href="user/login.php" class="btn btn-gradient">Login</a>
+                                <a style="margin: 0 10px;" href="user/login.php" class="btn btn-gradient">Login</a>
                                 <?php }?>
             </div>
         </div>

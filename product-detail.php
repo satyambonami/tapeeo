@@ -1,62 +1,62 @@
 <?php
-    include_once("inc/config.php");
-    $pageName="Product";
+include_once("inc/config.php");
+$pageName = "Product";
 
-    $linkPrefix="";
-    // Product Details
-    if(isset($_GET['product']) && isset($_GET['id'])){
-        $Pid = mysqli_real_escape_string($conn, ak_secure_string($_GET['id']));
-        $data = mysqli_query($conn, "SELECT `pid`, `name`, `slug`, `fulldesc`, `description`, `quantity`, `image`, `price`, `discount`, `offer_price`, `meta_title`, `meta_desc`, `meta_keywords`, `warranty`, `date_time`, `status` FROM `".$tblPrefix."products` WHERE pid = $Pid");
-        
-        if(mysqli_num_rows($data) == 0){
-            $_SESSION['toast']['msg']="No Product Found.";
-            header("location:shop.php");
-            exit();
-        }else{
-            $product = mysqli_fetch_assoc($data);
-        }
-    }else{
-        $_SESSION['toast']['msg']="No Product Found.";
+$linkPrefix = "";
+// Product Details
+if (isset($_GET['product']) && isset($_GET['id'])) {
+    $Pid = mysqli_real_escape_string($conn, ak_secure_string($_GET['id']));
+    $data = mysqli_query($conn, "SELECT `pid`, `name`, `slug`, `fulldesc`, `description`, `quantity`, `image`, `price`, `discount`, `offer_price`, `meta_title`, `meta_desc`, `meta_keywords`, `warranty`, `date_time`, `status` FROM `" . $tblPrefix . "products` WHERE pid = $Pid");
+
+    if (mysqli_num_rows($data) == 0) {
+        $_SESSION['toast']['msg'] = "No Product Found.";
         header("location:shop.php");
         exit();
+    } else {
+        $product = mysqli_fetch_assoc($data);
     }
+} else {
+    $_SESSION['toast']['msg'] = "No Product Found.";
+    header("location:shop.php");
+    exit();
+}
 
-    // Related PRoducts
-    $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `".$tblPrefix."products` WHERE status=2 AND pid != ".$_GET['id']." ORDER BY pid ASC");
-    // print_r($_SESSION['cart']);
+// Related PRoducts
+$Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" . $tblPrefix . "products` WHERE status=2 AND pid != " . $_GET['id'] . " ORDER BY pid ASC");
+// print_r($_SESSION['cart']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include('inc/head.php')?>
+    <?php include('inc/head.php') ?>
     <link rel="stylesheet" href="admin/assets/css/alertify.rtl.min.css">
-        <link rel="stylesheet" href="admin/assets/css/alertify-default-theme.rtl.min.css">
+    <link rel="stylesheet" href="admin/assets/css/alertify-default-theme.rtl.min.css">
 </head>
 
 <body>
-    <?php include('inc/header.php')?>
+    <?php include('inc/header.php') ?>
     <main>
-        <section class="breadcrumb-detail" >
+        <section class="breadcrumb-detail">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="heading-what">
                             <h2 class="text-center">
-                            <?php echo SITE_NAME .' '. $pageName;?>
+                                <?php echo SITE_NAME . ' ' . $pageName; ?>
                             </h2>
                             <div class="animationLinetappeo mt-2"></div>
                         </div>
                     </div>
                 </div>
         </section>
-        <section class="section-padding-2 detail-background" >
+        <section class="section-padding-2 detail-background">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6">
                         <div class="product-box py-5">
                             <div class="ProductimgBox text-center">
-                                <img src="img/products/<?php echo $product['image'];?>" class="img-fluid img-responsive">
+                                <img src="img/products/<?php echo $product['image']; ?>" class="img-fluid img-responsive">
                             </div>
                         </div>
                     </div>
@@ -64,21 +64,21 @@
                         <div class="detail-content">
                             <div class="heading-what mb-4 mt-4 mt-sm-4 mt-md-4 mt-lg-0 mt-xxl-0 ">
                                 <h2 style="color:#d33696;">
-                                    <?php echo $product['name'];?>
+                                    <?php echo $product['name']; ?>
                                     <div class="animationLine mt-2 w-25"></div>
                                 </h2>
                             </div>
                             <div class="price">
                                 <h3>
-                                    $<span data-price="<?php echo $product['offer_price'];?>" class="priceHead"><?php echo $product['offer_price'];?></span>
-                                    
-                                    <span style="text-decoration:line-through">
-                                        $<?php echo $product['price'];?>
+                                    <span class="me-2">$</span><span data-price="<?php echo $product['offer_price']; ?>" class="priceHead"><?php echo $product['offer_price']; ?></span>
+
+                                    <span style="text-decoration:line-through; font-size: 20px !important;">
+                                        $<?php echo $product['price']; ?>
                                     </span>
                                     &nbsp;
-                                    <span>
+                                    <span style="font-size: 20px !important;">
                                         Discount
-                                        <?php echo $product['discount'];?>%
+                                        <?php echo $product['discount']; ?>%
                                     </span>
                                 </h3>
 
@@ -88,18 +88,18 @@
                                         <p class="minus">
                                             <i class="fas fa-minus"></i>
                                         </p>
-                                        <input type="text" class="showNumber" readonly>
-                                        <!-- <input type="number" name="quantity" id=""class="number" value="1" max="<?php echo $product['quantity'];?>" min="1"> -->
+                                        <input type="text" class="showNumber" readonly style="width: 30px; margin-left: 15px;">
+                                        <!-- <input type="number" name="quantity" id=""class="number" value="1" max="<?php echo $product['quantity']; ?>" min="1"> -->
                                         <p class="plus">
                                             <i class="fas fa-plus"></i>
                                         </p>
                                     </div>
-                                    <button type="button" class="btn btn-gradient py-3 ms-3 add-to-cart"  data-this-pid="<?php echo $product['pid'];?>" data-this-qty="1" >Add to cart</button>
+                                    <button type="button" class="btn btn-gradient py-3 ms-3 add-to-cart" data-this-pid="<?php echo $product['pid']; ?>" data-this-qty="1">Add to cart</button>
                                 </div>
                                 <!-- Card Button -->
                                 <div class="short-discription mt-4">
                                     <p style="color: #707070;">
-                                        <?php echo $product['description'];?>
+                                        <?php echo $product['description']; ?>
                                     </p>
                                 </div>
                             </div>
@@ -134,61 +134,65 @@
             <div class="row">
                 <div class="col-12">
                     <div class="content active_ContentOne ">
-                        <?php echo htmlspecialchars_decode($product['fulldesc']);?>
+                        <?php echo htmlspecialchars_decode($product['fulldesc']); ?>
                     </div>
                     <div class="content active_ContentTwo hideDiv">
-                        <?php echo htmlspecialchars_decode($product['warranty']);?>
+                        <?php echo htmlspecialchars_decode($product['warranty']); ?>
                     </div>
                 </div>
             </div>
         </section>
-        <?php 
-            if(mysqli_num_rows($Rdata) != 0) {
+        <?php
+        if (mysqli_num_rows($Rdata) != 0) {
         ?>
-        <section class="section-padding-1">
-            <div class="container">
-                <div class="row">
-                    <!-- heading -->
-                    <div class="heading-what text-center mb-5">
-                        <h2 style="color:#d33696;">
-                            Related Product
-                            <div class="animationLinetappeo mt-2"></div>
-                        </h2>
-                    </div>
-                    <div class="owl-carousel owl-theme">
-                        <?php
-                            $i=0;
-                            while($related = mysqli_fetch_assoc($Rdata)) {
-                                $i++;
-                        ?>
-                        <div class="item">
-                            <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                <a href="product-detail.php?product=<?php echo $related['name']?>&id=<?php echo $related['pid']?>">
-                                    <div class="product-box <?php if($i % 2 == 0){echo 'product-box-pink';}else{echo 'product-box-blue';}?>">
-                                        <div class="product-image text-center">
-                                            <img src="img/products/<?php echo $related['image']?>" class="w-100 img-fluid "/>
-                                        </div>
-                                        <div class="product-heading text-center mt-3">
-                                            <h6><?php echo $related['name']?></h6>
-                                            <p>$<?php echo $related['offer_price']?></p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+            <section class="section-padding-1">
+                <div class="container">
+                    <div class="row">
+                        <!-- heading -->
+                        <div class="heading-what text-center mb-5">
+                            <h2 style="color:#d33696;">
+                                Related Product
+                                <div class="animationLinetappeo mt-2"></div>
+                            </h2>
                         </div>
-                        <?php }?>
+                        <div class="owl-carousel owl-theme">
+                            <?php
+                            $i = 0;
+                            while ($related = mysqli_fetch_assoc($Rdata)) {
+                                $i++;
+                            ?>
+                                <div class="item">
+                                    <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
+                                        <a href="product-detail.php?product=<?php echo $related['name'] ?>&id=<?php echo $related['pid'] ?>">
+                                            <div class="product-box <?php if ($i % 2 == 0) {
+                                                                        echo 'product-box-pink';
+                                                                    } else {
+                                                                        echo 'product-box-blue';
+                                                                    } ?>">
+                                                <div class="product-image text-center">
+                                                    <img src="img/products/<?php echo $related['image'] ?>" class="w-100 img-fluid " />
+                                                </div>
+                                                <div class="product-heading text-center mt-3">
+                                                    <h6><?php echo $related['name'] ?></h6>
+                                                    <p>$<?php echo $related['offer_price'] ?></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <?php }?>
+            </section>
+        <?php } ?>
         <!-- Tab Section -->
     </main>
-    <?php include('inc/footer.php')?>
-    <?php include('inc/js.php')?>
+    <?php include('inc/footer.php') ?>
+    <?php include('inc/js.php') ?>
     <script src="admin/assets/js/alertify.min.js"></script>
-    
-<?php echo toast(1);?>
+
+    <?php echo toast(1); ?>
     <script>
         AOS.init();
 
@@ -204,56 +208,63 @@
         const tab = document.querySelectorAll(".tab-content");
         const animiLine = document.querySelectorAll(".animiLine");
         const cardBtn = document.querySelectorAll(".card_btn");
-const minus = document.querySelector(".minus");
-const plus = document.querySelector(".plus");
-const num = document.querySelector(".number");
+        const minus = document.querySelector(".minus");
+        const plus = document.querySelector(".plus");
+        const num = document.querySelector(".number");
 
-const price = document.querySelector(".priceHead");
-const priceHead = +document.querySelector(".priceHead").getAttribute("data-price");
-const showNumber = document.querySelector(".showNumber");
+        const price = document.querySelector(".priceHead");
+        const priceHead = +document.querySelector(".priceHead").getAttribute("data-price");
+        const showNumber = document.querySelector(".showNumber");
 
-// card js
-let startNumebr = 1;
-const totalrice = [priceHead];
-showNumber.value = 1;
+        // card js
+        let startNumebr = 1;
+        const totalrice = [priceHead];
+        showNumber.value = 1;
 
-cardBtn.forEach((item) => {
-  const arr = [...item.children];
+        cardBtn.forEach((item) => {
+            const arr = [...item.children];
 
-  // plus the number
-  arr[2].addEventListener("click", function () {
-    startNumebr++;
-    arr[1].textContent = startNumebr;
-    // change input value
-    showNumber.value = startNumebr;
-    totalrice.push(priceHead);
+            // plus the number
+            arr[2].addEventListener("click", function() {
+                startNumebr++;
 
-    let sum = 0;
-    for (let i = 0; i < totalrice.length; i++) {
-      sum += totalrice[i];
-    }
-    price.textContent = sum;
-  });
+                if (startNumebr <= 10) {
+                    arr[1].textContent = startNumebr;
+                    // change input value
+                    showNumber.value = startNumebr;
+                    totalrice.push(priceHead);
 
-  // minus the number
-  arr[0].addEventListener("click", function () {
-    if (startNumebr >= 2) {
-      startNumebr--;
-      arr[1].textContent = startNumebr;
-      // change input value
-      showNumber.value = startNumebr;
+                    let sum = 0;
+                    for (let i = 0; i < totalrice.length; i++) {
+                        sum += totalrice[i];
+                    }
+                    price.textContent = sum.toFixed(2);
+                }
+                if (startNumebr >= 10) {
+                    startNumebr = 10;
+                    return;
+                }
+            });
 
-      totalrice.pop();
-      let sumReduce = 0;
-      for (let i = 0; i < totalrice.length; i++) {
-        sumReduce += totalrice[i];
-      }
-      price.textContent = sumReduce;
-    } else {
-      return;
-    }
-  });
-});
+            // minus the number
+            arr[0].addEventListener("click", function() {
+                if (startNumebr >= 2 && startNumebr <= 10) {
+                    startNumebr--;
+                    arr[1].textContent = startNumebr;
+                    // change input value
+                    showNumber.value = startNumebr;
+
+                    totalrice.pop();
+                    let sumReduce = 0;
+                    for (let i = 0; i < totalrice.length; i++) {
+                        sumReduce += totalrice[i];
+                    }
+                    price.textContent = sumReduce.toFixed(2);
+                } else {
+                    return;
+                }
+            });
+        });
 
 
         // tab-content
@@ -298,7 +309,7 @@ cardBtn.forEach((item) => {
             loop: true,
             margin: 10,
             nav: false,
-            dots:false,
+            dots: false,
             responsive: {
                 0: {
                     items: 1
