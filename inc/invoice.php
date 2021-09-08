@@ -65,6 +65,9 @@ $html=
                     <td style="font-size: 20px; color: #ccc;">'.$add['name'].'</td>
                 </tr>
                 <tr>
+                    <td style="font-size: 20px; color: #ccc;">'.$add['phone'].'</td>
+                </tr>
+                <tr>
                     <td style="font-style: normal; font-size: 18px; color: #ccc;">
                         '.$add['address'].' <br />
                         '.city($add['city']).', '.state($add['state']).', '.country($add['country']).' <br />
@@ -117,19 +120,19 @@ $html=
                                     <td><span style="">Tax</span> <span style="">'.$data['tax'].'</span></td>
                                 </tr>
                                 <tr>
+                                    <td><span style="">Shipping</span> <span style="">$'.$data['shipping'].'</span></td>
+                                </tr>
+                                <tr>
                                     <td>......................................................</td>
                                 </tr>
                                 <tr>
                                     <td><span style="">Total</span> <span style="">$'.$data['total_amount'].'</span></td>
                                 </tr>
-                                <tr>
-                                    <td><span style="">Shipping</span> <span style="">$'.$data['shipping'].'</span></td>
-                                </tr>
                             </table>
                             <table style="float:left;width:100%; margin-top: 200px;">
                                 <tfoot>
                                     <tr>
-                                        <td style="text-decoration:overline ; font-size: 20px; color: #ccc; ">Author Sign</td>
+                                        <td style="font-size: 20px; color: #ccc; ">Author Sign</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -147,7 +150,7 @@ $dompdf->setPaper('A4', 'potrait');
 $dompdf->render();
 
 // Output the generated PDF to Browser
-// $dompdf->stream();
-$dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
+$dompdf->stream();
+// $dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
 // mysqli_error($conn);
 // exit();

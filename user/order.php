@@ -56,14 +56,17 @@ $userId=$_SESSION['user']['id'];
                                     $quantityArr = explode(',', $data['prod_quantity']);
                                     $prodIdArr = explode(',', $data['prod_id']);
                                     $condition ="WHERE ";
-                                    foreach ($prodIdArr as $idKey => $idVal) {
-                                        $prodQ = "SELECT name, image FROM `".$tblPrefix."products` WHERE pid=$idVal";
-                                        $prodQ = mysqli_query($conn, $prodQ);
-                                        while($prodData =  mysqli_fetch_assoc($prodQ)){
-                                            $i++;
                             ?>
-                            <div class="row order-main order-card <?php if($i %2!= 0){echo 'order-pink';}else{echo 'order-blue';}?> mt-3 align-items-center ">
-                            <a href="../inc/invoice.php?id=<?php echo $data['id'];?>">Download Invoice</a>
+                            <div class="col-12 px-4 py-2 pb-3 my-3" style="box-shadow: 0px 0px 30px 0 rgb(0 0 0 / 10%);border-radius:15px;">
+                            <div class="col-6 my-2 mb-3"><a href="../inc/invoice.php?id=<?php echo $data['id'];?>" class="invoiceBtn">Download Invoice</a></div>
+                            <?php 
+                                foreach ($prodIdArr as $idKey => $idVal) {
+                                    $prodQ = "SELECT name, image FROM `".$tblPrefix."products` WHERE pid=$idVal";
+                                    $prodQ = mysqli_query($conn, $prodQ);
+                                    while($prodData =  mysqli_fetch_assoc($prodQ)){
+                                        $i++;
+                            ?>
+                            <div class="row order-main order-card <?php if($i %2!= 0){echo 'order-pink';}else{echo 'order-blue';}?> align-items-center ">
                                 <div class="col-12 col-sm-7 col-md-4 col-lg-4 col-xxl-4 py-2">
                                     <div class="d-flex align-items-center ">
                                         <img src="img/Untitled-5121.png" class="w-25 img-fluid ">
@@ -94,7 +97,9 @@ $userId=$_SESSION['user']['id'];
                                     </div>
                                 </div>
                             </div>
-                            <?php } } } }else{ ?>
+                            <?php } }?>
+                                    </div>
+                            <?php  } }else{ ?>
                                 <div class="text-center">
                                     <img src="../img/no-order.png" alt="No Address Found" class="img-fluid img-responsive">
                                 </div>

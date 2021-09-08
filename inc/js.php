@@ -65,7 +65,7 @@ $('.state').on('change', function(){
 	});
 });
 </script>
-<script>
+<!-- <script>
   $(window).on('keydown',function(event)
     {
     if(event.keyCode==123)
@@ -94,4 +94,4 @@ $('.state').on('change', function(){
    // alert('Right Click Not Allowed')
     e.preventDefault();
   });
-</script>
+</script> -->
