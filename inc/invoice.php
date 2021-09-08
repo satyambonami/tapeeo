@@ -28,7 +28,58 @@ use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 
 $html=
-    '<!DOCTYPE html><html lang="en"><head></head><body style="padding: 100px;"> <header> <img src="./img/logo.png" style=" height: 100%; width: auto;" alt=""> </header> <section><table style=" border-style: none; color: #D33696; font-size: 20px; font-size: 20px; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-content: center;"><tr><td style="font-size: 50px;">INVOICE</td></tr></table><h1 style=" font-size: 36px; font-weight: 300; color: #ccc;">Invoice to:</h1><table style="float: left; border-style: none; margin-bottom: 30px;"><tr><td style="font-size: 30px; color: #ccc;">Annie Marie</td></tr><tr><td style="font-style: normal; font-size: 22px; color: #ccc;"> 24 Dummy Street Area <br> Location Lorem Ipsum <br> 45412</td></tr></table><table style="float: right; border-style: none; margin-bottom: 30px;"><tr><td style="font-style: normal; font-size: 22px; color: #ccc;">Invoice# <span style="padding-left: 30px;">S75124</span></td></tr><tr><td style="font-style: normal; font-size: 22px; color: #ccc;">Date <span style="padding-left: 30px;">01/05/2021</span></td></tr></table><table style=" width:100%; background-color: #EDFCFD; padding: 20px 0; border: 1px solid #ccc; border-collapse: collapse;">';
+    '<!DOCTYPE html>
+    <html lang="en">
+        <head></head>
+        <body style="padding: 20px 40px;">
+            <header></header>
+            <section>
+                <table style="width: 100%; border-style: none; color: #d33696; font-size: 20px; font-size: 20px; align-content: center;">
+                    <tr>
+                        <td style="font-size: 50px;">TAPEEO</td>
+                    </tr>
+                </table>
+
+                <table style="width: 100%; border-style: none; color: #d33696; font-size: 20px; font-size: 20px; align-content: center;">
+                    <tr>
+                        <td style="font-size: 24px;text-align:right;">INVOICE</td>
+                    </tr>
+                </table>
+
+                <h1 style="font-size: 20px; font-weight: 300; color: #ccc;">Invoice to:</h1>
+
+                <table style="border-style: none; margin-bottom: 50px;margin-left: auto; ">
+                <tr>
+                <td style="font-style: normal; font-size: 18px; color: #ccc;">Invoice# <span style="padding-left: 30px;">S75124</span></td>
+            </tr>
+            <tr>
+                <td style="font-style: normal; font-size: 18px; color: #ccc;">Date <span style="padding-left: 30px;">01/05/2021</span></td>
+            </tr>
+                </table>
+
+                <table style="border-style: none; margin-bottom: 50px; ">
+                   
+                <tr>
+                    <td style="font-size: 20px; color: #ccc;">Annie Marie</td>
+                </tr>
+                <tr>
+                    <td style="font-style: normal; font-size: 18px; color: #ccc;">
+                        24 Dummy Street Area <br />
+                        Location Lorem Ipsum <br />
+                        45412
+                    </td>
+                </tr>
+                </table>
+
+                <table style="width: 100%; background-color: #edfcfd;  border: 1px solid #ccc; border-collapse: collapse; color:gray;">
+                <tr>
+                    <th style=" padding: 20px; border-right: 1px solid #ccc;">S.No</th>
+                    <th style=" padding: 20px; border-right: 1px solid #ccc;">Product Name</th>
+                    <th style=" padding: 20px; border-right: 1px solid #ccc;">Price</th>
+                    <th style=" padding: 20px; border-right: 1px solid #ccc;">Quantity</th>
+                    <th style=" padding: 20px; border-right: 1px solid #ccc;">Total</th>
+                </tr>
+                ';
                 
                 $i=0;
                 $subTotal =0;
@@ -39,15 +90,51 @@ $html=
 
                     $prodQ = mysqli_query($conn, "SELECT name, image FROM `".$tblPrefix."products` WHERE pid=$idVal");
                     $prodData = mysqli_fetch_assoc($prodQ);
-                        $html .='<tr style="font-size: 22px; color: #ccc;">
+                        $html .='<tr style="font-size: 16px; color: #ccc;">
                                     <td style=" padding: 20px; border-right: 1px solid #ccc;">'.$i.'</td>
                                     <td style=" padding: 20px; border-right: 1px solid #ccc;">'.$prodData['name'].'</td>
                                     <td style=" padding: 20px; border-right: 1px solid #ccc;">$'.$priceArr[$idKey].'</td>
-                                    <td style=" padding: 20px; border-right: 1px solid #ccc;"><span style="float: left;">'.$quantityArr[$idKey].'</span> <span style="float: right;"> $'.$priceArr[$idKey].'.00</span></td>
+                                    <td style=" padding: 20px; border-right: 1px solid #ccc;"><span">'.$quantityArr[$idKey].'</span></td>
+                                    <td style=" padding: 20px; border-right: 1px solid #ccc;"> <span> $'.$priceArr[$idKey]*$quantityArr[$idKey].'.00</span></td>
                                 </tr>';
                 }
 
-                $html .= '</table></section><section><table style=" display: flex; align-content: flex-start; flex-wrap: wrap; flex-direction: column; margin-top: 30px;"><tr><td style="color: #D33696; font-size: 28px;">Thank you for your business</td></tr></table><table style=" display: flex; align-content: flex-end; flex-wrap: wrap; flex-direction: column; font-size: 22px; color: #ccc;"><tr><td><span style="float: left;"> Sub Total</span> <span style="float: right;">$220.00</span></td></tr><tr><td><span style="float: left;">Tax</span> <span style="float: right;">0.00%</span></td></tr><tr><td>......................................................</td></tr><tr><td><span style="float: left;">Total</span> <span style="float: right;">$220.00</span></td></tr></table><table style="display: flex; justify-content: flex-end ;margin-top: 50px;"><tfoot><tr><td style="text-decoration:overline ; font-size: 28px; color: #ccc; " >Author Sign</td></tr></tfoot></table> </section></body></html>';
+                $html .= '</table>
+                        </section>
+                        <section>
+                            <table style="float:left; width:60%; margin-top: 30px;">
+                                <tr>
+                                    <td style="color: #D33696; font-size: 22px;">Thank you for your business</td>
+                                </tr>
+                            </table>
+                            <table style=" float:left; width:40%; font-size: 18px; color: #ccc;">
+                                <tr>
+                                    <td><span style=""> Sub Total</span> <span style="">$'.$priceArr[$idKey]*$quantityArr[$idKey].'</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span style="">Tax</span> <span style="">'.$data['tax'].'</span></td>
+                                </tr>
+                                <tr>
+                                    <td>......................................................</td>
+                                </tr>
+                                <tr>
+                                    <td><span style="">Total</span> <span style="">$'.$data['total_amount'].'</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span style="">Shipping</span> <span style="">$'.$data['shipping'].'</span></td>
+                                </tr>
+                            </table>
+                            <table style="float:left;width:100%; margin-top: 200px;">
+                                <tfoot>
+                                    <tr>
+                                        <td style="text-decoration:overline ; font-size: 20px; color: #ccc; ">Author Sign</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </section>
+                        </body>
+                        
+                        </html>';
 
     $dompdf->loadHtml($html);
 

@@ -43,17 +43,16 @@ echo"</pre>";
     VALUES ('".$_SESSION['user']['id']."', '".implode(',',$_SESSION['checkout']['id'])."', '".implode(',',$_SESSION['checkout']['price'])."','".$_SESSION['checkout']['grand-total']."', '".implode(',',$_SESSION['checkout']['qnty'])."', '$tax', '$shipping', '$addressId', 2, '$cTime')";
   
     if(mysqli_query($conn, $actionQ)==true){
-      $totalAmount = $_SESSION['checkout']['grand-total'];
       $orderId = mysqli_insert_id($conn);
       $txnId = rand(111111,999999).$orderId;
   
-    mysqli_query($conn, "INSERT INTO `".$tblPrefix."order_txn`(`txn_id`, `order_id`, `total_amount`, `date_time`, `payment_status`) VALUES ('$txnId', '$orderId', '$totalAmount', '$cTime', 'Pending')");
+    mysqli_query($conn, "INSERT INTO `".$tblPrefix."order_txn`(`txn_id`, `order_id`, `total_amount`, `date_time`, `payment_status`) VALUES ('$txnId', '$orderId', '".$_SESSION['checkout']['grand-total']."', '$cTime', 'Pending')");
     mysqli_query($conn, "DELETE FROM `".$tblPrefix."cart` WHERE user_id=$userId");
     foreach ($_SESSION['checkout']['id'] as $key => $value) {
         $query = mysqli_query($conn,"UPDATE `".$tblPrefix."products` SET `quantity` = `quantity` - '".$_SESSION['checkout']['qnty'][$key]."' WHERE id='".$value."' ");
     }
     $userMail = $_SESSION['user']['email'];
-    // $mail = CnfProductMail($userMail,$orderId);
+    $mail = CnfProductMail($userMail,$orderId);
     
     //   $_SESSION['checkout']['amount'] = $_SESSION['checkout']['grand-total'];
     //   $_SESSION['checkout']['product_info'] = SITE_NAME." | Product";
