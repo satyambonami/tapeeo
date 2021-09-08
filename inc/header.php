@@ -1,6 +1,6 @@
 <!-- MAin MEnu Bar -->
 <header>
-    <nav class="navbar navbar-expand-lg position-absolute w-100 mt-3">
+    <nav class="navbar navbar-expand-lg position-absolute w-100 mt-3" style="z-index: 99;">
         <div class="container background-header">
             <a class="navbar-brand w-50" href="<?php echo $linkPrefix; ?>index.php">
                 <img src="<?php echo $linkPrefix; ?>img/<?php echo $_SESSION['general']['logo']; ?>" alt="<?php echo SITE_NAME ?>" class="img-fluid" style="width:20%;" />
@@ -24,7 +24,7 @@
                                 echo 'index.php';
                             } ?>" class="btn btn-gradient">My Account</a>
                             <?php }else{ ?>
-                                <a href="login.php" class="btn btn-gradient">Login</a>
+                                <a href="user/login.php" class="btn btn-gradient">Login</a>
                                 <?php }?>
             </div>
         </div>
