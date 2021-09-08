@@ -20,7 +20,7 @@ $totalPrice = 0;
 // echo"</pre>";
 // unset($_SESSION['checkout']);
 
-  if(isset($_POST['checkout'])){
+  if(isset($_POST['status']) && isset($_POST['transaction'])){
       if(isset($_POST['shipping-address'])){
         $addressId = mysqli_real_escape_string($conn, ak_secure_string($_POST['shipping-address']));
       }elseif(isset($_POST['type']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['city']) && isset($_POST['state']) && isset($_POST['country']) && isset($_POST['zipcode']) && isset($_POST['address'])){
@@ -286,39 +286,7 @@ $('.state').on('change', function(){
 	});
 });
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=Ab2EH23j3dFGxSN8ELJmFkK20gTSyqnpsjGyzYRZ6pjqiJYQqd55Cd1XY8nCV1nrx8169FxmmHLAbyrr&currency=USD"></script>
-<script>
-       paypal.Buttons({
 
-// Sets up the transaction when a payment button is clicked
-createOrder: function(data, actions) {
-  return actions.order.create({
-    purchase_units: [{
-      amount: {
-        value: '<?php echo $_SESSION['checkout']['grand-total']?>' // Can reference variables or functions. Example: `value: document.getElementById('...').value`
-      }
-    }]
-  });
-},
-
-// Finalize the transaction after payer approval
-onApprove: function(data, actions) {
-  return actions.order.capture().then(function(orderData) {
-    // Successful capture! For dev/demo purposes:
-        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-        var transaction = orderData.purchase_units[0].payments.captures[0];
-        alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-
-    // When ready to go live, remove the alert and show a success message within this page. For example:
-    // var element = document.getElementById('paypal-button-container');
-    // element.innerHTML = '';
-    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-    // Or go to another URL:  actions.redirect('thank_you.html');
-  });
-}
-}).render('#paypal-button-container');
-
-    </script>
 
 
 </body>

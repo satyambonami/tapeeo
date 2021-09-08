@@ -125,10 +125,10 @@ if(isset($_POST['checkout'])){
                                             <div class="quantity">
                                                 <div class="quantity-input">
                                                 <a class="btn btn-reduce position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>" data-tax="<?php echo $taxTotal?>" ></a>
-                                                    <input type="hidden" name="product-id[]" value="<?php echo $cartData1['prodId']; ?>">
-                                                    <input type="hidden" name="product-name[]" value="<?php echo $cartData1['name']; ?>">
-                                                    <input type="hidden" name="product-price[]" value="<?php echo $cartData1['offer_price']; ?>">
-                                                    <input type="hidden" name="product-image[]" value="<?php echo $cartData1['image']; ?>">
+                                                    <input type="hidden" name="product-id[]" value="<?php echo $cartData1['prodId']; ?>" readonly>
+                                                    <input type="hidden" name="product-name[]" value="<?php echo $cartData1['name']; ?>" readonly>
+                                                    <input type="hidden" name="product-price[]" value="<?php echo $cartData1['offer_price']; ?>" readonly>
+                                                    <input type="hidden" name="product-image[]" value="<?php echo $cartData1['image']; ?>" readonly>
 
                                                     <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartData1['prq']; ?>" pattern="[0-9]*" readonly="">
                                                     <a class="btn btn-increase position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>" data-tax="<?php echo $taxTotal?>" ></a>
@@ -223,7 +223,7 @@ if(isset($_POST['checkout'])){
                                         <div class="product-details mt-1">
                                             <h6>Total</h6>
                                             <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
-                                            <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>">
+                                            <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>" readonly>
                                             <h6 class="final-price"><?php echo $grandTotal;?></h6>
                                         </div>
                                         <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Proceed To
