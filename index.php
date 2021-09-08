@@ -105,7 +105,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
     </section>
     <!-- main tag start here  -->
     <main>
-        <section class="section-padding-1">
+        <section class="section-padding-1 baby_arrival_featured_section">
             <div class="container">
                 <div class="row justify-content-center">
                     <?php
@@ -113,18 +113,25 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                     while ($dataP = mysqli_fetch_assoc($product)) {
                         $i++;
                     ?>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xxl-3 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0" >
-                            <a href="product-detail.php?product=<?php ak_url_encode($dataP['name']) ?>&id=<?php echo $dataP['pid'] ?>" >
-                                <div class="product-box " style="min-height: 350px                       ;">
-                                    <div class="product-image text-center">
-                                        <img src="img/products/<?php echo $dataP['image'] ?>" class="w-100 img-fluid ">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-">
+                            <div class="baby_boys baby_item wow fadeInLeft  baby_filter_show ">
+                                <div class="featured_content">
+                                    <div class="featured_img_content position-relative">
+                                        <img src="img/products/<?php echo $dataP['image'] ?>" class="img-fluid" alt="img/products/<?php echo $dataP['image'] ?>">
+                                        <div class="featured_btn vertical_middle">
+                                            <a style="margin: 0 10px;" href="product-detail.php?product=<?php ak_url_encode($dataP['name']) ?>&id=<?php echo $dataP['pid'] ?>" class="btn btn-gradient">View Product</a>
+                                        </div>
                                     </div>
-                                    <div class="product-heading text-center mt-3">
-                                        <h6><?php echo $dataP['name']; ?></h6>
-                                        <p>$<?php echo $dataP['offer_price']; ?></p>
+                                    <div class="featured_detail_content">
+                                        <a href="">
+                                            <p class="featured_title  text-capitalize  "><?php echo $dataP['name']; ?></p>
+                                        </a>
+                                        <p class="featured_price title_h5  "><span>$<?php echo $dataP['offer_price']; ?></span></p>
+                                        <div class="featured_btn d-xl-none">
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     <?php } ?>
                 </div>
