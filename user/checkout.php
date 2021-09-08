@@ -15,9 +15,9 @@ $userId = $_SESSION['user']['id'];
 $totalPrice = 0;
 
 // add/Update address...
-// echo"<pre>";
-//   print_r($_SESSION['checkout']);
-// echo"</pre>";
+echo"<pre>";
+  print_r($_SESSION['checkout']);
+echo"</pre>";
 // unset($_SESSION['checkout']);
 
   if(isset($_POST['checkout'])){
@@ -196,11 +196,11 @@ $totalPrice = 0;
                                     <hr>
                                     <?php 
                                         foreach ($_SESSION['checkout']['id'] as $key => $value) {
-                                            $totalPrice += $_SESSION['checkout']['price'][$key];
+                                            $totalPrice += $_SESSION['checkout']['price'][$key] * $_SESSION['checkout']['qnty'][$key];
                                     ?>
                                     <div class="product-details">
                                         <h6 class="product_name"><?php echo $_SESSION['checkout']['name'][$key];?><small>(x <?php echo $_SESSION['checkout']['qnty'][$key];?>)</small></h6>
-                                        <h6 class="product_price">$<?php echo $_SESSION['checkout']['price'][$key];?></h6>
+                                        <h6 class="product_price">$<?php echo $_SESSION['checkout']['price'][$key]*$_SESSION['checkout']['qnty'][$key];?></h6>
                                     </div>
                                     <?php } 
                                         $TotalTax = ($totalPrice*$taxTotal)/100;
