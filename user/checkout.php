@@ -94,16 +94,16 @@ $totalPrice = 0;
                 <div class="row">
                     <form method="POST">
                         <div class="row">
-                            <div class="col-8 my-3">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xxl-8 my-3">
                                 <div class="address-main-card">
                                     <div class="row">
                                         <h6 class="mb-0">Select Existing Address</h6>
                                         <?php 
-                                            $address1 = mysqli_query($conn,"SELECT * FROM `".$tblPrefix."user_address` WHERE `user_id` = '$userId' ");
+                                            $address1 = mysqli_query($conn,"SELECT * FROM `".$tblPrefix."user_address` WHERE `user_id` = '$userId' AND status!=0");
                                             while($userAddress = mysqli_fetch_assoc($address1)){
                                         ?>
-                                            <div class="col-6 gy-3">
-                                                <div class="address-card">
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 gy-3" style="display:table;">
+                                                <div class="address-card" style="display: table-cell;">
                                                     <h5 class="mb-2">
                                                         <?php echo $userAddress['name'];?>
                                                     </h5>
@@ -195,7 +195,7 @@ $totalPrice = 0;
         
         
                             </div>
-                            <div class="col-4 my-3">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xxl-4 my-3">
                                 <div class="trackorder-summary">
                                     <h3 class="heading-color">Your Order</h3>
                                     <hr>
