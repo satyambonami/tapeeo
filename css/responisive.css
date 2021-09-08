@@ -248,6 +248,7 @@
     /* Banner Responsive */
     .banner-section{
         background-size: cover;
+        background: url(../img/mobile-banner.png);
     }
     .banner-content h1{
         font-size: 48px;
@@ -270,6 +271,7 @@
     .donutBg{
         background-size: cover;
         background-position: center;
+        
     }
 
     /* How its Work */
