@@ -14,6 +14,8 @@ if(isset($_GET['id'])){
         $city = city($data['u_city']);
         $state = state($data['u_state']);
         $country  = country($data['u_country']);
+        $address = mysqli_query($conn,"SELECT `type`, `name`, `email`, `phone`, `country`, `state`, `city`, `pincode`, `address` FROM `".$tblPrefix."user_address` WHERE `id` = ".$data['address_id']." ");
+        $add = mysqli_fetch_assoc($address);
 	}
 }else{
 	$_SESSION['toast']['msg'] = "Something went wrong, Please try again.";
@@ -50,23 +52,26 @@ $html=
 
                 <table style="border-style: none; margin-bottom: 50px;margin-left: auto; ">
                 <tr>
-                <td style="font-style: normal; font-size: 18px; color: #ccc;">Invoice# <span style="padding-left: 30px;">S75124</span></td>
+                <td style="font-style: normal; font-size: 18px; color: #ccc;"><span style="padding-left: 30px;">#TAPEEO'.$data['id'].'</span></td>
             </tr>
             <tr>
-                <td style="font-style: normal; font-size: 18px; color: #ccc;">Date <span style="padding-left: 30px;">01/05/2021</span></td>
+                <td style="font-style: normal; font-size: 18px; color: #ccc;">Date <span style="padding-left: 0px;">'.date("d/M/Y",strtotime($data['date_time'])).'</span></td>
             </tr>
                 </table>
 
                 <table style="border-style: none; margin-bottom: 50px; ">
                    
                 <tr>
-                    <td style="font-size: 20px; color: #ccc;">Annie Marie</td>
+                    <td style="font-size: 20px; color: #ccc;">'.$add['name'].'</td>
+                </tr>
+                <tr>
+                    <td style="font-size: 20px; color: #ccc;">'.$add['phone'].'</td>
                 </tr>
                 <tr>
                     <td style="font-style: normal; font-size: 18px; color: #ccc;">
-                        24 Dummy Street Area <br />
-                        Location Lorem Ipsum <br />
-                        45412
+                        '.$add['address'].' <br />
+                        '.city($add['city']).', '.state($add['state']).', '.country($add['country']).' <br />
+                        '.$add['pincode'].'
                     </td>
                 </tr>
                 </table>
@@ -115,19 +120,19 @@ $html=
                                     <td><span style="">Tax</span> <span style="">'.$data['tax'].'</span></td>
                                 </tr>
                                 <tr>
+                                    <td><span style="">Shipping</span> <span style="">$'.$data['shipping'].'</span></td>
+                                </tr>
+                                <tr>
                                     <td>......................................................</td>
                                 </tr>
                                 <tr>
                                     <td><span style="">Total</span> <span style="">$'.$data['total_amount'].'</span></td>
                                 </tr>
-                                <tr>
-                                    <td><span style="">Shipping</span> <span style="">$'.$data['shipping'].'</span></td>
-                                </tr>
                             </table>
                             <table style="float:left;width:100%; margin-top: 200px;">
                                 <tfoot>
                                     <tr>
-                                        <td style="text-decoration:overline ; font-size: 20px; color: #ccc; ">Author Sign</td>
+                                        <td style="font-size: 20px; color: #ccc; ">Author Sign</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -145,7 +150,7 @@ $dompdf->setPaper('A4', 'potrait');
 $dompdf->render();
 
 // Output the generated PDF to Browser
-// $dompdf->stream();
-$dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
+$dompdf->stream();
+// $dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
 // mysqli_error($conn);
 // exit();

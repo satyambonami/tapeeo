@@ -3,6 +3,7 @@
  <meta charset="utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+ <link rel="icon" href="img/<?php echo $_SESSION['general']['favicon'];?>" type="image/jpg">
  <link href="<?php echo $linkPrefix; ?>css/global.css" rel="stylesheet" />
  <link href="<?php echo $linkPrefix; ?>css/header.css" rel="stylesheet" />
  <link href="<?php echo $linkPrefix; ?>css/footer.css" rel="stylesheet" />

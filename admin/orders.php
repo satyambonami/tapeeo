@@ -81,9 +81,8 @@ if(isset($_POST['status']) && isset($_POST['order_id'])){
                                                         </select>
                                                     </div>
                                                 </td>
-                                                <td>								
-                                                    <a href="generate-invoice.php?id=<?php echo $data['id'];?>&download=true" data-this-id="" class="btn btn-primary" data-position="top" data-delay="40" data-tooltip="Download Invoice"><i class="mdi mdi-cloud-download"></i></a>	
-                                                    								
+                                                <td>
+                                                    <a href="../inc/invoice.php?id=<?php echo $data['id'];?>" class="btn btn-primary" data-position="top" data-delay="40" data-tooltip="Download Invoice"><i class="mdi mdi-cloud-download"></i></a>									                                                    								
                                                     <a href="view-orders.php?id=<?php echo $data['id'];?>" data-this-id="" class="btn btn-primary" data-position="top" data-delay="40" data-tooltip="View Order Details"><i class="mdi mdi-eye"></i></a>									
                                                 </td>
                                             </tr>

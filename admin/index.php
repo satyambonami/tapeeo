@@ -29,32 +29,64 @@
                                     <div class="col-12 pt-3 text-center">
                                         <h1 class="text-white"><span class="js-greeting">Good </span>, <?php echo ucfirst($_SESSION['adi']['name']);?>!</h1></div>
                                 </div>
-                                <div class="row py-3 justify-content-center">
-                                    <div class="col-lg-3 text-center">
-                                        <div class="d-block pb-2">
-                                            <div class="avatar avatar-lg">
-                                                <div class=" avatar-title rounded-circle"> <i class="mdi mdi-account-multiple"></i></div>
-                                            </div>
-                                        </div>
-                                        <h1 class=" m-0 text-white">
-                                            12345
-                                        </h1>
-                                        <p class="text-white opacity-75 text-overline">Total Subscribers</p>
-                                    </div>
-                                    <div class="col-lg-3 text-center">
-                                        <div class="d-block pb-2">
-                                            <div class="avatar avatar-lg">
-                                                <div class=" avatar-title rounded-circle bg-soft-warning"> <i class="mdi mdi-clipboard-check"></i></div>
-                                            </div>
-                                        </div>
-                                        <h1 class=" m-0 text-white">
-                                        12345
-                                        </h1>
-                                        <p class="text-white opacity-75 text-overline ">Total Queries</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row py-3 justify-content-center">
+                    <div class="col-lg-5 text-center mx-2 py-3 bg-dark bg-dots">
+                        <div class="d-block pb-2">
+                            <div class="avatar avatar-lg">
+                                <div class=" avatar-title rounded-circle text-white"> <i class="mdi mdi-account-multiple"></i></div>
+                            </div>
+                        </div>
+                        <h1 class=" m-0 text-white">
+                            <?php
+                                echo $dataSubs = mysqli_fetch_assoc(mysqli_query($conn,"SELECT count(id) as users FROM `".$tblPrefix."users` WHERE status!=0"))['users']; 
+                            ?>
+                        </h1>
+                        <p class="text-white opacity-75 text-overline mb-0">Total Users</p>
+                    </div>
+                    <div class="col-lg-5 text-center mx-2 py-3 bg-dark bg-dots">
+                        <div class="d-block pb-2">
+                            <div class="avatar avatar-lg">
+                                <div class=" avatar-title rounded-circle text-white"> <i class="mdi mdi-account-multiple"></i></div>
+                            </div>
+                        </div>
+                        <h1 class=" m-0 text-white">
+                            <?php
+                                echo $dataSubs = mysqli_fetch_assoc(mysqli_query($conn,"SELECT count(pid) as prods FROM `".$tblPrefix."products` WHERE status=2"))['prods']; 
+                            ?>
+                        </h1>
+                        <p class="text-white opacity-75 text-overline mb-0">Total Products</p>
+                    </div>
+                </div>
+                <div class="row py-3 justify-content-center">
+                    <div class="col-lg-5 text-center mx-2 py-3 bg-dark bg-dots">
+                        <div class="d-block pb-2">
+                            <div class="avatar avatar-lg">
+                                <div class=" avatar-title rounded-circle text-white"> <i class="mdi mdi-account-multiple"></i></div>
+                            </div>
+                        </div>
+                        <h1 class=" m-0 text-white">
+                            <?php
+                                echo $dataSubs = mysqli_fetch_assoc(mysqli_query($conn,"SELECT count(id) as orders FROM `".$tblPrefix."orders` WHERE status!=0"))['orders']; 
+                            ?>
+                        </h1>
+                        <p class="text-white opacity-75 text-overline mb-0">Total Orders</p>
+                    </div>
+                    <div class="col-lg-5 text-center mx-2 py-3 bg-dark bg-dots">
+                        <div class="d-block pb-2">
+                            <div class="avatar avatar-lg">
+                                <div class=" avatar-title rounded-circle text-white"> <i class="mdi mdi-account-multiple"></i></div>
+                            </div>
+                        </div>
+                        <h1 class=" m-0 text-white">$
+                        <?php
+                            echo $dataSubs = mysqli_fetch_assoc(mysqli_query($conn,"SELECT sum(total_amount) as total FROM `".$tblPrefix."orders` WHERE status!=0"))['total']; 
+                        ?>
+                        </h1>
+                        <p class="text-white opacity-75 text-overline mb-0">Total Earnings</p>
                     </div>
                 </div>
             </div>
