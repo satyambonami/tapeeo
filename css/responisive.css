@@ -320,6 +320,11 @@
           backface-visibility: hidden;
         }
       }
+      /* shop card */
+.baby_arrival_featured_section {
+    background:transparent;
+   
+  }
 }
 
 @media only screen and (min-width: 468px) and (max-width: 768px){

@@ -14,8 +14,8 @@
 <meta property="og:image"
       content="../../cdn.dribbble.com/users/180706/screenshots/5424805/the_sceens_-_mobile_perspective_mockup_3_-_by_tranmautritam.jpg"/>
 <meta property="og:site_name" content="atlas "/>
-<link rel="icon" type="image/x-icon" href="assets/img/logo.png"/>
-<link rel="icon" href="assets/img/logo.png" type="image/png" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="../img/logo.png"/>
+<link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
 <link rel='stylesheet' href='assets/css/pace.css'/>
 <script src='assets/js/pace.min.js'></script>
 <!--vendors-->
