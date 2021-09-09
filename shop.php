@@ -30,7 +30,7 @@ $productData = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FR
                     </div>
                 </div>
         </section>
-        <section class="section-padding-1 baby_arrival_featured_section" style="background-image: url('img/Group\ 28.png'); background-repeat: no-repeat;">
+        <section class="section-padding-1 baby_arrival_featured_section" >
             <div class="container">
                 <div class="row">
                     <?php

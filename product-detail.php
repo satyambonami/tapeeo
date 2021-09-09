@@ -50,7 +50,7 @@ $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" 
                     </div>
                 </div>
         </section>
-        <section class="section-padding-2 detail-background">
+        <section class="section-padding-2 ">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6">
@@ -112,13 +112,13 @@ $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" 
         <section class="tab_section section-padding-2">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6">
+                    <div class="col-6 col-md-6 col-lg-6">
                         <div class="text-center line_Div buttonActiv">
                             <p>Description</p>
                             <div class="animationLine mt-2 w-100 tab-content animiLine"></div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-6 ">
+                    <div class="col-6 col-md-6 col-lg-6 ">
                         <div class="text-center line_Div buttonOneActiv">
                             <p>Warranty</p>
                             <div class="animationLine mt-2 w-100 tab-content removeLine animiLine"></div>
@@ -145,7 +145,7 @@ $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" 
         <?php
         if (mysqli_num_rows($Rdata) != 0) {
         ?>
-            <section class="section-padding-1">
+            <section class="section-padding-1  baby_arrival_featured_section">
                 <div class="container">
                     <div class="row">
                         <!-- heading -->
@@ -161,23 +161,26 @@ $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" 
                             while ($related = mysqli_fetch_assoc($Rdata)) {
                                 $i++;
                             ?>
-                                <div class="item">
-                                    <div class="col-12  gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-0">
-                                        <a href="product-detail.php?product=<?php echo $related['name'] ?>&id=<?php echo $related['pid'] ?>">
-                                            <div class="product-box <?php if ($i % 2 == 0) {
-                                                                        echo 'product-box-pink';
-                                                                    } else {
-                                                                        echo 'product-box-blue';
-                                                                    } ?>">
-                                                <div class="product-image text-center">
-                                                    <img src="img/products/<?php echo $related['image'] ?>" class="w-100 img-fluid " />
+                                <div class="item"> 
+                                    <div class="col-12 ">
+                                        <div class="baby_boys baby_item wow fadeInLeft  baby_filter_show ">
+                                            <div class="featured_content">
+                                                <div class="featured_img_content position-relative">
+                                                    <img src="img/products/<?php echo $related['image'] ?>" class="img-fluid" alt="img/products/<?php echo $related['image'] ?>">
+                                                    <div class="featured_btn vertical_middle">
+                                                        <a style="margin: 0 10px;" href="product-detail.php?product=<?php ak_url_encode($related['name']) ?>&id=<?php echo $related['pid'] ?>" class="btn btn-gradient">View Product</a>
+                                                    </div>
                                                 </div>
-                                                <div class="product-heading text-center mt-3">
-                                                    <h6><?php echo $related['name'] ?></h6>
-                                                    <p>$<?php echo $related['offer_price'] ?></p>
+                                                <div class="featured_detail_content">
+                                                    <a href="">
+                                                        <p class="featured_title  text-capitalize  "><?php echo $related['name']; ?></p>
+                                                    </a>
+                                                    <p class="featured_price title_h5  "><span>$<?php echo $related['offer_price']; ?></span></p>
+                                                    <div class="featured_btn d-xl-none">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             <?php } ?>
@@ -318,7 +321,7 @@ $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" 
                     items: 2
                 },
                 1000: {
-                    items: 4
+                    items: 3
                 }
             }
         });
