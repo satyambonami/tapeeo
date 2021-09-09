@@ -92,7 +92,7 @@ $totalPrice = 0;
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
-                    <form method="POST">
+                    <form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xxl-8 my-3">
                                 <div class="address-main-card">
@@ -238,6 +238,22 @@ $totalPrice = 0;
                                 </div>
                             </div>
                         </div>
+                        			<!-- Paypal business test account email id so that you can collect the payments. -->
+                                    <input type="hidden" name="business" value="pstech.aditya@gmail.com">			
+                                    <!-- Buy Now button. -->
+                                    <input type="hidden" name="cmd" value="_xclick">			
+                                    <!-- Details about the item that buyers will purchase. -->
+                                    <input type="hidden" name="item_name" value="hello>">
+                                    <input type="hidden" name="item_number" value="123">
+                                    <input type="hidden" name="amount" value="100">
+                                        <input type="hidden" name="currency_code" value="USD">			
+                                    <!-- URLs -->
+                                    <input type='hidden' name='cancel_return' value='http://localhost/paypal_integration_php/cancel.php'>
+                                    <input type='hidden' name='return' value='http://localhost/paypal_integration_php/success.php'>						
+                                    <!-- payment button. -->
+                                    <input type="image" name="submit"
+                                    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+                                    <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" > 
                     </form>
                 </div>
             </div>
@@ -339,7 +355,7 @@ $('.state').on('change', function(){
                     ]
                 }]
             });
-            },
+        },
 
         // Finalize the transaction after payer approval
         onApprove: function(data, actions) {
@@ -347,6 +363,7 @@ $('.state').on('change', function(){
             // Successful capture! For dev/demo purposes:
                 var transaction = orderData.purchase_units[0].payments.captures[0];
                 var status = orderData.purchase_units[0].payments.captures[1];
+
             // When ready to go live, remove the alert and show a success message within this page. For example:
             // var element = document.getElementById('paypal-button-container');
             // element.innerHTML = '';

@@ -51,7 +51,7 @@ if(isset($_POST['checkout'])){
     }else{
         $_SESSION['toast']['type'] = "alert";
         $_SESSION['toast']['msg'] = "Please login to continue.";
-        header("location:index.php");
+        header("location:login.php");
         exit();
     }
 }
@@ -223,7 +223,7 @@ if(isset($_POST['checkout'])){
                                         <div class="product-details mt-1">
                                             <h6>Total</h6>
                                             <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
-                                            <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>" readonly>
+                                            <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>"  readonly>
                                             <h6 class="final-price"><?php echo $grandTotal;?></h6>
                                         </div>
                                         <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Proceed To

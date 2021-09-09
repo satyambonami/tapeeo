@@ -20,7 +20,11 @@
                         <a class="nav-link" href="<?php echo $linkPrefix; ?>user/cart.php"><img src="<?php echo $linkPrefix; ?>img/shopping-cart.png" class="w-100"></a>
                     </li>
                     <li class="nav-item d-block d-lg-none d-xxl-none">
-                        <a class="nav-link" href="<?php echo $linkPrefix; ?>user/cart.php">Cart</a>
+                        <a class="nav-link" href="<?php if ($linkPrefix == "" || $linkPrefix == NULL) {
+                                echo 'user/cart.php';
+                            } else {
+                                echo 'cart.php';
+                            } ?>">Cart</a>
                     </li>
                 </ul>
                 <?php if(isset($_SESSION['user'])) {?>
@@ -30,7 +34,11 @@
                                 echo 'index.php';
                             } ?>" class="btn btn-gradient">My Account</a>
                             <?php }else{ ?>
-                                <a style="margin: 0 10px;" href="user/login.php" class="btn btn-gradient">Login</a>
+                                <a style="margin: 0 10px;" href="<?php if ($linkPrefix == "" || $linkPrefix == NULL) {
+                                echo 'user/login.php';
+                            } else {
+                                echo 'login.php';
+                            } ?>" class="btn btn-gradient">Login</a>
                                 <?php }?>
             </div>
         </div>
