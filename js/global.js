@@ -22,9 +22,9 @@ const showBeforeStart = document.querySelector(".showBeforeStart");
     ml4.opacityIn = [0, 1];
     ml4.scaleIn = [0.2, 1];
     ml4.scaleOut = 3;
-    ml4.durationIn = 300;
-    ml4.durationOut = 300;
-    ml4.delay = 300;
+    ml4.durationIn = 350;
+    ml4.durationOut = 350;
+    ml4.delay = 350;
 
     anime
         .timeline({ loop: true })
