@@ -33,6 +33,17 @@ if($conn!=true){
 	exit();
 }
 
+// PayPal configuration 
+define('PAYPAL_ID', 'pstech.aditya@gmail.com'); 
+define('PAYPAL_SANDBOX', TRUE); //TRUE or FALSE 
+ 
+define('PAYPAL_RETURN_URL', SITE_URL.'inc/success.php'); 
+define('PAYPAL_CANCEL_URL', SITE_URL.'inc/cancel.php'); 
+define('PAYPAL_NOTIFY_URL', SITE_URL.'inc/ipn.php'); 
+define('PAYPAL_CURRENCY', 'USD'); 
+ 
+// Change not required 
+define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cgi-bin/webscr":"https://www.paypal.com/cgi-bin/webscr");
 require_once('functions.php');
 require_once('sendMails.php');
 

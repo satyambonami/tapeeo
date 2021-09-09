@@ -62,7 +62,7 @@ if(isset($_POST['status']) && isset($_POST['order_id'])){
                                             ?>
                                            <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td>TAPEEO<?php echo $data['id'];?></td>
+                                                <td>#TAPEEO<?php echo $data['id'];?></td>
                                                 <td><?php echo $data['name'];?></td>
                                                 <td><?php echo $data['email'];?></td>
                                                 <td><?php echo $data['phone'];?></td>

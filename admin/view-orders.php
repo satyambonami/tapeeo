@@ -26,6 +26,8 @@ if(isset($_GET['id'])){
 	$priceArr = explode(',', $data['prod_prices']);
 	$quantityArr = explode(',', $data['prod_quantity']);
 	$prodIdArr = explode(',', $data['prod_id']);
+    $orderTxn = mysqli_query($conn,"SELECT `txn_id`,`total_amount`,`payment_status` FROM `".$tblPrefix."order_txn` WHERE order_id = '".$data['id']."' ");
+    $ordTxn = mysqli_fetch_assoc($orderTxn);
 }
 
 
@@ -55,7 +57,7 @@ if(isset($_GET['id'])){
                                             <span>
                                                 Order Id : 
                                             </span>
-                                            TAPEEO<?php echo $data['id'];?>
+                                            #TAPEEO<?php echo $data['id'];?>
                                         </div>
                                         <div class="col-6">
                                             <span>
@@ -71,6 +73,14 @@ if(isset($_GET['id'])){
                                             </span>
                                             <?php echo $data['addName'];?>, <?php echo $data['addEmail'];?>, <?php echo $data['addPhone'];?>, 
                                             <?php echo $data['addAddress'];?>, <?php echo city($data['addCity']);?>, <?php echo state($data['addState']);?>, <?php echo country($data['addCountry']);?>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-4">
+                                            Payment Ref Id: <?php echo $ordTxn['txn_id'];?>
+                                        </div>
+                                        <div class="col-4">
+                                            Payment Status : <?php echo $ordTxn['payment_status']?>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
