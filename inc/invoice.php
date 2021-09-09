@@ -114,7 +114,7 @@ $html=
                             </table>
                             <table style=" float:left; width:40%; font-size: 18px; color: #ccc;">
                                 <tr>
-                                    <td><span style=""> Sub Total</span> <span style="">$'.$priceArr[$idKey]*$quantityArr[$idKey].'</span></td>
+                                    <td><span style=""> Sub Total</span> <span style="">$'.$subTotal.'</span></td>
                                 </tr>
                                 <tr>
                                     <td><span style="">Tax</span> <span style="">'.$data['tax'].'</span></td>

@@ -146,7 +146,7 @@ if (isset($_GET['delete-row'])) {
                                         <img src="../img/noaddress.png" alt="No Address Found" class="img-fluid img-responsive">
                                     </div>
                                     <?php }?>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3 mt-5">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xxl-6 gy-3 mt-5 d-table">
                                     <a data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <div class="add-address">
                                             <div class=" d-flex align-items-center justify-content-center">

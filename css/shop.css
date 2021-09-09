@@ -59,7 +59,6 @@
 }
 /* PRODUCT CARD */
 .featured_content .featured_img_content {
-  height: 300px;
   background: url("../img/baby_feature_img_back.png") no-repeat;
   background-size: 100% 100%;
   display: flex;
