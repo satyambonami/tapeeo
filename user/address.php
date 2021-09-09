@@ -108,9 +108,11 @@ if (isset($_GET['delete-row'])) {
                                                     echo 'DEFAULT :';
                                                 } ?> <span style="color:#DF2C77"><b class='text-uppercase'><?php if ($address['type'] == 1) {
                                                     echo 'Residential';
-                                                } else {
+                                                } elseif($address['default'] == 2){
                                                     echo 'Commercial';
-                                                } ?></b></span></h6>
+                                                } else {
+                                                    echo 'Other';
+                                                }?></b></span></h6>
                                         <div class="address-card">
                                             <h5 class="mb-2">
                                                 <?php echo $address['name']; ?>

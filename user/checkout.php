@@ -9,71 +9,17 @@
         header('location:cart.php');
         exit();
     }
+
 $shippingTotal =$_SESSION['general']['shipping_charge'];
 $taxTotal =$_SESSION['general']['tax'];
 $userId = $_SESSION['user']['id'];
 $totalPrice = 0;
 
-// add/Update address...
-// echo"<pre>";
-//   print_r($_SESSION['checkout']);
-// echo"</pre>";
+// echo "<pre>";
+// print_r($_SESSION['checkout']);
+// echo "</pre>";
+
 // unset($_SESSION['checkout']);
-
-  if(isset($_POST['status']) && isset($_POST['transaction'])){
-      if(isset($_POST['shipping-address'])){
-        $addressId = mysqli_real_escape_string($conn, ak_secure_string($_POST['shipping-address']));
-      }elseif(isset($_POST['type']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['city']) && isset($_POST['state']) && isset($_POST['country']) && isset($_POST['zipcode']) && isset($_POST['address'])){
-        $type= mysqli_real_escape_string($conn,ak_secure_string($_POST['type']));
-        $name=mysqli_real_escape_string($conn,ak_secure_string($_POST['name']));
-        $email=trim(strtolower(mysqli_real_escape_string($conn,ak_secure_string($_POST['email']))));
-        $phone=mysqli_real_escape_string($conn,ak_secure_string($_POST['phone']));
-        $city=mysqli_real_escape_string($conn,ak_secure_string($_POST['city']));
-        $state=mysqli_real_escape_string($conn,ak_secure_string($_POST['state']));
-        $country=mysqli_real_escape_string($conn,ak_secure_string($_POST['country']));
-        $pincode=mysqli_real_escape_string($conn,ak_secure_string($_POST['zipcode']));
-        $address=htmlspecialchars($_POST['address']);
-        mysqli_query($conn,"INSERT INTO `".$tblPrefix."user_address`(`user_id`,`type`,`name`, `email`,`phone`, `country`, `city`, `state`, `address`, `pincode`, `status`, `date_time`) VALUES ('$userId','$type','$name','$email','$phone','$country','$city','$state','$address','$pincode',2,'$cTime')");
-        $addressId = mysqli_insert_id($conn);
-      }else{
-        $_SESSION['toast']['type'] = 'warning';
-        $_SESSION['toast']['msg'] = "Please select address or add a new";
-        header('location:checkout.php');
-        exit();
-      }
-    $tax = mysqli_real_escape_string($conn,ak_secure_string($_POST['tax']));
-    $shipping = mysqli_real_escape_string($conn,ak_secure_string($_POST['shipping']));
-  
-    $actionQ = "INSERT INTO `".$tblPrefix."orders`(`user_id`, `prod_id`, `prod_prices`, `total_amount`, `prod_quantity`, `tax`, `shipping`, `address_id`, `status`, `date_time`) 
-    VALUES ('".$_SESSION['user']['id']."', '".implode(',',$_SESSION['checkout']['id'])."', '".implode(',',$_SESSION['checkout']['price'])."','".$_SESSION['checkout']['grand-total']."', '".implode(',',$_SESSION['checkout']['qnty'])."', '$tax', '$shipping', '$addressId', 2, '$cTime')";
-  
-    if(mysqli_query($conn, $actionQ)==true){
-      $orderId = mysqli_insert_id($conn);
-      $txnId = rand(111111,999999).$orderId;
-  
-    mysqli_query($conn, "INSERT INTO `".$tblPrefix."order_txn`(`txn_id`, `order_id`, `total_amount`, `date_time`, `payment_status`) VALUES ('$txnId', '$orderId', '".$_SESSION['checkout']['grand-total']."', '$cTime', 'Pending')");
-    mysqli_query($conn, "DELETE FROM `".$tblPrefix."cart` WHERE user_id=$userId");
-    foreach ($_SESSION['checkout']['id'] as $key => $value) {
-        $query = mysqli_query($conn,"UPDATE `".$tblPrefix."products` SET `quantity` = `quantity` - '".$_SESSION['checkout']['qnty'][$key]."' WHERE id='".$value."' ");
-    }
-    $userMail = $_SESSION['user']['email'];
-    $mail = CnfProductMail($userMail,$orderId);
-    
-    //   $_SESSION['checkout']['amount'] = $_SESSION['checkout']['grand-total'];
-    //   $_SESSION['checkout']['product_info'] = SITE_NAME." | Product";
-    //   $_SESSION['checkout']['txn_id'] = $txnId;
-    unset($_SESSION['checkout']);
-      $_SESSION['toast']['type'] = 'success';
-      $_SESSION['toast']['msg'] = "Order Successfully Placed";
-      header('location:index.php');
-      exit();
-    }else{
-      $_SESSION['toast']['type']='error';
-      $_SESSION['toast']['msg']='Something went wrong, please try again.';
-    }
-  
-  }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,62 +38,57 @@ $totalPrice = 0;
         <section class="section-padding-1">
             <div class="container">
                 <div class="row">
-                    <form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xxl-8 my-3">
-                                <div class="address-main-card">
-                                    <div class="row">
-                                        <h6 class="mb-0">Select Existing Address</h6>
-                                        <?php 
-                                            $address1 = mysqli_query($conn,"SELECT * FROM `".$tblPrefix."user_address` WHERE `user_id` = '$userId' AND status!=0");
-                                            while($userAddress = mysqli_fetch_assoc($address1)){
-                                        ?>
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 gy-3" style="display:table;">
-                                                <div class="address-card" style="display: table-cell;">
-                                                    <h5 class="mb-2">
-                                                        <?php echo $userAddress['name'];?>
-                                                    </h5>
-        
-                                                    <p class="mb-2"><?php echo $userAddress['address'];?>,<?php echo city($userAddress['city']);?>,<?php echo state($userAddress['state']);?><?php echo country($userAddress['country']);?></p>
-        
-                                                    <div class="address-func">
-                                                        <div class="edit-delete mt-2 d-flex justify-content-between">
-                                                            <H6> <input type="radio" name="shipping-address" id="address" value="<?php echo $userAddress['id'];?>" require
-                                                             > Select Address</H6>
-                                                            <h6 class="ms-1"><?php if($userAddress['default']==1){ echo 'Default';}?> <span style="color:#DF2C77"><b></b></span></h6>
-        
-                                                        </div>
+                    <div class="row">
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xxl-8 my-3">
+                            <div class="address-main-card">
+                                <div class="row">
+                                    <h6 class="mb-0">Select Existing Address</h6>
+                                    <?php 
+                                        $address1 = mysqli_query($conn,"SELECT * FROM `".$tblPrefix."user_address` WHERE `user_id` = '$userId' AND status=2");
+                                        while($userAddress = mysqli_fetch_assoc($address1)){
+                                    ?>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 gy-3" style="display:table;">
+                                            <div class="address-card" style="display: table-cell;">
+                                                <h5 class="mb-2">
+                                                    <?php echo $userAddress['name'];?>
+                                                </h5>
+    
+                                                <p class="mb-2"><?php echo $userAddress['address'];?>,<?php echo city($userAddress['city']);?>,<?php echo state($userAddress['state']);?><?php echo country($userAddress['country']);?></p>
+    
+                                                <div class="address-func">
+                                                    <div class="edit-delete mt-2 d-flex justify-content-between">
+                                                        <H6> <input type="radio" name="shipping-address" id="address" class="select-this radioButtons" value="<?php echo $userAddress['id'];?>" require data-this-id='<?php echo $userAddress['id']; ?>' data-name='<?php echo $userAddress['name']; ?>' data-email='<?php echo $userAddress['email']; ?>' data-phone='<?php echo $userAddress['phone']; ?>' data-city='<?php echo $userAddress['city']; ?>' data-state='<?php echo $userAddress['state']; ?>' data-country='<?php echo $userAddress['country']; ?>' data-address='<?php echo $userAddress['address']; ?>' data-pincode='<?php echo $userAddress['pincode']; ?>' data-type='<?php echo $userAddress['pincode']; ?>'> Select Address</H6>
+                                                        <h6 class="ms-1"><?php if($userAddress['default']==1){ echo 'Default';}?> <span style="color:#DF2C77"><b></b></span></h6>
+    
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php }?>
-                                    </div>
+                                        </div>
+                                    <?php }?>
+                                </div>
+                                <form method="POST" id="addressData">
                                     <div class="row">
                                         <h6 class="mt-4">Or Add a new address </h6>
                                         <div class="col-12">
                                             <div class="row">
-                                                <div class="col-6">
-                                                    <div class="form-group border-0">
-                                                        <select class="form-select" aria-label="Default select example" name="type" >
-                                                            <option selected disabled value="0">Select Address Type</option>
-                                                            <option value="1">Residential</option>
-                                                            <option value="2">Commercial</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <div class="form-group border-0">
                                                         <input type="text" class="form-control" placeholder=" Name" name="name" autocomplete="">
                                                     </div>
                                                 </div>
                                             </div>
-    
-                                            <div class="form-group border-0">
-                                                <input type="text" class="form-control" placeholder="Contact" name="phone" autocomplete="">
-                                            </div>
-    
-                                            <div class="form-group border-0">
-                                                <input type="email" class="form-control" placeholder="Your Email" name="email" autocomplete="">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <input type="text" class="form-control" placeholder="Contact" name="phone" autocomplete="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group border-0">
+                                                        <input type="email" class="form-control" placeholder="Your Email" name="email" autocomplete="">
+                                                    </div>
+                                                </div>
                                             </div>
     
                                             <div class="form-group border-0">
@@ -184,77 +125,62 @@ $totalPrice = 0;
                                                         <div class="form-group border-0">
                                                             <select class="form-select" id="city" aria-label="Default select example" name="city" >
                                                                 <option selected disabled value="0">Select City</option>
+                                                                <?php
+                                                                    $Datacity = mysqli_query($conn,"SELECT `id`, `name` FROM `cities`"); 
+                                                                    while($City = mysqli_fetch_assoc($Datacity)){
+                                                                ?>
+                                                                <option value="<?php echo $City['id'];?>" ><?php echo $City['name'];?></option>
+                                                                <?php }?>
                                                             </select>
                                                         </div>
                                                     </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Button trigger modal -->
-        
-        
+                                </form>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xxl-4 my-3">
-                                <div class="trackorder-summary">
-                                    <h3 class="heading-color">Your Order</h3>
-                                    <hr>
-                                    <?php 
-                                        foreach ($_SESSION['checkout']['id'] as $key => $value) {
-                                            $totalPrice += $_SESSION['checkout']['price'][$key] * $_SESSION['checkout']['qnty'][$key];
-                                    ?>
-                                    <div class="product-details">
-                                        <h6 class="product_name"><?php echo $_SESSION['checkout']['name'][$key];?><small>(x <?php echo $_SESSION['checkout']['qnty'][$key];?>)</small></h6>
-                                        <h6 class="product_price">$<?php echo $_SESSION['checkout']['price'][$key]*$_SESSION['checkout']['qnty'][$key];?></h6>
-                                    </div>
-                                    <?php } 
-                                        $TotalTax = ($totalPrice*$taxTotal)/100;
-                                    ?>
-                                    <div class="product-details mt-1">
-                                        <h6>Tax Charges</h6>
-                                        <h6>$<?php echo $TotalTax;?></h6>
-                                    </div>
-                                    <div class="product-details mt-1">
-                                        <h6>Deleviery Charges</h6>
-                                        <h6>$<?php echo $shippingTotal;?></h6>
-                                    </div>
-                                    <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
-                                    <div class="product-details mt-1">
-                                        <h6>Total</h6>
-                                        <h6>$<?php echo $grandTotal;?></h6>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="COD" name="fav_language" value="COD" required>
-                                        <label for="html">
-                                            <h6>Cash On Delivery</h6>
-                                        </label>
-                                    </div>
-                                    <input type="hidden" name="tax" value="<?php echo $TotalTax;?>">
-                                    <input type="hidden" name="shipping" value="<?php echo $shippingTotal;?>">
-                                    <input type="checkbox" name="" id="" required> I've read and <span style="color: #D33696">accept the
-                                        terms & condition *</span>
-                                        <div id="paypal-button-container"></div>
-                                    <button class="w-100 btn btn-gradient mt-3 rounded"  id="paypal-button-container" type="submit" name="checkout">Place Order</button>
+                            <!-- Button trigger modal -->
+    
+    
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xxl-4 my-3">
+                            <div class="trackorder-summary">
+                                <h3 class="heading-color">Your Order</h3>
+                                <hr>
+                                <?php 
+                                    foreach ($_SESSION['checkout']['id'] as $key => $value) {
+                                        $totalPrice += $_SESSION['checkout']['price'][$key] * $_SESSION['checkout']['qnty'][$key];
+                                ?>
+                                <div class="product-details">
+                                    <h6 class="product_name"><?php echo $_SESSION['checkout']['name'][$key];?><small>(x <?php echo $_SESSION['checkout']['qnty'][$key];?>)</small></h6>
+                                    <h6 class="product_price">$<?php echo $_SESSION['checkout']['price'][$key]*$_SESSION['checkout']['qnty'][$key];?></h6>
                                 </div>
+                                <?php } 
+                                    $TotalTax = ($totalPrice*$taxTotal)/100;
+                                ?>
+                                <div class="product-details mt-1">
+                                    <h6>Tax Charges</h6>
+                                    <h6>$<?php echo $TotalTax;?></h6>
+                                </div>
+                                <div class="product-details mt-1">
+                                    <h6>Deleviery Charges</h6>
+                                    <h6>$<?php echo $shippingTotal;?></h6>
+                                </div>
+                                <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
+                                <div class="product-details mt-1">
+                                    <h6>Total</h6>
+                                    <h6>$<?php echo $grandTotal;?></h6>
+                                </div>
+                                <input type="checkbox" name="" id="" required> I've read and <span style="color: #D33696">accept the
+                                    terms & condition *</span>
+                                    <script src="https://www.paypal.com/sdk/js?client-id=Ab2EH23j3dFGxSN8ELJmFkK20gTSyqnpsjGyzYRZ6pjqiJYQqd55Cd1XY8nCV1nrx8169FxmmHLAbyrr&currency=USD&disable-funding=credit,card"></script>
+                                    <div class="procedDiv">
+                                        <div id="paypal-button-container"></div>
+                                    </div>
+                                <!-- <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Place Order</button> -->
                             </div>
                         </div>
-                        			<!-- Paypal business test account email id so that you can collect the payments. -->
-                                    <input type="hidden" name="business" value="pstech.aditya@gmail.com">			
-                                    <!-- Buy Now button. -->
-                                    <input type="hidden" name="cmd" value="_xclick">			
-                                    <!-- Details about the item that buyers will purchase. -->
-                                    <input type="hidden" name="item_name" value="hello>">
-                                    <input type="hidden" name="item_number" value="123">
-                                    <input type="hidden" name="amount" value="100">
-                                        <input type="hidden" name="currency_code" value="USD">			
-                                    <!-- URLs -->
-                                    <input type='hidden' name='cancel_return' value='http://localhost/paypal_integration_php/cancel.php'>
-                                    <input type='hidden' name='return' value='http://localhost/paypal_integration_php/success.php'>						
-                                    <!-- payment button. -->
-                                    <input type="image" name="submit"
-                                    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
-                                    <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" > 
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -302,9 +228,49 @@ $('.state').on('change', function(){
 	});
 });
 </script>
+<script type="text/javascript">
+    $('.select-this').on('click', function() {
+        $('input[name="this-id"]').val($(this).data('this-id'));
+        $('input[name="name"]').val($(this).data('name'));
+        $('input[name="email"]').val($(this).data('email'));
+        $('input[name="phone"]').val($(this).data('phone'));
+        $('input[name="address"]').val($(this).data('address'));
+        $('input[name="zipcode"]').val($(this).data('pincode'));
+        $('select[name="city"]').val($(this).data('city'));
+        $('select[name="state"]').val($(this).data('state'));
+    });
+</script>
+<script>
+     const radioButtons = document.querySelectorAll('.radioButtons');
+    const cardDivContent = document.querySelector('.procedDiv');
 
-<script src="https://www.paypal.com/sdk/js?client-id=Ab2EH23j3dFGxSN8ELJmFkK20gTSyqnpsjGyzYRZ6pjqiJYQqd55Cd1XY8nCV1nrx8169FxmmHLAbyrr"></script>
+    cardDivContent.style.display = 'none';
 
+    // get the all radio bttons
+    radioButtons.forEach(item => {
+       item.addEventListener('click', function(e) {
+           // if the radio button was clicked than " the input filds
+            if(item.checked) {
+                console.log(item);
+
+                cardDivContent.style.display = 'block';
+
+                formInputDiv.forEach(el => {
+                   el.value = '';
+                });
+            }    
+       });
+    });
+
+    //if the user used the iput filds then remove the radio button clicked
+    formInputDiv.forEach(item => {
+        item.addEventListener('click', function(e) {
+           radioButtons.forEach(item => {
+               item.checked = false;
+           })
+        });
+    });
+</script>
 <script>
       paypal.Buttons({
 
@@ -318,25 +284,25 @@ $('.state').on('change', function(){
                     "breakdown": {
                         "item_total": {  /* Required when including the `items` array */
                         "currency_code": "USD",
-                        "value": "<?php echo $_SESSION['checkout']['grand-total']?>"
-                        }
+                        "value": "<?php echo $_SESSION['checkout']['grand-total']?>",
+                        },
                     }
                     },
                     "items": [
-                        <?php foreach($_SESSION['checkout']['id'] as $items => $it) {?>
+                        <?php foreach($_SESSION['checkout']['id'] as $item => $itm){ ?>
                     {
-                        "name": "<?php echo $_SESSION['checkout']['name'][$items]?>", /* Shows within upper-right dropdown during payment approval */
-                        "description": "<?php echo $_SESSION['checkout']['name'][$items]?>", /* Item details will also be in the completed paypal.com transaction view */
+                        "name": "<?php echo $_SESSION['checkout']['name'][$item]?>", /* Shows within upper-right dropdown during payment approval */
+                        "description": "<?php echo $_SESSION['checkout']['name'][$item]?>", /* Item details will also be in the completed paypal.com transaction view */
                         "unit_amount": {
                         "currency_code": "USD",
-                        "value": "<?php echo $_SESSION['checkout']['price'][$items]?>"
+                        "value": "<?php echo $_SESSION['checkout']['price'][$item]?>"
                         },
-                        "quantity": "<?php echo $_SESSION['checkout']['qnty'][$items]?>"
+                        "quantity": "<?php echo $_SESSION['checkout']['qnty'][$item]?>"
                     },
                     <?php }?>
                     {
                         "name": "Tax", /* Shows within upper-right dropdown during payment approval */
-                        "description": "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
+                        "description": "Tax", /* Item details will also be in the completed paypal.com transaction view */
                         "unit_amount": {
                         "currency_code": "USD",
                         "value": "<?php echo $TotalTax?>"
@@ -345,7 +311,7 @@ $('.state').on('change', function(){
                     },
                     {
                         "name": "Shipping", /* Shows within upper-right dropdown during payment approval */
-                        "description": "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
+                        "description": "Shipping", /* Item details will also be in the completed paypal.com transaction view */
                         "unit_amount": {
                         "currency_code": "USD",
                         "value": "<?php echo $shippingTotal?>"
@@ -355,25 +321,46 @@ $('.state').on('change', function(){
                     ]
                 }]
             });
-        },
+            },
+
 
         // Finalize the transaction after payer approval
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(orderData) {
             // Successful capture! For dev/demo purposes:
-                var transaction = orderData.purchase_units[0].payments.captures[0];
-                var status = orderData.purchase_units[0].payments.captures[1];
+                // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                let transaction = orderData.purchase_units[0].payments.captures[0];
+                let transactionId = transaction.id;
+                let transactionStatus = transaction.status;
+                // let addressData =  $('#addressData').serialize();
+                let name = $('input[name="name"]').val(),
+                email = $('input[name="email"]').val(),
+                phone = $('input[name="phone"]').val(),
+                address = $('input[name="address"]').val(),
+                pincode = $('input[name="zipcode"]').val(),
+                state = $('select[name="state"]').val(),
+                city = $('select[name="city"]').val();
+                let tax = <?php echo $TotalTax; ?>,
+                    shipping = <?php echo $shippingTotal?>;
+                    $.ajax({
+                        url : '../inc/success.php',
+                        type : 'POST',
+                        data : { data : transactionId,status : transactionStatus,name,email,phone,address,pincode,state,city,tax,shipping},
 
-            // When ready to go live, remove the alert and show a success message within this page. For example:
-            // var element = document.getElementById('paypal-button-container');
-            // element.innerHTML = '';
-            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-            // actions.redirect('thank_you.html');
+                        success: function(response){
+                            // console.log(response);
+                            alertify.success("Order Successfully Placed");
+                            window.location.href = "<?php echo SITE_URL?>user/index.php";
+
+                        },
+                        error: function(response){
+                            // console.log(response);
+                        }
+                    });
           });
         }
       }).render('#paypal-button-container');
-
-    </script>
+</script>
 
 </body>
 

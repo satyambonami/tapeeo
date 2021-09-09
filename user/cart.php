@@ -206,25 +206,25 @@ if(isset($_POST['checkout'])){
                                         <hr>
                                         <div class="sub-total product-details mt-1">
                                             <h6>Sub Total</h6>
-                                            <h6 class="showSubTotal"><?php echo $totalPrice;?></h6>
+                                            <h6>$ <span class="showSubTotal"><?php echo $totalPrice;?></span></h6>
                                         </div>
                                         <?php $TotalTax = ($totalPrice*$taxTotal)/100;?>
                                         <div class="product-details mt-1">
                                             <h6>Tax Charges</h6>
-                                            <h6><b class="taxDiv"><?php echo $TotalTax;?></b>
+                                            <h6><span>$</span><b class="taxDiv"><?php echo $TotalTax;?></b>
                                             <small>(<?php echo $_SESSION['general']['tax']?>%)</small>
                                         </h6>
                                         </div>
                                         <div class="product-details mt-1">
                                             <h6>Deleviery Charges</h6>
-                                            <h6 class="shippigDiv"><?php if($shippingTotal!=0){echo $shippingTotal;}elseif($shippingTotal==0){echo 'Free Shipping';}?></h6>
+                                            <h6>$<span class="shippigDiv"><?php if($shippingTotal!=0){echo $shippingTotal;}elseif($shippingTotal==0){echo 'Free Shipping';}?></span></h6>
                                         </div>
 
                                         <div class="product-details mt-1">
                                             <h6>Total</h6>
                                             <?php $grandTotal = $totalPrice + $shippingTotal + $TotalTax;?>
                                             <input type="hidden" name="grand-total" value="<?php echo $grandTotal;?>"  readonly>
-                                            <h6 class="final-price"><?php echo $grandTotal;?></h6>
+                                            <h6>$<span class="final-price"><?php echo $grandTotal;?></span></h6>
                                         </div>
                                         <button class="w-100 btn btn-gradient mt-3 rounded" type="submit" name="checkout">Proceed To
                                             Checkout</button>

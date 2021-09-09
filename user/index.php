@@ -104,7 +104,7 @@ $address = mysqli_fetch_assoc($dataAddress);
                                             <!-- start loop from here -->
                                             <?php
                                                 $i=0;
-                                                $dataQ = mysqli_query($conn, "SELECT `prod_id`,`status` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=0 ORDER BY id DESC");
+                                                $dataQ = mysqli_query($conn, "SELECT `prod_id`,`status` FROM `".$tblPrefix."orders` WHERE `user_id`='$userId' AND `status`!=0 ORDER BY id DESC LIMIT 5");
                                                 if(mysqli_num_rows($dataQ)){
                                                 while ($data = mysqli_fetch_assoc($dataQ)) {
                                                     $prodIdArr = explode(',', $data['prod_id']);

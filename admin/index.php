@@ -42,7 +42,7 @@
                         </div>
                         <h1 class=" m-0 text-white">
                             <?php
-                                echo $dataSubs = mysqli_fetch_assoc(mysqli_query($conn,"SELECT count(id) as users FROM `".$tblPrefix."users` WHERE status!=0"))['users']; 
+                                echo $dataSubs = mysqli_fetch_assoc(mysqli_query($conn,"SELECT count(id) as users FROM `".$tblPrefix."users` WHERE status!=0 AND type!=0"))['users']; 
                             ?>
                         </h1>
                         <p class="text-white opacity-75 text-overline mb-0">Total Users</p>
