@@ -217,7 +217,7 @@ if(isset($_POST['checkout'])){
                                         </div>
                                         <div class="product-details mt-1">
                                             <h6>Deleviery Charges</h6>
-                                            <h6>$<span class="shippigDiv"><?php if($shippingTotal!=0){echo $shippingTotal;}elseif($shippingTotal==0){echo 'Free Shipping';}?></span></h6>
+                                            <h6>$<span class="shippigDiv"><?php $shippingTotal;?></span></h6>
                                         </div>
 
                                         <div class="product-details mt-1">

@@ -1,7 +1,7 @@
 <?php 
     include_once("../inc/config.php");
     $pageName="Add Product";
-    $icon="";
+    $icon="fas fa-cart-plus";
     
     if(!isset($_SESSION['adi'])){
         $_SESSION['toast']['msg']="Please, Log-in to continue.";

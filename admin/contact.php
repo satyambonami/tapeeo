@@ -1,7 +1,7 @@
 <?php 
     include_once("../inc/config.php");
     $pageName="Contact";
-    $icon = "far fa-envelope"; 
+    $icon = "far fa-envelope";
     
     if(!isset($_SESSION['adi'])){
         $_SESSION['toast']['msg']="Please, Log-in to continue.";

@@ -1,7 +1,7 @@
 <?php 
     include_once("../inc/config.php");
     $pageName="Products";
-    $icon = ""; 
+    $icon = "fas fa-list-ol";
     
     if(!isset($_SESSION['adi'])){
         $_SESSION['toast']['msg']="Please, Log-in to continue.";

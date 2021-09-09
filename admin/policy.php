@@ -1,6 +1,7 @@
 <?php 
     include_once("../inc/config.php");
     $pageName="General Details";
+    $icon = "fas fa-user-shield"; 
     
     if(!isset($_SESSION['adi'])){
         $_SESSION['toast']['msg']="Please, Log-in to continue.";
