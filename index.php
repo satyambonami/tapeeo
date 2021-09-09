@@ -201,7 +201,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                     <div class="col-10 offset-2 what-is-tapeeo m-auto">
                         <div class="heading-what mb-5">
                             <h2 class="text-center">
-                                How Its Work?
+                                How It Works?
                                 <div class="animationLinetappeo mt-2"></div>
                             </h2>
                         </div>
@@ -209,7 +209,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                             <div class="col-12 col-lg-5 col-xxl-5 border-right-white steps-tapeoo">
                                 <!-- Step 1 -->
                                 <div class="step-1">
-                                    <h6 class="">1.Make your Tapeeo at Tapeeo.app</h6>
+                                    <h6 class="">1. Make your Tapeeo at Tapeeo.app</h6>
                                     <div class="step-1-img mt-4">
                                         <img src="img/12.png" class="img-fluid img-responsive" />
                                     </div>
@@ -227,7 +227,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                                             </div>
                                         </div>
                                         <div class="col-9 step-2-text ">
-                                            <p class="mb-0 text-start">Business Profile</p>
+                                            <p class="mb-0 ms-2 ms-lg-0 ms-xxl-0 text-start">Business Profile</p>
                                         </div>
                                     </div>
                                     <!-- step 2 second row -->
@@ -240,7 +240,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                                             </div>
                                         </div>
                                         <div class="col-9 step-2-text ">
-                                            <p class="mb-0 text-start">Social Profile</p>
+                                            <p class="mb-0 text-start ms-2 ms-lg-0 ms-xxl-0">Social Profile</p>
                                         </div>
                                     </div>
                                     <!-- step 2 three row -->
@@ -253,7 +253,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                                             </div>
                                         </div>
                                         <div class="col-9 step-2-text ">
-                                            <p class="mb-0 text-start">Pay Me</p>
+                                            <p class="mb-0 text-start ms-2 ms-lg-0 ms-xxl-0">Pay Me</p>
                                         </div>
                                     </div>
                                     <!-- step 2 four row -->
@@ -269,13 +269,13 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                                             </div>
                                         </div>
                                         <div class="col-9 step-2-text ">
-                                            <p class="mb-0 text-start">My Website </p>
+                                            <p class="mb-0 text-start ms-2 ms-lg-0 ms-xxl-0">My Website </p>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Step 3 -->
                                 <div class="step-3 mt-4">
-                                    <h6 class="">3.Select a Tapeeo for the moment</h6>
+                                    <h6 class="">3. Select a Tapeeo for the moment</h6>
                                     <div class="step-2-img mt-4">
                                         <img src="img/Wallet_Cryptocurrency_Mobile_App.png" class="w-75 img-fluid img-responsive imgDivContent" />
                                     </div>
@@ -330,7 +330,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                 <div class="row d-flex justify-content-center">
                     <div class="heading-what ">
                         <h2 class="text-center">
-                            How to share tapeeos
+                            How to share tapeeo
                             <div class="animationLinetappeo mt-2"></div>
                         </h2>
                     </div>
@@ -403,10 +403,10 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 what-is-tapeeo ">
-                        <h4 class="text-center">
+                        <h2 class="text-center">
                             Tapeeo for the...
                             <div class="animationLinetappeo mt-2"></div>
-                        </h4>
+                        </h2>
                     </div>
                 </div>
                 <div class="row">
@@ -466,7 +466,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
         background-repeat: no-repeat;
         background-size: cover;
         padding: 40px 0;
-        border-radius: 30px;
+        border-radius: 80px;
         overflow: hidden;
       ">
                 <div class="row">
