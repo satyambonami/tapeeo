@@ -42,7 +42,7 @@ $productData = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FR
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-">
                                 <div class="baby_boys baby_item wow fadeInLeft  baby_filter_show ">
                                     <div class="featured_content">
-                                        <div class="featured_img_content position-relative">
+                                        <div class="featured_img_content position-relative py-2">
                                             <img src="img/products/<?php echo $dataPrd['image'] ?>" class="img-fluid" alt="img/products/<?php echo $dataPrd['image'] ?>">
                                             <div class="featured_btn vertical_middle">
                                                 <a style="margin: 0 10px;" href="product-detail.php?product=<?php ak_url_encode($dataPrd['name']) ?>&id=<?php echo $dataPrd['pid'] ?>" class="btn btn-gradient">View Product</a>
@@ -59,23 +59,6 @@ $productData = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FR
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 ">
-                                <a href="product-detail.php?product=<?php echo $dataPrd['name'] ?>&id=<?php echo $dataPrd['pid'] ?>">
-                                    <div class="product-box <?php if ($i % 2 == 0) {
-                                                                echo 'product-box-pink';
-                                                            } else {
-                                                                echo 'product-box-blue';
-                                                            } ?>">
-                                        <div class="product-image text-center">
-                                            <img src="img/products/<?php echo $dataPrd['image'] ?>" class="w-100 img-fluid ">
-                                        </div>
-                                        <div class="product-heading text-center mt-3">
-                                            <h6><?php echo $dataPrd['name'] ?></h6>
-                                            <p>$<?php echo $dataPrd['offer_price'] ?></p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div> -->
                         <?php }
                     } else { ?>
                         <img src="img/no-result.png" alt="No Result" class="img-fluid img-responsive w-50 m-auto">

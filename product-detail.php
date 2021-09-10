@@ -89,13 +89,12 @@ $Rdata = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `" 
                                             <p class="minus">
                                                 <i class="fas fa-minus"></i>
                                             </p>
-                                            <input type="text" class="showNumber" readonly style="width: 30px; margin-left: 15px;">
-                                            <!-- <input type="number" name="quantity" id=""class="number" value="1" max="<?php echo $product['quantity']; ?>" min="1"> -->
+                                            <input type="number" class="showNumber" readonly style="width: 30px; margin-left: 15px;" name="quantity" value="1" max="<?php echo $product['quantity']; ?>" min="1">
                                             <p class="plus">
                                                 <i class="fas fa-plus"></i>
                                             </p>
                                         </div>
-                                        <button type="button" class="btn btn-gradient py-3 ms-3 add-to-cart" data-this-pid="<?php echo $product['pid']; ?>" data-this-qty="1">Add to cart</button>
+                                        <button type="button" class="btn btn-gradient py-3 ms-3 add-to-cart" data-this-pid="<?php echo $product['pid']; ?>">Add to cart</button>
                                     <?php }else{ ?>
                                         <h6 class="text-danger ps-3">Out of Stock</h6>
                                         <?php }?>

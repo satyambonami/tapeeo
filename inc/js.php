@@ -18,9 +18,9 @@
    $('.add-to-cart').on('click', function(e) {
      e.preventDefault();
      // var prod_id = $('input[name="prod_id"]').val(),
-     //   quantity = $('input[name="quantity"]').val();
+      //  quantity = $(this).data("this-qty");
      var prod_id = $(this).data("this-pid"),
-       quantity = $(this).data("this-qty");
+        quantity = $('input[name="quantity"]').val();
      // alert(prod_id);
      // alert(quantity);
      $.ajax({

@@ -116,7 +116,7 @@ $product = mysqli_query($conn, "SELECT `pid`,`name`,`image`,`offer_price` FROM `
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xxl-4 gy-3 gy-sm-3 gy-md-3 gy-lg-0 gy-xxl-">
                             <div class="baby_boys baby_item wow fadeInLeft  baby_filter_show ">
                                 <div class="featured_content">
-                                    <div class="featured_img_content position-relative">
+                                    <div class="featured_img_content position-relative py-2">
                                         <img src="img/products/<?php echo $dataP['image'] ?>" class="img-fluid" alt="img/products/<?php echo $dataP['image'] ?>">
                                         <div class="featured_btn vertical_middle">
                                             <a style="margin: 0 10px;" href="product-detail.php?product=<?php ak_url_encode($dataP['name']) ?>&id=<?php echo $dataP['pid'] ?>" class="btn btn-gradient">View Product</a>

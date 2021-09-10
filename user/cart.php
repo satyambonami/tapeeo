@@ -130,7 +130,7 @@ if(isset($_POST['checkout'])){
                                                     <input type="hidden" name="product-price[]" value="<?php echo $cartData1['offer_price']; ?>" readonly>
                                                     <input type="hidden" name="product-image[]" value="<?php echo $cartData1['image']; ?>" readonly>
 
-                                                    <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartData1['prq']; ?>" pattern="[0-9]*" readonly="">
+                                                    <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="<?php echo $cartData1['cartqty'];?>" data-max="<?php echo $cartData1['prq']; ?>" pattern="[0-9]*" readonly="">
                                                     <a class="btn btn-increase position-relative" href="#" data-price="<?php echo $cartData1['offer_price']; ?>" data-tax="<?php echo $taxTotal?>" ></a>
                                                 </div>
                                             </div>
@@ -168,7 +168,7 @@ if(isset($_POST['checkout'])){
                                                     <input type="hidden" name="product-price[]" value="<?php echo $cartDataC['offer_price']?>">
                                                     <input type="hidden" name="product-image[]" value="<?php echo $cartDataC['image']?>">
                                                     
-                                                    <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="1" data-max="<?php echo $cartDataC['quantity']?>" pattern="[0-9]*" readonly="">
+                                                    <input type="text" class="prod-quantity text-center" name="product-quantity[]" value="<?php echo $value;?>" data-max="<?php echo $cartDataC['quantity']?>" pattern="[0-9]*" readonly="">
                                                     
                                                     <a class="btn btn-increase position-relative" data-price="<?php echo $cartDataC['price']; ?>" data-tax="<?php echo $taxTotal?>" data-shipping="<?php echo $shippingTotal;?>"></a>
                                                 </div>
