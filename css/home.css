@@ -2,7 +2,7 @@
     background: url(../img/Group\ 19.png);
     background-size: 100% 100%;
     padding-top: 15vh;
-    padding-bottom: 7vh;
+    padding-bottom: 10vh;
 }
 
 .banner-content h1 {
@@ -61,29 +61,30 @@
     animation-delay: 3s;
     transition: all 0.2s ease;
 }
+
 @keyframes screen {
     0% {
-      opacity: 0;
-    }
-    30%{
         opacity: 0;
     }
-    50%{
+    30% {
         opacity: 0;
     }
-    80%{
+    50% {
+        opacity: 0;
+    }
+    80% {
         opacity: 0;
     }
     90% {
-      opacity: 0.7;
+        opacity: 0.7;
     }
-    95%{
+    95% {
         opacity: 0.9;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
 
 /* Extra file */
@@ -262,22 +263,19 @@
 /* Extra */
 
 
-
-
 /* Extra */
 
 
 /* tapeeo Flip Card  */
+
 .scene {
     width: 300px;
     height: 160px;
     perspective: 600px;
     margin: 0 auto;
-    
-  }
-  
+}
 
-  .card-flip {
+.card-flip {
     width: 100%;
     height: 100%;
     transition: transform 1s;
@@ -286,23 +284,25 @@
     position: relative;
     animation: animiCardOne 3s ease-in;
     animation-delay: 3s;
-  }
-  @keyframes animiCardOne {
+}
+
+@keyframes animiCardOne {
     0% {
-      transform: rotateY(0deg);
-    }
-    50% {
-      transform: rotateY(180deg);
-    }
-    100%{
         transform: rotateY(0deg);
     }
-  }
-  .card-flip.is-flipped {
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+.card-flip.is-flipped {
     transform: rotateY(180deg);
-  }
-  
-  .card__face {
+}
+
+.card__face {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -318,50 +318,42 @@
     animation: animiCard 2s ease-in;
     animation-iteration-count: 1;
     animation-delay: 6s;
-    
-  }
-  @keyframes animiCard {
+}
+
+@keyframes animiCard {
     0% {
-      top: 20px;
-      left: 20%;
+        top: 20px;
+        left: 20%;
     }
     30% {
-      top: 20px;
-      left: 50%;
+        top: 20px;
+        left: 50%;
     }
-    50%{
-    
+    50% {
         left: 70%;
     }
     70% {
-      top: 450px;
-      transform: scale(0.9) skew(-0.09turn, 40deg);
-      left: 100%;
-      backface-visibility: hidden;
+        top: 450px;
+        transform: scale(0.9) skew(-0.09turn, 40deg);
+        left: 100%;
+        backface-visibility: hidden;
     }
     100% {
-      top: 20px;
-      left: 0%;
-      backface-visibility: hidden;
+        top: 20px;
+        left: 0%;
+        backface-visibility: hidden;
     }
-  }
-  .card__face--front {
+}
+
+.card__face--front {
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0,0,30px 0 rgba(0, 0, 0, 0.1);
-    
+    box-shadow: 0, 0, 30px 0 rgba(0, 0, 0, 0.1);
+}
 
-  }
-  
-  
-  
-  
-  .card__face--back {
+.card__face--back {
     background: #fff;
     transform: rotateY(180deg);
-    box-shadow: 0,0,30px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0, 0, 30px 0 rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-  }
-
-  
- 
+}
