@@ -9,15 +9,15 @@ $tblPrefix ="bnmi_";
 
 //constants...
 define('HASH_KEY', 'tappeo');
-define('PROD', 0); //during production 1 testing 0...
+define('PROD', 1); //during production 1 testing 0...
 
 if(PROD){
-define('SITE_URL', '');
+define('SITE_URL', 'https://staging.tapeeo.com/');
 
-    $hostName = '';
-	$userName = '';
-	$password = '';
-	$database = '';
+    $hostName = 'localhost';
+	$userName = 'root';
+	$password = 'NaisiOO4UQYO';
+	$database = 'bnmi_tappeo';
 	
 }else{
 	define('SITE_URL', 'http://localhost/tapeeo/');
