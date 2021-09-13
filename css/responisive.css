@@ -1,356 +1,353 @@
-@media only screen and (min-width: 1024px) and (max-width: 1400px){
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
     /* Banner Responsive */
-    .banner-section{
+    .banner-section {
         background-size: cover;
     }
-
-    .banner-content h1{
+    .banner-content h1 {
         font-size: 48px;
         font-weight: 700;
     }
-    .banner-content span{
+    .banner-content span {
         font-size: 48px;
         font-weight: 700;
         color: #fff;
     }
-    .banner-content h4{
+    .banner-content h4 {
         font-size: 17px;
     }
-    .banner-content h5{
+    .banner-content h5 {
         font-size: 20px;
         color: #F18AB1;
         letter-spacing: 4px;
     }
-
-    .donutBg{
+    .donutBg {
         background-size: cover;
         background-position: center;
     }
-
     /* How its Work */
-    .border-right-white{
+    .border-right-white {
         border: none;
-    } 
-    .how-to-share-bg{
+    }
+    .how-to-share-bg {
         background: url("../img/Ellipse\ 3.png");
         background-size: cover;
         padding: 60px 0 !important;
         margin-top: 60px;
     }
-    .footer-bg{
+    .footer-bg {
         background: url('../img/Ellipse\ 4.png');
         background-repeat: no-repeat;
         background-size: cover;
         padding: 70px 0 60px 0;
-        background-position-x:48% ;
+        background-position-x: 48%;
     }
     .detail-background {
         background: transparent;
-      }
-      @keyframes animiCard {
+    }
+    @keyframes animiCard {
         0% {
-          top: 20px;
-          left: 20%;
+            top: 20px;
+            left: 20%;
         }
         30% {
-          top: 20px;
-          left: 50%;
+            top: 20px;
+            left: 50%;
         }
-        50%{
-        
+        50% {
             left: 50%;
         }
         70% {
-          top: 470px;
-          transform: scale(0.9) skew(-0.09turn, 40deg);
-          left: 70%;
-          backface-visibility: hidden;
+            top: 470px;
+            transform: scale(0.9) skew(-0.09turn, 40deg);
+            left: 70%;
+            backface-visibility: hidden;
         }
         100% {
-          top: 20px;
-          left: 0%;
-          backface-visibility: hidden;
+            top: 20px;
+            left: 0%;
+            backface-visibility: hidden;
         }
-      }
-      .scene{
-          margin-bottom: 20px;
-      }
+    }
+    .scene {
+        margin-bottom: 20px;
+    }
+    .quickPoints h6 {
+        font-size: 16px;
+    }
 }
-@media only screen and (min-width: 767px) and (max-width: 1024px){
-        /* Banner Responsive */
-        .banner-section{
-            background-size: 100% 100% !important;
-            background: url(../img/mobile-banner.png);
-            background-repeat: no-repeat;
-        }
-    
-        .banner-content h1{
-            font-size: 48px;
-            font-weight: 700;
-            text-align: left;
-        }
-        .banner-content span{
-            font-size: 48px;
-            font-weight: 700;
-            color: #fff;
-        }
-        .banner-content h4{
-            font-size: 17px;
-            letter-spacing: 4px;
-            text-align: center;
-        }
-        .banner-content h5{
-            font-size: 20px;
-            color: #F18AB1;
-            letter-spacing: 4px;
-            text-align: center;
-        }
-        .animationText_div{
-            justify-content: center;
-        }
-        .donutBg{
-            background-size: 100% 100%;
-        }
-    
-        /* How its Work */
-        .border-right-white{
-            border: none;
-        } 
-        .how-to-share-bg{
-            background: url("../img/Ellipse\ 3.png");
-            background-size: cover;
-            padding: 60px 0 !important;
-            background-position-x: 48%;
-        }
-        .footer-bg{
-            background: url('../img/Ellipse\ 4.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 70px 0 60px 0;
-            background-position-x:48% ;
-        }
-        .detail-background {
-           background: transparent;
-         }
-         .breadcrumb-detail{
-            background-size: cover ;
-            background-position-x: 40%;
-        }
-        @keyframes animiCard {
-            0% {
-              top: 20px;
-            }
-            30% {
-              top: 20px;
-            }
-            50%{
-                top: 300px;
-            }
-            70% {
-              top: 400px;
-              transform: scale(0.9) skew(-0.09turn, 40deg);
-            
-              backface-visibility: hidden;
-            }
-            100% {
-              top: 20px;
-              left: 0%;
-              backface-visibility: hidden;
-            }
-          }
-}
-@media only screen and (min-width: 479px) and (max-width: 767px){
+
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
     /* Banner Responsive */
-    .banner-section{
+    .banner-section {
         background-size: 100% 100% !important;
         background: url(../img/mobile-banner.png);
         background-repeat: no-repeat;
     }
-
-    .banner-content h1{
+    .banner-content h1 {
         font-size: 48px;
         font-weight: 700;
         text-align: left;
     }
-    .banner-content span{
+    .banner-content span {
         font-size: 48px;
         font-weight: 700;
         color: #fff;
     }
-    .banner-content h4{
+    .banner-content h4 {
         font-size: 17px;
         letter-spacing: 4px;
         text-align: center;
     }
-    .banner-content h5{
+    .banner-content h5 {
         font-size: 20px;
         color: #F18AB1;
         letter-spacing: 4px;
         text-align: center;
     }
-    .donutBg{
-        background-size: cover;
-        background-position: center;
+    .animationText_div {
+        justify-content: center;
     }
-
+    .donutBg {
+        background-size: 70% 70%;
+        background-position: bottom center;
+    }
     /* How its Work */
-    .border-right-white{
+    .border-right-white {
         border: none;
-    } 
-    .how-to-share-bg{
+    }
+    .how-to-share-bg {
         background: url("../img/Ellipse\ 3.png");
         background-size: cover;
         padding: 60px 0 !important;
         background-position-x: 48%;
     }
-    .footer-bg{
+    .footer-bg {
         background: url('../img/Ellipse\ 4.png');
         background-repeat: no-repeat;
         background-size: cover;
         padding: 70px 0 60px 0;
-        background-position-x:48% ;
+        background-position-x: 48%;
     }
     .detail-background {
-       background: transparent;
-     }
-     .breadcrumb-detail{
-        background-size: cover ;
+        background: transparent;
+    }
+    .breadcrumb-detail {
+        background-size: cover;
         background-position-x: 40%;
     }
-    
     @keyframes animiCard {
         0% {
-          top: 20px;
+            top: 20px;
         }
         30% {
-          top: 20px;
+            top: 20px;
         }
-        50%{
+        50% {
             top: 300px;
         }
         70% {
-          top: 400px;
-          transform: scale(0.9) skew(-0.09turn, 40deg);
-        
-          backface-visibility: hidden;
+            top: 400px;
+            transform: scale(0.9) skew(-0.09turn, 40deg);
+            backface-visibility: hidden;
         }
         100% {
-          top: 20px;
-          left: 0%;
-          backface-visibility: hidden;
+            top: 20px;
+            left: 0%;
+            backface-visibility: hidden;
         }
-      }
+    }
+    .quickPoints h6 {
+        font-size: 16px;
+    }
 }
-@media only screen and (min-width: 320px) and (max-width: 479px){
+
+@media only screen and (min-width: 479px) and (max-width: 767px) {
     /* Banner Responsive */
-    .banner-section{
+    .banner-section {
         background-size: 100% 100% !important;
         background: url(../img/mobile-banner.png);
         background-repeat: no-repeat;
     }
-    .banner-content h1{
+    .banner-content h1 {
         font-size: 48px;
         font-weight: 700;
+        text-align: left;
     }
-    .banner-content span{
+    .banner-content span {
         font-size: 48px;
         font-weight: 700;
         color: #fff;
     }
-    .banner-content h4{
+    .banner-content h4 {
         font-size: 17px;
         letter-spacing: 4px;
+        text-align: center;
     }
-    .banner-content h5{
+    .banner-content h5 {
         font-size: 20px;
         color: #F18AB1;
         letter-spacing: 4px;
+        text-align: center;
     }
-    .donutBg{
-        background-size: cover;
-        background-position: center;
-        
+    .donutBg {
+        background-size: 100%;
+        background-position: bottom center;
     }
-
     /* How its Work */
-    .border-right-white{
+    .border-right-white {
         border: none;
-    } 
-    .how-to-share-bg{
+    }
+    .how-to-share-bg {
         background: url("../img/Ellipse\ 3.png");
         background-size: cover;
         padding: 60px 0 !important;
         background-position-x: 48%;
     }
-    .footer-bg{
+    .footer-bg {
         background: url('../img/Ellipse\ 4.png');
         background-repeat: no-repeat;
         background-size: cover;
         padding: 70px 0 60px 0;
-        background-position-x:48% ;
+        background-position-x: 48%;
+    }
+    .detail-background {
+        background: transparent;
+    }
+    .breadcrumb-detail {
+        background-size: cover;
+        background-position-x: 40%;
+    }
+    @keyframes animiCard {
+        0% {
+            top: 20px;
+        }
+        30% {
+            top: 20px;
+        }
+        50% {
+            top: 300px;
+        }
+        70% {
+            top: 400px;
+            transform: scale(0.9) skew(-0.09turn, 40deg);
+            backface-visibility: hidden;
+        }
+        100% {
+            top: 20px;
+            left: 0%;
+            backface-visibility: hidden;
+        }
+    }
+    .quickPoints {
+        padding: 10px 0px;
+    }
+    .quickPoints h6 {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    /* Banner Responsive */
+    .banner-section {
+        background-size: 100% 100% !important;
+        background: url(../img/mobile-banner.png);
+        background-repeat: no-repeat;
+    }
+    .banner-content h1 {
+        font-size: 48px;
+        font-weight: 700;
+    }
+    .banner-content span {
+        font-size: 48px;
+        font-weight: 700;
+        color: #fff;
+    }
+    .banner-content h4 {
+        font-size: 17px;
+        letter-spacing: 4px;
+    }
+    .banner-content h5 {
+        font-size: 20px;
+        color: #F18AB1;
+        letter-spacing: 4px;
+    }
+    .donutBg {
+        background-size: 100%;
+        background-position: bottom center;
+    }
+    /* How its Work */
+    .border-right-white {
+        border: none;
+    }
+    .how-to-share-bg {
+        background: url("../img/Ellipse\ 3.png");
+        background-size: cover;
+        padding: 60px 0 !important;
+        background-position-x: 48%;
+    }
+    .footer-bg {
+        background: url('../img/Ellipse\ 4.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 70px 0 60px 0;
+        background-position-x: 48%;
     }
     /* contact */
     /* product dertail  */
     .detail-background {
         background: transparent;
-      }
-    .breadcrumb-detail{
-        background-size: cover ;
+    }
+    .breadcrumb-detail {
+        background-size: cover;
         background-position-x: 40%;
     }
     @keyframes animiCard {
         0% {
-          top: 20px;
+            top: 20px;
         }
         30% {
-          top: 20px;
+            top: 20px;
         }
-        50%{
+        50% {
             top: 300px;
         }
         70% {
-          top: 400px;
-          transform: scale(0.9) skew(-0.09turn, 40deg);
-        
-          backface-visibility: hidden;
+            top: 400px;
+            transform: scale(0.9) skew(-0.09turn, 40deg);
+            backface-visibility: hidden;
         }
         100% {
-          top: 20px;
-          left: 0%;
-          backface-visibility: hidden;
+            top: 20px;
+            left: 0%;
+            backface-visibility: hidden;
         }
-      }
-      /* shop card */
-.baby_arrival_featured_section {
-    background:transparent;
-   
-  }
+    }
+    /* shop card */
+    .baby_arrival_featured_section {
+        background: transparent;
+    }
+    .quickPoints {
+        padding: 10px 0px;
+    }
+    .quickPoints h6 {
+        font-size: 12px;
+    }
 }
 
-@media only screen and (min-width: 468px) and (max-width: 768px){
-
-    .navbar-brand img{
+@media only screen and (min-width: 468px) and (max-width: 768px) {
+    .navbar-brand img {
         width: 50% !important;
     }
-
-
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px){
-
-    .navbar-brand img{
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .navbar-brand img {
         width: 50% !important;
     }
-
-
 }
 
-
-@media only screen and (min-width: 320px) and (max-width: 468px){
-
-    .navbar-brand img{
+@media only screen and (min-width: 320px) and (max-width: 468px) {
+    .navbar-brand img {
         width: 50% !important;
     }
-
-
 }

@@ -15,6 +15,7 @@ const cardDiv = document.querySelectorAll(".card_div");
 const imgDivContent = document.querySelector(".imgDivContent");
 
 const showBeforeStart = document.querySelector(".showBeforeStart");
+const showHideContentDiv = document.querySelectorAll(".showHideContentDiv");
 
 // animation js
 (function() {
@@ -74,7 +75,7 @@ const showBeforeStart = document.querySelector(".showBeforeStart");
             targets: ".ml4",
             opacity: 0,
             duration: 100,
-            delay:100,
+            delay: 100,
         });
 })();
 
@@ -90,34 +91,26 @@ setTimeout(() => {
 // ✓ - if the usr clike first button so add the active class
 // ✓ - if the usr click anothe button remove class from first and add it second button
 
-// images arr
-let imgArr = [{
-        src: "img/Wallet_Cryptocurrency_Mobile_App.png",
-    },
-    {
-        src: "img/shop.cf037be9.jpg",
-    },
-    {
-        src: "img/profile.af3b48e1.jpg",
-    },
-    {
-        src: "img/12.png",
-    },
-];
-
 function selectItem() {
     removeClass();
+    hideDiv();
     // adding the class
     this.classList.add("active_div");
 
-    // changing current image
-    imgDivContent.src = imgArr[this.id].src;
+    const showDiv = document.querySelector(`.showHideContentDiv-${this.id}`);
+    showDiv.classList.remove("showAndHide");
 }
 
 // removing classes from svg
 function removeClass() {
     cardDiv.forEach((item) => {
         item.classList.remove("active_div");
+    });
+}
+
+function hideDiv() {
+    showHideContentDiv.forEach((el) => {
+        el.classList.add("showAndHide");
     });
 }
 
@@ -218,7 +211,3 @@ const paymentActive = function(e) {
 };
 
 paymentActive();
-
-
-
-

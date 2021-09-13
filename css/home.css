@@ -357,3 +357,11 @@
     box-shadow: 0, 0, 30px 0 rgba(0, 0, 0, 0.1);
     border-radius: 15px;
 }
+
+.quickPoints {
+    padding: 20px 0px;
+}
+
+.showAndHide {
+    display: none;
+}
