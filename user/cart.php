@@ -10,7 +10,7 @@ $taxTotal =$_SESSION['general']['tax'];
 $totalPrice=0;
 $grandTotal=0;
 $cartCount = 0;
-// print_r($_SESSION['cart']);
+// unset($_SESSION['cart']);
 // print_r($_SESSION['checkout']);
 // Remove Product From Cart
 if(isset($_GET['remove'])){

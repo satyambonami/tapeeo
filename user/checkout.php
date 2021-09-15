@@ -46,7 +46,8 @@ $totalPrice = 0;
                                     <h6 class="mb-0">Select Existing Address</h6>
                                     <?php 
                                         $address1 = mysqli_query($conn,"SELECT * FROM `".$tblPrefix."user_address` WHERE `user_id` = '$userId' AND status=2");
-                                        while($userAddress = mysqli_fetch_assoc($address1)){
+                                        if(mysqli_num_rows($address1)>0){
+                                            while($userAddress = mysqli_fetch_assoc($address1)){
                                     ?>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 gy-3" style="display:table;">
                                             <div class="address-card" style="display: table-cell;">
@@ -65,7 +66,9 @@ $totalPrice = 0;
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php }?>
+                                    <?php } }else{ ?>
+                                        <h6 class="mb-0 mt-3">Please Add a To Continue<small>(My Account > Address)</small>...</h6>
+                                        <?php }?>
                                 </div>
                                 <form method="POST" id="addressData">
                                     <div class="row">

@@ -1,0 +1,223 @@
+/* card button */
+
+.card_button {
+    display: flex;
+}
+
+.card_btn {
+    border: 1px solid #eee;
+    padding: 0.6rem 0.8rem;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_btn p {
+    margin: 0 0.6rem;
+    font-size: 21px;
+}
+
+.minus,
+.plus {
+    cursor: pointer;
+}
+
+
+/* card button */
+
+
+/* Tab Content  */
+
+.line_Div {
+    cursor: pointer;
+}
+
+.removeLine {
+    display: none;
+}
+
+.hideDiv {
+    display: none;
+}
+
+
+/* Tab Content  */
+
+
+/* background img */
+
+.detail-background {
+    background: url("../img/Group\ 28.png");
+    background-size: 100% 100%;
+    padding: 60px 0px;
+    background-repeat: no-repeat;
+}
+
+.breadcrumb-detail {
+    background: url("../img/29.png");
+    background-size: 100% 100%;
+    padding-top: 180px;
+    padding-bottom: 60px;
+}
+
+.price h3 span {
+    font-size: 24px !important;
+}
+
+
+/* shop card */
+
+.baby_arrival_featured_section {
+    background-image: url("img/Group\ 28.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+/* PRODUCT CARD */
+
+.featured_content .featured_img_content {
+    background: url("../img/baby_feature_img_back.png") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+}
+
+.featured_content {
+    background: #e5f2f7;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.featured_content .featured_img_content::before {
+    content: "";
+    bottom: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background-size: 100% 100%;
+}
+
+.baby_arrival_featured_section .featured_content .featured_img_content img {
+    top: 49%;
+    margin: auto;
+}
+
+.baby_arrival_featured_section .featured_content {
+    text-align: center;
+}
+
+.arrival_featured_section .featured_content .featured_btn {
+    top: inherit;
+    transform: none;
+    bottom: -157px;
+    opacity: 0;
+    left: 10px;
+    z-index: 1;
+}
+
+.vertical_middle {
+    bottom: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+
+.arrival_featured_section .featured_content .featured_btn a {
+    line-height: 20px;
+    margin-top: 10px;
+    background: #e7e7e7;
+    text-align: center;
+    color: #000;
+    position: relative;
+}
+
+.baby_body .baby_btn_shadow {
+    padding: 12px 19px;
+    box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.baby_arrival_featured_section .featured_content .featured_detail_content {
+    margin-top: -16px;
+    position: relative;
+    z-index: 8;
+    padding: 34px 10px 12px;
+}
+
+.baby_arrival_featured_section .featured_content .featured_detail_content .featured_title {
+    color: #333333;
+    font-family: "Nunito";
+    font-weight: 400;
+}
+
+.baby_arrival_featured_section .featured_content .featured_detail_content .featured_title {
+    color: #333333;
+    font-family: "Nunito";
+    font-weight: 400;
+}
+
+.baby_arrival_featured_section .featured_content:hover .featured_img_content::before,
+.baby_arrival_featured_section .featured_content:focus .featured_img_content::before {
+    background: url("../img/baby_feature_img_back_hover.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.arrival_featured_section .featured_content:hover .featured_img_content::before {
+    content: "";
+    bottom: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 245, 245, 0.8);
+    z-index: 1;
+}
+
+.baby_arrival_featured_section .featured_content:hover .featured_img_content .featured_btn,
+.baby_arrival_featured_section .featured_content:focus .featured_img_content .featured_btn {
+    bottom: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    margin: auto;
+}
+
+.featured_btn {
+    opacity: 0;
+    z-index: 99;
+}
+
+.featured_content:hover .featured_img_content .featured_btn {
+    bottom: 10px;
+    opacity: 1;
+}
+
+.arrival_featured_section .featured_content .featured_btn a {
+    line-height: 20px;
+    margin-top: 10px;
+    background: #e7e7e7;
+    text-align: center;
+    color: #000;
+    position: relative;
+}

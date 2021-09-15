@@ -17,7 +17,6 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right"> 
                     <a class="dropdown-item" href="profile.php"> Profile </a> 
-                    <a class="dropdown-item" href="reset-pass.php?resetpassword"> Reset Password</a> 
                     <div class="dropdown-divider"></div> 
                     <a class="dropdown-item" href="logout.php"> Logout</a>
                 </div>

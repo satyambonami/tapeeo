@@ -1,0 +1,28 @@
+
+/* Footer */
+.footer-bg{
+    background: url('../img/Ellipse\ 4.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 60px 0 60px 0;
+}
+.links ul li a{
+    text-decoration: none;
+    color: #D33696;
+    font-weight: 600;
+    line-height: 1.8;
+  }
+  .social-links ul{
+    padding-left: 0 !important;
+  }
+  .social-links ul li{
+    list-style: none;
+    display: flex;
+    float: left;
+    justify-content: center;
+  }
+  .social-links ul li a{
+    padding-left: 18px;
+    color: #000;
+    font-size: 26px;
+  }

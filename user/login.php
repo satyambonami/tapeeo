@@ -3,6 +3,10 @@ include_once("../inc/config.php");
 $pageName = "Login With Tapeoo";
 $linkPrefix = "../";
 
+if(isset($_SESSION['user'])){
+    header("location:index.php");
+    exit();
+}
 // Sign In
 if (isset($_POST['login'])) {
     $email = strtolower(mysqli_real_escape_string($conn, ak_secure_string($_POST['email'])));
@@ -17,6 +21,7 @@ if (isset($_POST['login'])) {
             unset($_SESSION['user']['password']);
             $_SESSION['toast']['type'] = "success";
             $_SESSION['toast']['msg'] = "Successfully logged In.";
+            unset($_SESSION['cart']);
             header("location:index.php");
             exit();
         } else {

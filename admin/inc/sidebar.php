@@ -67,6 +67,17 @@
                     </a>
                 </li>
                 <li class="menu-item active ">
+                    <a href="faq.php" class=" menu-link"> 
+                        <span class="menu-label"> 
+                            <span class="menu-name">FAQ's
+                        </span>
+                        </span> 
+                        <span class="menu-icon">
+                            <i class="icon-placeholder mdi mdi-view-split-vertical "></i> 
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item active ">
                     <a href="contact.php" class=" menu-link"> 
                         <span class="menu-label"> 
                             <span class="menu-name">Contact

@@ -16,6 +16,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo $linkPrefix; ?>contact.php">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $linkPrefix; ?>faq.php">FAQ's</a>
+                    </li>
                     <li class="nav-item d-none d-lg-block d-xxl-block">
                         <a class="nav-link" href="<?php echo $linkPrefix; ?>user/cart.php"><img src="<?php echo $linkPrefix; ?>img/shopping-cart.png" class="w-100"></a>
                     </li>
